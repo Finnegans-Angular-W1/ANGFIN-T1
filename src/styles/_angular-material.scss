@@ -1,0 +1,22 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$e-wallet-interview-primary: mat.define-palette(mat.$deep-purple-palette);
+$e-wallet-interview-accent: mat.define-palette(
+  mat.$blue-grey-palette,
+  100
+);
+$e-wallet-interview-warn: mat.define-palette(mat.$red-palette);
+$e-wallet-interview-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $e-wallet-interview-primary,
+      accent: $e-wallet-interview-accent,
+      warn: $e-wallet-interview-warn,
+    ),
+  )
+);
+@include mat.all-component-themes($user-management-interview-theme);
+.overlay-backdrop {
+  background-color: rgba($color: #fff, $alpha: 0.6);
+}
