@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.mo
     BrowserAnimationsModule,
 
     AuthLoginModule,
-    AuthLoginRoutingModule
+    AuthLoginRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
