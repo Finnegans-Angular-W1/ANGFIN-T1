@@ -1,1 +1,24 @@
-<app-login-form></app-login-form>
+<div class="container">
+  <div class="main">
+    <section class="left">
+      <app-login-form (handleSubmit)="handleSubmit($event)"></app-login-form>
+    </section>
+
+    <section class="right">
+      <img src="./assets/login-img.svg" alt="" />
+    </section>
+  </div>
+</div>
+
+<div class="wave">
+  <div style="height: 100vh; overflow: hidden">
+    <svg
+      viewBox="0 0 500 150"
+      preserveAspectRatio="none"
+      style="height: 100%; width: 100%">
+      <path
+        d="M263.82,-7.52 C179.73,51.17 352.42,95.84 206.81,161.35 L503.66,156.88 L500.02,0.01 Z"
+        style="stroke: none; fill: #5bc0f8"></path>
+    </svg>
+  </div>
+</div>

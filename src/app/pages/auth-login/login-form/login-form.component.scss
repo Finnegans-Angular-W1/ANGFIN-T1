@@ -1,5 +1,29 @@
-form{
+mat-card {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 2rem 1rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+}
+
+.forgot-password {
+  text-align: end;
+  margin-bottom: 1rem;
+}
+
+.toRegister {
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  form {
+    width: 400px;
+  }
 }

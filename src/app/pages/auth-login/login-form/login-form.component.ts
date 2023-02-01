@@ -7,12 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  @Output() handleSubmit = new EventEmitter<{
-    email: string;
-    password: string;
-  }>();
+  @Output() handleSubmit = new EventEmitter();
 
-  loginForm: FormGroup = new FormGroup({});
+  loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
