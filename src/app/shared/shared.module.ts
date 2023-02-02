@@ -8,12 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedRoutingModule } from './shared-routing.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
 @NgModule({
   declarations: [
-    SidebarComponent
+    SidebarComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -22,11 +25,13 @@ import { SharedRoutingModule } from './shared-routing.module';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     SidebarComponent,
-    SharedRoutingModule
+    SharedRoutingModule,
+    LoaderComponent
   ]
 })
 export class SharedModule { }
