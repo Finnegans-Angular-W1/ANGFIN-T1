@@ -1,0 +1,23 @@
+// "header"
+.toolbar {
+    height: 7vh;
+}
+
+
+.sidenav-container {
+    height: calc(100vh - 7vh);
+    
+    // sidebar (navegación)
+    .sidenav {
+        width: 50vw;
+    }
+}
+
+// media queries
+@media screen and (min-width: 420px) {
+    .sidenav-container {
+        .sidenav {
+            width: 20vw;
+        }
+    }
+}
