@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title>
+    <h2>Te damos la bienvenida.</h2>
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error
+          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
+          >El campo email es requerido</mat-error
+        >
+        <mat-error
+          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']"
+          >El formato es incorrecto</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" type="password" />
+        <mat-error
+          *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+          >El campo contraseña es requerido</mat-error
+        >
+      </mat-form-field>
+      <!-- TODO: cambiar por un link -->
+      <span class="forgot-password">¿Olvidaste la contraseña?</span>
+      <button
+        [disabled]="loginForm.invalid"
+        class="login-btn"
+        mat-raised-button
+        color="primary">
+        Login
+      </button>
+    </form>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <!-- TODO: cambiar por un link -->
+    <p class="toRegister">¿Aun no tienes una cuenta? <span>Registate</span></p>
+  </mat-card-footer>
+</mat-card>
