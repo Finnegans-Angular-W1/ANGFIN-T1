@@ -27,9 +27,7 @@ import { FooterComponent } from '../components/footer/footer.component';
     MatButtonModule
   ],
   exports: [
-    //SidebarComponent,
     SharedRoutingModule,
-    //FooterComponent
   ]
 })
 export class SharedModule { }
