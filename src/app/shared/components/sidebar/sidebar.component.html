@@ -7,13 +7,21 @@
 </mat-toolbar>
 
 <!-- sidenav -->
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" hasBackdrop="true">
     <!-- sidebar (navegación) -->
     <mat-sidenav #sidebar class="sidenav" mode="side">
         <mat-nav-list>
+            <!-- links -->
             <ng-container *ngFor="let link of sidebarLinks">
-                <a mat-list-item href="{{link.path}}" >{{ link.title }}</a>
+                <a
+                mat-list-item
+                routerLink="{{link.path}}"
+                routerLinkActive="active"
+                (click)="sidebar.toggle()">{{ link.title }}</a>
             </ng-container>
+            <button type="button" mat-button color="warn" (click)="logout()">
+                Salir
+            </button>
         </mat-nav-list>
     </mat-sidenav>
     
