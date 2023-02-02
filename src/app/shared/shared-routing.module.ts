@@ -12,7 +12,7 @@ const routes: Routes = [{
     },
     {
         path:'page-not-found',
-        loadChildren: ()=> import('../pages/page-not-found/page-not-found.module').then(m=> m.PageNotFoundModule), canActivate:[PermissionsGuard]
+        loadChildren: ()=> import('../pages/page-not-found/page-not-found.module').then(m=> m.PageNotFoundModule)
     }
 ];
 
