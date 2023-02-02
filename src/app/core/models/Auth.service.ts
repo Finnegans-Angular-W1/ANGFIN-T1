@@ -16,4 +16,16 @@ export class AuthService {
   public isAuthenticated$():Observable<boolean>{
     return this.store.select(AuthSelector.isAuthenticated)
   }
+
+  public hasToken$():Observable<any>{
+    return this.store.select(AuthSelector.hasToken)
+  }
+
+  public getUser$():Observable<any>{
+    return this.store.select(AuthSelector.getUser)
+  }
+
+  public getState$():Observable<AuthState>{
+    return this.store.select(AuthSelector.getState)
+  }
 }
