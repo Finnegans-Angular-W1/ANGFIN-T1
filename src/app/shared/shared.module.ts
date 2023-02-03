@@ -8,14 +8,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedRoutingModule } from './shared-routing.module';
-
+import { DialogComponent } from './components/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
+    DialogComponent,
     SidebarComponent
   ],
   imports: [
+    CommonModule,
+    SharedRoutingModule,
+    MatDialogModule,
+    SidebarComponent,
     CommonModule,
     RouterModule,
     MatSidenavModule,
@@ -26,7 +32,8 @@ import { SharedRoutingModule } from './shared-routing.module';
   ],
   exports: [
     SidebarComponent,
-    SharedRoutingModule
+    SharedRoutingModule,
+    DialogComponent
   ]
 })
 export class SharedModule { }
