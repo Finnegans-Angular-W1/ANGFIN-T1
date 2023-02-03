@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
+import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    AuthRegistroModule,
+    AuthRegistroRoutingModule,
     AuthLoginModule,
     AuthLoginRoutingModule,
     SharedModule
