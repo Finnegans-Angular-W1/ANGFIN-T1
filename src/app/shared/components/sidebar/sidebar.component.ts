@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
   sidebarLinks = [
     {
       title: 'Home',
-      path: 'login',
+      path: 'home',
     },
     {
       title: 'Ingresos',
@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
     },
     {
       title: 'Egresos',
-      path: 'page-not-found',
+      path: 'egresos',
     },
     {
       title: 'Enviar dinero',
