@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,11 +10,15 @@ import { Store } from '@ngrx/store';
 })
 export class SidebarComponent implements OnInit {
 
+  userLogged!: boolean;
+
+  @ViewChild('sidebar') sidebar!: MatSidenav;
+
   // links de navegación
   sidebarLinks = [
     {
       title: 'Home',
-      path: 'home',
+      path: 'login',
     },
     {
       title: 'Ingresos',
@@ -21,7 +26,7 @@ export class SidebarComponent implements OnInit {
     },
     {
       title: 'Egresos',
-      path: 'egresos',
+      path: 'page-not-found',
     },
     {
       title: 'Enviar dinero',
@@ -51,6 +56,12 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // chequea si el usuario esta logueado
+    if ((localStorage.getItem('token')) === null) {
+      this.userLogged = false;
+    } else {
+      this.userLogged = true;
+    }
   }
 
   // cierre de sesión
@@ -58,6 +69,7 @@ export class SidebarComponent implements OnInit {
     this.store.dispatch({ type: '[Auth] Logout' });
     localStorage.clear();
     this.router.navigate(['/login']);
+    this.sidebar.toggle();
   }
 
 }

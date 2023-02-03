@@ -24,7 +24,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     CommonModule,
     SharedRoutingModule,
     MatDialogModule,
-    SidebarComponent,
     CommonModule,
     RouterModule,
     MatSidenavModule,
