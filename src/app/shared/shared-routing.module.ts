@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PermissionsGuard } from '../core/guards/permissions.guard';
 
 const routes: Routes = [{
     path:'login',
@@ -7,7 +8,7 @@ const routes: Routes = [{
     },
     {
         path:'auth-registro',
-        loadChildren: ()=> import('../pages/auth-registro/auth-registro.module').then(m=> m.AuthRegistroModule)
+        loadChildren: ()=> import('../pages/auth-registro/auth-registro.module').then(m=> m.AuthRegistroModule),
     },
     {
         path:'page-not-found',
