@@ -10,14 +10,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { SharedRoutingModule } from './shared-routing.module';
 import { FooterComponent } from '../components/footer/footer.component';
 
+import { DialogComponent } from './components/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    DialogComponent,
   ],
   imports: [
+    CommonModule,
+    SharedRoutingModule,
+    MatDialogModule,
+    SidebarComponent,
     CommonModule,
     RouterModule,
     MatSidenavModule,
@@ -27,7 +34,9 @@ import { FooterComponent } from '../components/footer/footer.component';
     MatButtonModule
   ],
   exports: [
+    SidebarComponent,
     SharedRoutingModule,
+    DialogComponent
   ]
 })
 export class SharedModule { }
