@@ -14,6 +14,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { RtitleComponent } from './components/rtitle/rtitle.component';
+
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FooterComponent,
     LoaderComponent,
     DialogComponent,
+    RtitleComponent
   ],
   imports: [
     CommonModule,
