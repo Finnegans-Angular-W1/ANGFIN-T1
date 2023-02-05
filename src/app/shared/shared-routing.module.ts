@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FooterComponent } from '../components/footer/footer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PermissionsGuard } from '../core/guards/permissions.guard';
 
 const routes: Routes = [{
@@ -17,7 +19,7 @@ const routes: Routes = [{
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class SharedRoutingModule { }
