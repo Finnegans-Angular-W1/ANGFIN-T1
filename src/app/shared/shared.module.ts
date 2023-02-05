@@ -27,8 +27,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     CommonModule,
     SharedRoutingModule,
     MatDialogModule,
-    SidebarComponent,
-    CommonModule,
     RouterModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -39,7 +37,6 @@ import {MatDialogModule} from '@angular/material/dialog';
   ],
   exports: [
     SidebarComponent,
-    SharedRoutingModule,
     LoaderComponent,
     DialogComponent
   ]
