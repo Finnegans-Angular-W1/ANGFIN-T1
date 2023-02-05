@@ -1,1 +1,72 @@
-<p>registro works!</p>
+<div class="form-container">
+  <mat-card>
+    <mat-card-title>
+      <h2>Registrate!</h2>
+    </mat-card-title>
+
+    <mat-card-content>
+      <form [formGroup]="registerForm" (submit)="onRegister()">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput formControlName="first_name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input type="text" matInput formControlName="last_name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput formControlName="email" />
+          <mat-error
+            *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']"
+            >El formato es incorrecto
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']"
+            >El formato es incorrecto
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="password"
+            type="password" />
+          <mat-error
+            *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']"
+            >El campo contraseña es requerido
+          </mat-error>
+        </mat-form-field>
+
+        <div class="terms">
+          <mat-checkbox
+            matInput
+            class="example-margin"
+            formControlName="termsOfUse">
+          </mat-checkbox>
+          <label
+            >Estoy de acuerdo con los
+            <span (click)="showTerms()">terminos y condiciones</span></label
+          >
+        </div>
+        <mat-error
+          *ngIf="registerForm.get('password')?.touched && registerForm.get('termsOfUse')?.errors?.['required']"
+          >Debes aceptar los terminos y codiciones
+        </mat-error>
+
+        <button
+          [disabled]="registerForm.invalid"
+          class="login-btn"
+          mat-raised-button
+          color="primary"
+          type="submit">
+          Registrarse
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
