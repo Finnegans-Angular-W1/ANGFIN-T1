@@ -25,7 +25,6 @@ import { MaterialModule } from '../material/material.module';
   ],
   exports: [
     SidebarComponent,
-    SharedRoutingModule,
     LoaderComponent,
     DialogComponent
   ]
