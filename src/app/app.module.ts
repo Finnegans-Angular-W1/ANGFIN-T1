@@ -14,6 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,11 @@ import { HomeComponent } from './pages/home/home.component';
     AuthLoginRoutingModule,
     SharedModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS, 
+    useClass: GlobalHttpInterceptor,
+    multi: true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
