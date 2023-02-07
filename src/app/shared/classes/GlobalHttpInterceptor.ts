@@ -11,11 +11,21 @@ import {Observable} from 'rxjs';
 export class GlobalHttpInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    //Agregar cambio en la solicitud antes del envío//
-    const modifieldRequest = request.clone({
-        //Aca se pueden meter headers
-    });
-    return next.handle(modifieldRequest);
+    //Agregamos un token y si existe devolvemos un header
+    //sino la solicitud original sin modificaciones
+    
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const modifiedRequest = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return next.handle(modifiedRequest);
+    } else {
+      return next.handle(request);
+    }
     }
 
 
