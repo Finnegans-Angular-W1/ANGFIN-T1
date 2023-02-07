@@ -1,0 +1,39 @@
+<!-- <mat-toolbar color="primary" class="container" style="display: flex; justify-content: center; width: 100%;">
+
+    <div>
+      <h1>HOME</h1>
+    </div>
+  
+  
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="container">
+    <h2 >Slidebar</h2>
+  </mat-sidenav-container>
+  
+  <mat-sidenav-container class="container" style="display: flex; justify-content: center; width: 100%;">
+  
+    <mat-sidenav-content class="movimientos">
+      <h3>Últimos Movimientos</h3>
+      <table >
+        <tr>
+          <th>Tipo</th>
+          <th>Monto</th>
+          <th>Fecha</th>
+          <th>Descripción</th>
+          </tr>
+        <tr *ngFor="let move of latestMoves">
+          <td>{{ move.type }}</td>
+          <td>{{ move.amount }}</td>
+          <td>{{ move.date }}</td>
+          <td>{{ move.description }}</td>
+        </tr>
+      </table >
+      <h3 class="ingEgBal">Ingresos: {{ ingresos }}</h3>
+      <h3 class="ingEgBal">Egresos: {{ egresos }}</h3>
+      <h3 class="ingEgBal">Balance: {{ balance }}</h3>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <mat-toolbar color="primary" class="footer"  style="display: flex; justify-content: center; width: 100%;">
+   <span>footer fijo también</span>
+  </mat-toolbar> -->

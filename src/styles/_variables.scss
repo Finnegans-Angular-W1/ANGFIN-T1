@@ -1,0 +1,9 @@
+$primary-color: #00347c;
+$accent-color: #03c987;
+
+// instrucciones de uso
+// @use '.../styles/variables';
+// background-color: variables.$accent-color;
+// o mismo
+// @use '.../styles/variables' as x;
+// background-color: x.$accent-color;
