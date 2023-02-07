@@ -8,7 +8,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
-
+import { GlobalHttpInterceptor } from './classes/GlobalHttpInterceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,13 @@ import { MaterialModule } from '../material/material.module';
     SidebarComponent,
     LoaderComponent,
     DialogComponent
+  ],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, 
+      useClass: GlobalHttpInterceptor,
+      multi: true,
+    },
   ]
 })
 export class SharedModule { }
