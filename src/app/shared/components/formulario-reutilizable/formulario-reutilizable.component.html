@@ -1,0 +1,13 @@
+<form class="form-container" [formGroup]="actionForm" (submit)="enviar()" >
+  
+    Elige Cuenta
+    
+    <input type="number" matInput formControlName="amount" >
+    
+    Concepto
+    <textarea matInput formControlName="concept"></textarea>
+
+    <input type="date" matInput formControlName="date">
+
+    <button (submit)="enviar()"> Enviar </button>
+</form>
