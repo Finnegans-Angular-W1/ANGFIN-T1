@@ -1,51 +1,59 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { casaApi, ExchangeResponse } from 'src/app/core/models/ExchangeDivisas.models'
-import { ExchangeConvertService } from 'src/app/core/services/ExchangeDivisas/Exchange.divisas.service';
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import {
+  casaApi,
+  ExchangeResponse,
+} from 'src/app/core/models/ExchangeDivisas.models';
+import { ExchangeService } from 'src/app/core/services/exchange.service';
 
 @Component({
   selector: 'app-exchange',
   templateUrl: './exchange.component.html',
-  styleUrls: ['./exchange.component.scss']
+  styleUrls: ['./exchange.component.scss'],
 })
 export class ExchangeComponent implements OnInit {
-  
-  form: FormGroup;
+  public form!: FormGroup;
+  @Output() handleSubmit = new EventEmitter();
+  valoresFormulario1 = 0;
+  valoresFormulario2 = 0;
 
-  exchangeResponse: ExchangeResponse = new ExchangeResponse (new casaApi())
-
-  error: string = ""
-
-  constructor(private exchangeService: ExchangeConvertService, private readonly formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      pesos: ['', [Validators.required]],
-      dolares: ['']
-    })
-   }
-
+  constructor(
+    private service: ExchangeService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
-    this.exchangeService.getDolar().subscribe( (resp) => {
-      this.exchangeResponse = resp[0];
-      
-    },
-    (err) => {
-      this.error = err.message;
-    })
-
+    if (this.botonDeCAMBIO) {
+      this.form = this.formBuilder.group({
+        pesoDolar: ['0', [Validators.required]],
+        dolarPeso: ['0', [Validators.required]],
+      });
+    }
+  }
+  valor1: number = 0;
+  valor2: number = 0;
+  onSubmit() {
+    this.valoresFormulario1 = this.form.value.pesoDolar;
+    this.valoresFormulario2 = this.form.value.dolarPeso;
+    this.valor1 = this.service.convert(this.valoresFormulario1, true);
+    this.valor2 = this.service.convert(this.valoresFormulario2, false);
+    
+    //this.handleSubmit.emit(this.form?.value);
   }
 
+  //Aca funcionalidad de cambios
+  botonDeCAMBIO = true;
 
-  onSubmit(){
-    this.form.patchValue({
-      dolares: this.exchangeService.convert(Number(this.form.get('pesos')?.value), true).toFixed(2)
-    });
-
-    //si pongo false, hace lo contrario
+  ClickDeCAMBIO() {
+    if (this.botonDeCAMBIO) {
+      this.botonDeCAMBIO = false;
+    } else {
+      this.botonDeCAMBIO = true;
+    }
   }
-
-  
-  
 }
- 
