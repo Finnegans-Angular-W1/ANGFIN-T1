@@ -13,11 +13,16 @@ export class HttpService {
     this._headers = new HttpHeaders({ Group: this._groupId });
   }
 
-  public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {
+  public get<T>(url: string, activateHeader:boolean = false):Observable<T> {
     return this.http.get<T>(url, activateHeader ? { headers: this._headers }: {});
   }
 
   public getById<T>(url: string, id: string, activateHeader:boolean = false ):Observable<T> {
-    return this.http.get<T>(url + '/' + id, activateHeader ? { headers: this._headers }: {});
+    return this.http.get<T>(`${url}/${id}`, activateHeader ? { headers: this._headers }: {});
   }
+  public delete<T>(url: string, activateHeader:boolean = false, id:string ):Observable<T> {
+    return this.http.delete<T>(`${url}/${id}`, activateHeader ? { headers: this._headers }: {});
+  }
+
+  
 }
