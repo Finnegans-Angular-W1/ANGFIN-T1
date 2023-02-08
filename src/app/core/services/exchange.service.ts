@@ -5,6 +5,7 @@ import { ExchangeResponse, casaApi } from '../models/ExchangeDivisas.models';
   providedIn: 'root',
 })
 export class ExchangeService {
+  
   constructor() {}
 
   convert(amount: number, toDolar: boolean): number {
