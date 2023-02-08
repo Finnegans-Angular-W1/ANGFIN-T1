@@ -16,7 +16,7 @@ import { MaterialModule } from '../material/material.module';
     FooterComponent,
     LoaderComponent,
     DialogComponent,
-    RtitleComponent
+    RtitleComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +28,7 @@ import { MaterialModule } from '../material/material.module';
   exports: [
     SidebarComponent,
     LoaderComponent,
-    DialogComponent
+    DialogComponent,
   ]
 })
 export class SharedModule { }
