@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     SidebarComponent,
