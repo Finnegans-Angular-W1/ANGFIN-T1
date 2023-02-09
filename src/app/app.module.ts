@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ROOT_REDUCERS } from './core/state/app.reducer';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -26,6 +27,7 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserAnimationsModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    HttpClientModule,
     AuthRegistroModule,
     AuthRegistroRoutingModule,
     AuthLoginModule,
