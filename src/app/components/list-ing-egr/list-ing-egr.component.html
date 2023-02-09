@@ -1,0 +1,20 @@
+<div class="container">
+ <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Cantidad</th>
+        <th>Fecha</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaccion of transaccions">
+        <td>{{transaccion.concept}}</td>
+        <td>{{transaccion.amount}}</td>
+        <td>{{transaccion.date}}</td>
+        <td>{{transaccion.type}}</td>
+      </tr>
+    </tbody>
+ </table>
+</div>
