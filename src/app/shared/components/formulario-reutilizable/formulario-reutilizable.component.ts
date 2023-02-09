@@ -12,13 +12,13 @@ import {
   styleUrls: ['./formulario-reutilizable.component.scss'],
 })
 export class FormularioReutilizableComponent implements OnInit {
-
-  public actionForm!: FormGroup;
+  @Output() handleSubmit = new EventEmitter();
+  actionForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.fb.group({
+    this.actionForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(0)]],
       concept: ['', Validators.required],
       date: ['', Validators.required],
@@ -26,6 +26,6 @@ export class FormularioReutilizableComponent implements OnInit {
   }
 
   enviar() {
-    console.log(this.actionForm?.value);
+    this.handleSubmit.emit(this.actionForm.value);
   }
 }
