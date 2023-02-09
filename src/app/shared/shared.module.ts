@@ -8,7 +8,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
-
+import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,18 +19,22 @@ import { MaterialModule } from '../material/material.module';
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
+    ExchangeComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule ,
+    ReactiveFormsModule 
   ],
   exports: [
     SidebarComponent,
     LoaderComponent,
     DialogComponent,
-  ]
+    ExchangeComponent
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
