@@ -1,0 +1,14 @@
+<mat-card>
+  <ul class="transactions-container">
+    <li class="transaction" *ngFor="let transaction of transactions">
+      <div class="left">
+        <p class="concept">{{ transaction.concept }}</p>
+        <span class="date">{{ transaction.date | date: 'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="amount">{{ transaction.amount | amount:transaction.type | currency }}</div>
+    </li>
+  </ul>
+  <mat-card-footer *ngIf="!transactions">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

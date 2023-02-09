@@ -12,6 +12,10 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
+    path: 'home',
+    loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule)
+  },
+  {
     path:'auth-registro',
     component:RegistroComponent
   },
