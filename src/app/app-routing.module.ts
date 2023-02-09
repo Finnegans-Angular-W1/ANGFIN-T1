@@ -5,6 +5,7 @@ import { RegistroComponent } from './pages/auth-registro/registro/registro.compo
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
 import { PermissionsGuard } from './core/guards/permissions.guard';
 
+
 const routes: Routes = [ 
   {
     path:'auth-login',
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path:'shar',
-    canActivate: [PermissionsGuard],
+    //canActivate: [PermissionsGuard],
     loadChildren:()=> import('./shared/shared.module').then( m=> m.SharedModule)
   },
   {
