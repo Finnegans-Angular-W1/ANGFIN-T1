@@ -1,0 +1,56 @@
+<div class="container">
+  <br>
+    <mat-card class="card">
+        <!-- dinero a invertir -->
+            <form [formGroup]="inversion">
+                <mat-form-field appearance="outline">
+                  <mat-label>Dinero a invertir</mat-label>
+                  <input matInput 
+                         formControlName="deposito"
+                         type="number" id="deposito"/>
+                </mat-form-field>
+              </form>
+          <mat-divider></mat-divider>
+        <!-- plazo -->
+        
+            <br>
+            <form [formGroup]="plazo">
+                <mat-form-field appearance="outline">
+                  <mat-label>Plazo de inversión en días</mat-label>
+                  <input matInput 
+                         formControlName="dias"
+                         type="number" id="plazo">
+                </mat-form-field>
+              </form>
+        
+          <!-- rendimiento anual -->
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <br>
+            Rendimiento anual estimado: 75%  
+          </mat-list-item>
+          <br>
+          <br>
+          <button mat-raised-button color="accent" class="btn" (click)="onClick($event)">Calcular</button>
+  </mat-card>
+  <br>
+  <mat-card class="card-background">
+    <mat-card-content>
+        <mat-list>
+            <h2 class="titulo">Ganancias</h2>
+            <mat-list-item class="item">Mensual</mat-list-item>
+            <mat-list-item class="item">$ {{ mensual | number: '1.2-2'}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="item">Anual</mat-list-item>
+            <mat-list-item class="item">$ {{anual | number: '1.2-2'}}</mat-list-item>
+            <h5 class="note">El dinero total al año es de $ {{totalAnual}}</h5>
+            <mat-divider></mat-divider>
+            <mat-list-item class="item">Al final del plazo</mat-list-item>
+            <mat-list-item class="item">$ {{finalPlazo | number: '1.2-2'}}</mat-list-item>
+            <h5 class="note">Intereses ganados $ {{totalPlazo | number: '1.2-2'}}</h5>
+          </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
