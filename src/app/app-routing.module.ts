@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path:'shar',
-    canActivate: [PermissionsGuard],
+    //canActivate: [PermissionsGuard],
     loadChildren:()=> import('./shared/shared.module').then( m=> m.SharedModule)
   },
   {
