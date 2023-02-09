@@ -8,6 +8,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
+import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
 
 
 
@@ -17,7 +18,8 @@ import { MaterialModule } from '../material/material.module';
     FooterComponent,
     LoaderComponent,
     DialogComponent,
-    RtitleComponent
+    RtitleComponent,
+    ExchangeRateComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { MaterialModule } from '../material/material.module';
   exports: [
     SidebarComponent,
     LoaderComponent,
-    DialogComponent
+    DialogComponent,
+    ExchangeRateComponent
   ]
 })
 export class SharedModule { }
