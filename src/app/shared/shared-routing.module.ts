@@ -4,6 +4,7 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PermissionsGuard } from '../core/guards/permissions.guard';
 import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const routes: Routes = [{
     path:'login',

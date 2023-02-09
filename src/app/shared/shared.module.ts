@@ -10,6 +10,8 @@ import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
 import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
 
+import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,20 +21,24 @@ import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
-    ExchangeRateComponent
+    ExchangeRateComponent,
+    ExchangeComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule ,
+    ReactiveFormsModule 
   ],
   exports: [
     SidebarComponent,
     LoaderComponent,
     DialogComponent,
-    ExchangeRateComponent
-  ]
+    ExchangeRateComponent,
+    ExchangeComponent
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
