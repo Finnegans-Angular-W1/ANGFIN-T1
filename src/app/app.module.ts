@@ -14,6 +14,8 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
+import { UserProfileModule } from './pages/user-profile/user-profile.module';
+import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ROOT_REDUCERS } from './core/state/app.state';
     AuthRegistroRoutingModule,
     AuthLoginModule,
     AuthLoginRoutingModule,
+    UserProfileModule,
+    UserProfileRoutingModuleModule,
     SharedModule
   ],
   providers: [],
