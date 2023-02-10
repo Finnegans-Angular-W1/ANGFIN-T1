@@ -33,8 +33,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     SidebarComponent,
     LoaderComponent,
-    DialogComponent,
-    ExchangeComponent
+    DialogComponent
   ],
+  providers: [
+    
+  ]
 })
 export class SharedModule {}
