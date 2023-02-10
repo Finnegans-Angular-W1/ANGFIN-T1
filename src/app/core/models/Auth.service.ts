@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthSelector } from '../state/selector/Auth.selector';
 import { AuthState } from './auth';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AuthService {
     return this.store.select(AuthSelector.hasToken)
   }
 
-  public getUser$():Observable<any>{
+  public getUser$():Observable<User | null>{
     return this.store.select(AuthSelector.getUser)
   }
 

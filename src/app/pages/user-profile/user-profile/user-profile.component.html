@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-content>
+        <div class="contenedor-Perfil">
+            <img [src]="avatar" class="avatar-user">
+            <div class="datos-user">
+                <h1>{{usuario.first_name + " " + usuario.last_name }}</h1>
+                <h2>Puntos : {{usuario.points}}</h2>
+                <p>Email : {{usuario.email}}</p>
+
+                <mat-card-actions class=" botones"> <!-- separacion de botones y mismo ancho-->
+                    <button mat-raised-button color="primary" (click)="CambiarContrasenia()">Cambiar Contraseña</button>
+                    <button mat-raised-button (click)="logout()">Cerrar Sesion</button>
+                </mat-card-actions>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
