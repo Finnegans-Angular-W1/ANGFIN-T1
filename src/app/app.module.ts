@@ -14,11 +14,17 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
+import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
+import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
+import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ListIngEgrComponent,
+    ListIngresosComponent,
+    ListEgresosComponent,
   ],
   imports: [
     BrowserModule,

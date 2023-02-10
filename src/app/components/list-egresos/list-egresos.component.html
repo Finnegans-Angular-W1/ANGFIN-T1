@@ -1,0 +1,18 @@
+<div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Monto</th>
+          <th>Concepto</th>
+          <th>Fecha</th>     
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let egreso of egresos">
+          <td>{{ egreso.amount }}</td>
+          <td>{{ egreso.concept }}</td>
+          <td>{{ egreso.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
