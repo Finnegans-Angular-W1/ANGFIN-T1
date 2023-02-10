@@ -15,6 +15,7 @@ export class GlobalHttpInterceptor implements HttpInterceptor {
     
     const token = sessionStorage.getItem('authToken');
 
+    
     if (token) {
       const modifiedRequest = request.clone({
         setHeaders: {
