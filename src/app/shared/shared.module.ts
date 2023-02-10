@@ -2,31 +2,39 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
 import { SharedRoutingModule } from './shared-routing.module';
-
+import { FooterComponent } from '../components/footer/footer.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { RtitleComponent } from './components/rtitle/rtitle.component';
+import { MaterialModule } from '../material/material.module';
+import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    SidebarComponent
+    SidebarComponent,
+    FooterComponent,
+    LoaderComponent,
+    DialogComponent,
+    RtitleComponent,
+    ExchangeComponent
   ],
   imports: [
     CommonModule,
+    SharedRoutingModule,
+    CommonModule,
     RouterModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    MatButtonModule
+    MaterialModule,
+    FormsModule ,
+    ReactiveFormsModule 
   ],
   exports: [
     SidebarComponent,
-    SharedRoutingModule
-  ]
+    LoaderComponent,
+    DialogComponent,
+    ExchangeComponent
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

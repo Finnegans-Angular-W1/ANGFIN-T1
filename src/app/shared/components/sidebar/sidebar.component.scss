@@ -6,12 +6,18 @@
 
 .sidenav-container {
     height: calc(100vh - 7vh);
-    
+
     // sidebar (navegación)
     .sidenav {
         width: 50vw;
+
+        .active {
+            background-color: rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
     }
 }
+
 
 // media queries
 @media screen and (min-width: 420px) {

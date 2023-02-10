@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 > {{data.title}}</h1>
+  <div mat-dialog-content>
+    <p>{{ data.data }}</p>
+  </div>
+  <br />
+  <div class="containerTerminosCondiciones">
+    <button
+      type="button"
+      class="btn-Aceptar"
+      (click)="onNoClick()">
+      Aceptar
+    </button>
+    <button
+      type="button"
+      class="btn-cancelar"
+      (click)="onNoClick()">
+      Cancelar
+    </button>
+  </div>
+</div>
