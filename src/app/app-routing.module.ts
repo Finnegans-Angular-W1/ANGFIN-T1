@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/auth-login/login/login.component';
 import { RegistroComponent } from './pages/auth-registro/registro/registro.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
 import { PermissionsGuard } from './core/guards/permissions.guard';
+import { PasswordResetComponent } from './pages/usuarios/password-reset/password-reset.component';
 
 
 const routes: Routes = [ 
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: '', 
     redirectTo: 'auth-login', 
     pathMatch: 'full' 
+  },
+  {
+    path:'password-reset',
+    component: PasswordResetComponent
   },
   {
     path:'shar',
