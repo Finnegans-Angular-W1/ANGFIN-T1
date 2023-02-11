@@ -7,16 +7,16 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ROOT_REDUCERS } from './core/state/app.state';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
+import { ROOT_REDUCERS } from './core/state/app.state';
+import { HomeModule } from './pages/home/home.module';
 import { UsuariosModule } from './pages/usuarios/usuarios.module';
 import { UsuariosRoutingModule } from './pages/usuarios/usuarios-routing.module';
-
 import { UserProfileModule } from './pages/user-profile/user-profile.module';
 import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
@@ -41,6 +41,7 @@ import { MaterialModule } from './material/material.module';
     AuthRegistroRoutingModule,
     AuthLoginModule,
     AuthLoginRoutingModule,
+    HomeModule,
     UsuariosModule,
     UsuariosRoutingModule,
     SharedModule,
