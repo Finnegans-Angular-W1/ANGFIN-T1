@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-content>
+    <form class="form-container" [formGroup]="actionForm" (submit)="enviar()">
+      <mat-form-field appearance="outline">
+        <mat-label>Monto</mat-label>
+        <input type="number" matInput formControlName="amount" />
+        <mat-error
+          *ngIf="actionForm.get('amount')?.touched && actionForm.get('amount')?.errors?.['required']"
+          >El campo Monto es requerido</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Concepto</mat-label>
+        <textarea matInput formControlName="concept"></textarea>
+        <mat-error
+          *ngIf="actionForm.get('concept')?.touched && actionForm.get('concept')?.errors?.['required']"
+          >El campo Concepto es requerido</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input type="date" matInput formControlName="date" />
+        <mat-error
+          *ngIf="actionForm.get('date')?.touched && actionForm.get('date')?.errors?.['required']"
+          >El campo Date es requerido</mat-error
+        >
+      </mat-form-field>
+      <button
+        [disabled]="actionForm.invalid"
+        class="login-btn"
+        mat-raised-button
+        color="primary"
+        Login
+        (submit)="enviar()">
+        Enviar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
