@@ -7,37 +7,41 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { ROOT_REDUCERS } from './core/state/app.state';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
-import { ROOT_REDUCERS } from './core/state/app.state';
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
+import { EffectsModule } from '@ngrx/effects';
+import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    InvestementsComponent,
-  ],
+  declarations: [AppComponent, HomeComponent,InvestementsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     HttpClientModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     AuthRegistroModule,
     AuthRegistroRoutingModule,
     AuthLoginModule,
     AuthLoginRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    AngularToastifyModule,
+    EffectsModule.forRoot([AlertEffects]),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ToastService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
