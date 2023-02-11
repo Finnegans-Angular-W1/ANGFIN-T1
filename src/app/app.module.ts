@@ -14,6 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
+import { UserProfileModule } from './pages/user-profile/user-profile.module';
+import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
@@ -36,6 +38,8 @@ import { MaterialModule } from './material/material.module';
     AuthRegistroRoutingModule,
     AuthLoginModule,
     AuthLoginRoutingModule,
+    UserProfileModule,
+    UserProfileRoutingModuleModule,
     SharedModule,
     MaterialModule,
     AngularToastifyModule,
