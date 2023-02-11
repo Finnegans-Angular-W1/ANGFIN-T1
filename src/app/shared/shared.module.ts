@@ -48,5 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeComponent,
     FormularioReutilizableComponent
   ],
+  providers: [
+    
+  ]
 })
 export class SharedModule {}

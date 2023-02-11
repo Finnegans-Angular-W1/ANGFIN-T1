@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
@@ -15,11 +15,11 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
+import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
-
 @NgModule({
   declarations: [AppComponent, HomeComponent,InvestementsComponent],
   imports: [
@@ -41,7 +41,11 @@ import { MaterialModule } from './material/material.module';
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects]),
   ],
-  providers: [ToastService],
-  bootstrap: [AppComponent],
+  providers: [{
+    provide:HTTP_INTERCEPTORS, 
+    useClass: GlobalHttpInterceptor,
+    multi: true,
+  },ToastService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
