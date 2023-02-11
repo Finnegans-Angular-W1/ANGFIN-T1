@@ -15,7 +15,10 @@ import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { HomeModule } from './pages/home/home.module';
-
+import { UsuariosModule } from './pages/usuarios/usuarios.module';
+import { UsuariosRoutingModule } from './pages/usuarios/usuarios-routing.module';
+import { UserProfileModule } from './pages/user-profile/user-profile.module';
+import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
@@ -39,7 +42,11 @@ import { MaterialModule } from './material/material.module';
     AuthLoginModule,
     AuthLoginRoutingModule,
     HomeModule,
+    UsuariosModule,
+    UsuariosRoutingModule,
     SharedModule,
+    UserProfileModule,
+    UserProfileRoutingModuleModule,
     MaterialModule,
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects]),
