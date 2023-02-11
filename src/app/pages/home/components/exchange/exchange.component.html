@@ -1,7 +1,6 @@
 <div class="title">
   <h2 class="h2title">Convertir dinero</h2>
 </div>
-<mat-card-content>
   <form [formGroup]="form" (submit)="onSubmit()" class="container">
     <div *ngIf="botonDeCAMBIO" class="divsInputs">
       <p class="pInput">Cambiar de Peso a Dolares</p>
@@ -32,6 +31,5 @@
       Convertir
     </button>
   </form>
-</mat-card-content>
 <h2 *ngIf="botonDeCAMBIO">${{ this.valoresFormulario1 }} Pesos = $Us {{ valor1 }}</h2>
 <h2 *ngIf="!botonDeCAMBIO">${{ this.valoresFormulario2 }} $Us = $Pesos {{ valor2 }}</h2>
