@@ -6,11 +6,15 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/pag
 import { PermissionsGuard } from './core/guards/permissions.guard';
 
 
+
 const routes: Routes = [ 
   {
     path:'auth-login',
     component:LoginComponent
   },
+  
+
+
   {
     path:'auth-registro',
     component:RegistroComponent
