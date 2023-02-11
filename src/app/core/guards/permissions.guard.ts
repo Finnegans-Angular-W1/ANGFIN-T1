@@ -20,7 +20,7 @@ export class PermissionsGuard implements CanActivate {
         if (isAuth) {
           return true;
         }
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth-login']);
         return false;
       }));
   }
