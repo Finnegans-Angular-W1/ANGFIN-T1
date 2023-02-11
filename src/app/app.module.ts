@@ -17,9 +17,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
+import { InvestementsComponent } from './components/investements/investements.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent,InvestementsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,6 +37,7 @@ import { AlertEffects } from './core/state/effects/alert.effect';
     AuthLoginModule,
     AuthLoginRoutingModule,
     SharedModule,
+    MaterialModule,
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects]),
   ],
