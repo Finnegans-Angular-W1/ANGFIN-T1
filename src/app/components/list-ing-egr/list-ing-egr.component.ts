@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs'
 import { HttpService } from '../../core/services/http.service'
+import { ListIngresosComponent } from '../list-ingresos/list-ingresos.component';
+
 
 
 @Component({
@@ -9,10 +11,15 @@ import { HttpService } from '../../core/services/http.service'
   styleUrls: ['./list-ing-egr.component.scss']
 })
 export class ListIngEgrComponent implements OnInit {
+  [x: string]: any;
 
 
 
   transactions!: any[];
+  //totIngr = this['ListIngresosComponent'].getTotal();
+  //totEgr = this['ListEgrComponent'].getTotal();
+  balance = 0;
+  
 
   constructor(private httpService: HttpService) {}
 
@@ -22,6 +29,8 @@ export class ListIngEgrComponent implements OnInit {
         this.transactions = data.data
           .sort((a:any, b:any) => new Date(a.date).getTime() - new Date(b.date).getTime())
           .slice(0, 4);
+          //this.balance = this.totIngr-this.totEgr;
+
       });
     }
   }

@@ -10,6 +10,7 @@ import { HttpService } from '../../core/services/http.service'
 export class ListEgresosComponent implements OnInit {
 
   egresos!: any[];
+  totalEgresos = 0;
 
   constructor(private httpService: HttpService) {}
 
@@ -19,7 +20,13 @@ export class ListEgresosComponent implements OnInit {
         const transactions = data.data;
         this.egresos = transactions.filter((transaction: any) => transaction.type === 'topup');
         this.egresos.sort((a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        for (const engreso of this.egresos) {
+          this.totalEgresos += engreso.amount;
+        }
       });
+      
+
   }
+  
 
 }
