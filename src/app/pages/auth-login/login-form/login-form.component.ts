@@ -21,5 +21,6 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     this.handleSubmit.emit(this.loginForm.value);
+    this.loginForm.reset()
   }
 }
