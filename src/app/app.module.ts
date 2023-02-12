@@ -15,6 +15,9 @@ import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { HomeModule } from './pages/home/home.module';
+import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
+import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
+import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
 import { UsuariosModule } from './pages/usuarios/usuarios.module';
 import { UsuariosRoutingModule } from './pages/usuarios/usuarios-routing.module';
 import { UserProfileModule } from './pages/user-profile/user-profile.module';
@@ -26,7 +29,10 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 @NgModule({
-  declarations: [AppComponent, HomeComponent,InvestementsComponent],
+ 
+  declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
+    ListIngresosComponent,
+    ListEgresosComponent,InvestementsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

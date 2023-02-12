@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    table {
+      width: 100%;
+    }
+  }
