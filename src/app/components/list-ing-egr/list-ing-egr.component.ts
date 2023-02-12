@@ -1,21 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs'
 import { HttpService } from '../../core/services/http.service'
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ListIngresosComponent } from '../list-ingresos/list-ingresos.component';
 
-interface Transaccion {
-  amount: number;
-  concept: string;
-  date: string;
-  type: string;
-  accountId: number;
-  userId: number;
-  to_account_id: number;
-}
-
-const token = localStorage.getItem('auth-token');
-console.log(token);
 
 
 @Component({
@@ -24,30 +11,30 @@ console.log(token);
   styleUrls: ['./list-ing-egr.component.scss']
 })
 export class ListIngEgrComponent implements OnInit {
+  [x: string]: any;
+
+
+
+  transactions!: any[];
+  //totIngr = this['ListIngresosComponent'].getTotal();
+  //totEgr = this['ListEgrComponent'].getTotal();
+  balance = 0;
   
 
-  transaccions: Transaccion[] | undefined;
+  constructor(private httpService: HttpService) {}
 
-  private _headers = new HttpHeaders({ 
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}` 
-  });
+  ngOnInit() {
+    this.httpService.get<any>('http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/transactions', true)
+      .subscribe(data => {
+        this.transactions = data.data
+          .sort((a:any, b:any) => new Date(a.date).getTime() - new Date(b.date).getTime())
+          .slice(0, 4);
+          //this.balance = this.totIngr-this.totEgr;
 
-  
-
-  constructor(private httpClient: HttpClient) { }
-
-  ngOnInit(): void  {
-
-    this.httpClient.get<Transaccion[]>(
-      'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/transactions',
-      { headers: this._headers }
-    ).subscribe(data => {
-      this.transaccions = data;
-      this.transaccions.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
-    });
+      });
+    }
   }
 
-}
+
 
 
