@@ -51,9 +51,7 @@ const routes: Routes = [
   },
   {
     path:'password-reset',
-    component: PasswordResetComponent },
-   { path : 'inversiones',
-    component : InvestementsComponent
+    component: PasswordResetComponent 
   },
   {
     path:'shar',
@@ -61,16 +59,12 @@ const routes: Routes = [
     loadChildren:()=> import('./shared/shared.module').then( m=> m.SharedModule)
   },
   {
-    path: 'password-reset',
-    component: PasswordResetComponent,
-  },
-  {
     path: 'inversiones',
     component: InvestementsComponent,
   },
   {
     path: 'user-profile',
-    canActivate: [PermissionsGuard],
+    // canActivate: [PermissionsGuard],
     component: UserProfileComponent,
   },
   {
