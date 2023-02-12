@@ -4,63 +4,66 @@ import { LoginComponent } from './pages/auth-login/login/login.component';
 import { RegistroComponent } from './pages/auth-registro/registro/registro.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
 import { PermissionsGuard } from './core/guards/permissions.guard';
-<<<<<<< HEAD
 import { PasswordResetComponent } from './pages/usuarios/password-reset/password-reset.component';
-=======
-<<<<<<< HEAD
 import { UserProfileComponent } from './pages/user-profile/user-profile/user-profile.component';
-=======
 import { InvestementsComponent } from './components/investements/investements.component';
->>>>>>> fd421930e5ca5f6b7cd991e824461c9cb24636a7
->>>>>>> 023bcbbcd1dfa28b5822a461c35d9477e06fa74a
+import { LoginGuard } from './core/guards/login.guard';
 
-
-const routes: Routes = [ 
+const routes: Routes = [
   {
-    path:'auth-login',
-    component:LoginComponent
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/auth-login/auth-login.module').then(
+        m => m.AuthLoginModule
+      ),
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/auth-registro/auth-registro.module').then(
+        m => m.AuthRegistroModule
+      ),
+    canActivate: [LoginGuard],
   },
   {
     path: 'home',
-    loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule)
-  },
-  {
-    path:'auth-registro',
-    component:RegistroComponent
-  },
-  { 
-    path: '', 
-    redirectTo: 'auth-login', 
-    pathMatch: 'full' 
-  },
-  {
-<<<<<<< HEAD
-    path:'password-reset',
-    component: PasswordResetComponent
-=======
-    path : 'inversiones',
-    component : InvestementsComponent
->>>>>>> 023bcbbcd1dfa28b5822a461c35d9477e06fa74a
-  },
-  {
-    path:'shar',
-    //canActivate: [PermissionsGuard],
-    loadChildren:()=> import('./shared/shared.module').then( m=> m.SharedModule)
-  },
-  {
-    path:'user-profile',
+    loadChildren: () =>
+      import('./pages/home/home.module').then(m => m.HomeModule),
     canActivate: [PermissionsGuard],
-    component:UserProfileComponent
   },
   {
-    path:'**',
-    component:PageNotFoundComponent
+    path: 'password-reset',
+    component: PasswordResetComponent,
   },
-
+  {
+    path: 'inversiones',
+    component: InvestementsComponent,
+  },
+  {
+    path: 'shar',
+    //canActivate: [PermissionsGuard],
+    loadChildren: () =>
+      import('./shared/shared.module').then(m => m.SharedModule),
+  },
+  {
+    path: 'user-profile',
+    canActivate: [PermissionsGuard],
+    component: UserProfileComponent,
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
