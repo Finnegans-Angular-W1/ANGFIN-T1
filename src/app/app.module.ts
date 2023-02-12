@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -15,27 +15,55 @@ import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+import { HomeModule } from './pages/home/home.module';
+import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
+import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
+import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
+import { UsuariosModule } from './pages/usuarios/usuarios.module';
+import { UsuariosRoutingModule } from './pages/usuarios/usuarios-routing.module';
+import { UserProfileModule } from './pages/user-profile/user-profile.module';
+import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
+import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
+import { EffectsModule } from '@ngrx/effects';
+import { AlertEffects } from './core/state/effects/alert.effect';
+import { InvestementsComponent } from './components/investements/investements.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ExchangeContainerComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
+    ListIngresosComponent,
+    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     HttpClientModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     AuthRegistroModule,
     AuthRegistroRoutingModule,
     AuthLoginModule,
     AuthLoginRoutingModule,
-    SharedModule
+    HomeModule,
+    UsuariosModule,
+    UsuariosRoutingModule,
+    SharedModule,
+    UserProfileModule,
+    UserProfileRoutingModuleModule,
+    MaterialModule,
+    AngularToastifyModule,
+    EffectsModule.forRoot([AlertEffects]),
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS, 
+    useClass: GlobalHttpInterceptor,
+    multi: true,
+  },ToastService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
