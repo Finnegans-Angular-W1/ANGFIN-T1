@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent
+
   ],
   imports: [
     CommonModule,
@@ -48,10 +49,11 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     LoaderComponent,
     DialogComponent,
-    FormularioReutilizableComponent
+    FormularioReutilizableComponent,
+    ExchangeComponent,
+
   ],
   providers: [
-
   ]
 })
 export class SharedModule {}
