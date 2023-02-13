@@ -14,7 +14,7 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
-import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+//import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
@@ -33,7 +33,7 @@ import { MaterialModule } from './material/material.module';
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
+    ListEgresosComponent,InvestementsComponent],
 
   imports: [
     BrowserModule,
