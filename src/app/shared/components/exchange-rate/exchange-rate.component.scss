@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-card {
+    min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+p{
+    margin: 2rem 0 2rem 0;
+    font-size: 1.5rem;
+}
+
+span{
+    color: #03C988;
+}
