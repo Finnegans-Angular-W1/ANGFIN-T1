@@ -14,6 +14,7 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
+import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
@@ -29,11 +30,12 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { LoginEffects } from './core/state/effects/login.effect';
+
 @NgModule({
- 
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent],
+    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

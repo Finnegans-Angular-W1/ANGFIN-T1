@@ -8,6 +8,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
+import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
+
 import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularioReutilizableComponent } from './components/formulario-reutilizable/formulario-reutilizable.component';
@@ -25,8 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
+    ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent
+
   ],
   imports: [
     CommonModule,
@@ -45,8 +49,10 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     LoaderComponent,
     DialogComponent,
+    ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent
+
   ],
   providers: [
     
