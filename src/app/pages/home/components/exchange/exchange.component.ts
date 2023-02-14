@@ -1,14 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
-  ReactiveFormsModule,
 } from '@angular/forms';
-import {
-  casaApi,
-  ExchangeResponse,
-} from 'src/app/core/models/ExchangeDivisas.models';
 import { ExchangeService } from 'src/app/core/services/exchange.service';
 
 @Component({
@@ -21,6 +16,8 @@ export class ExchangeComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
   valoresFormulario1 = 0;
   valoresFormulario2 = 0;
+  exchangeResponse: string = '';
+  error: string = '';
 
   constructor(
     private service: ExchangeService,
@@ -34,16 +31,23 @@ export class ExchangeComponent implements OnInit {
         dolarPeso: ['0', [Validators.required]],
       });
     }
+
+    this.service.getDolar().subscribe(
+      resp => {
+        this.exchangeResponse = resp[0].casa.compra;
+      },
+      err => {
+        this.error = err.message;
+      }
+    );
   }
   valor1: number = 0;
   valor2: number = 0;
   onSubmit() {
     this.valoresFormulario1 = this.form.value.pesoDolar;
     this.valoresFormulario2 = this.form.value.dolarPeso;
-    this.valor1 = this.service.convert(this.valoresFormulario1, true);
-    this.valor2 = this.service.convert(this.valoresFormulario2, false);
-    
-    //this.handleSubmit.emit(this.form?.value);
+    this.valor1 = this.service.convert(this.valoresFormulario1, true, this.exchangeResponse);
+    this.valor2 = this.service.convert(this.valoresFormulario2, false, this.exchangeResponse);
   }
 
   //Aca funcionalidad de cambios
