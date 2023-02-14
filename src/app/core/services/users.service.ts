@@ -11,4 +11,9 @@ export class UsersService {
   createRole(body:any) {
     return this.http.post('/roles', body);
   }
+
+  resetPassword(userId:number, body:any) {
+    return this.http.patch(`/users/resetPassword/${userId}`, body);
+  };
+
 }
