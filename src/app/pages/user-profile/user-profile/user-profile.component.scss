@@ -1,0 +1,38 @@
+.avatar-user{
+    border-radius: 50% !important;
+    max-width: 10% !important;
+    height: auto;
+
+}
+
+.contenedor-Perfil{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-left: 32px;
+padding-right: 32px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.datos-user{
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.datos-user p{
+    margin-bottom: 0;
+}
+.botones button{
+    width:70%;
+    margin-top:5%;
+}
+
+
+@media screen and (min-width: 800px) {
+
+.botones button{
+    width:70%
+}
+}

@@ -1,28 +1,23 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { AuthService } from '../models/Auth.service';
+import { CanActivate, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PermissionsGuard implements CanActivate {
-  isAuthenticated$: Observable<boolean>;
-  constructor(private userService: AuthService, private router:Router) {
-    this.isAuthenticated$ = this.userService.isAuthenticated$();
+  token: string | null = null;
+
+  constructor(private auth: AuthService, private router: Router) {
+    this.token = this.auth.getToken();
   }
 
-
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.isAuthenticated$.pipe(map(isAuth => {
-        if (isAuth) {
-          return true;
-        }
-        this.router.navigate(['/login']);
-        return false;
-      }));
+  canActivate(): Observable<boolean> | boolean {
+    if (this.token) return true;
+    else {
+      this.router.navigate(['login']);
+      return false;
+    }
   }
-
 }
