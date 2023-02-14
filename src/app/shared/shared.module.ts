@@ -53,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     DialogComponent,
     FormularioReutilizableComponent,
     ExchangeComponent,
-    ExchangeRateComponent
+    ExchangeRateComponent,
+    RtitleComponent
 
   ],
   providers: [
