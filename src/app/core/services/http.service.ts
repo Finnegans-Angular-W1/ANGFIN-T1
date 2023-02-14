@@ -38,5 +38,11 @@ export class HttpService {
     return this.http.delete<T>(`${url}/${id}`, activateHeader ? { headers: this._headers }: {});
   }
 
+  public patch<T>(url: string, body:any, activateHeader:boolean = false):Observable<T>{
+    return this.http.patch<T>(`${url}`, body,
+    activateHeader
+      ? { headers: this._headers}
+      : {} )
+  }
 
 }

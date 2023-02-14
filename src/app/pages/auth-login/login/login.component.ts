@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AlertState } from 'src/app/core/models/types';
-import { errorAlert, successAlert, warningAlert } from 'src/app/core/state/actions/alert.actions';
+import { AuthState, LoginInput } from 'src/app/core/models/auth';
+import { login } from 'src/app/core/state/actions/login.actions';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +9,9 @@ import { errorAlert, successAlert, warningAlert } from 'src/app/core/state/actio
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private store: Store<AlertState>) {}
+  constructor(private store: Store<AuthState>) {}
 
-  handleSubmit(data: { email: string; password: string }) {
-    // console.log(data);
-    this.store.dispatch(errorAlert({message:"holis"}))
-    // TODO
-
+  handleSubmit(data: LoginInput) {
+    this.store.dispatch(login(data))
   }
 }

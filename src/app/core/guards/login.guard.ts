@@ -6,18 +6,18 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class PermissionsGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
   token: string | null = null;
-
   constructor(private auth: AuthService, private router: Router) {
     this.token = this.auth.getToken();
   }
-
   canActivate(): Observable<boolean> | boolean {
-    if (this.token) return true;
-    else {
-      this.router.navigate(['login']);
-      return false;
+
+    if(this.token){
+      this.router.navigate(['home']);
+      return false
+    }else{
+      return true;
     }
   }
 }
