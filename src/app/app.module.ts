@@ -12,7 +12,6 @@ import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.mo
 import { SharedModule } from './shared/shared.module';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
-import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
@@ -32,7 +31,7 @@ import { MaterialModule } from './material/material.module';
 import { AuthEffects } from './core/state/effects/auth.effect';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
+  declarations: [AppComponent, ListIngEgrComponent,
     ListIngresosComponent,
     ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
 
