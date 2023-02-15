@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { AuthState } from "../../models/auth";
+import { AppState } from "../app.state";
 
 export class AuthSelector{
     public static readonly stateKey='auth';
@@ -23,3 +24,11 @@ public static readonly getUser=createSelector(
     (state:AuthState)=> state.user
 );
 }
+
+
+export const selectAuth = (state:AppState) => state.auth
+
+export const selectIsAuthenticated = createSelector(
+    selectAuth,
+    (state:AuthState) => state.isAuthenticated
+)

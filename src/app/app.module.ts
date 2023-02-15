@@ -29,7 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
-import { LoginEffects } from './core/state/effects/login.effect';
+import { AuthEffects } from './core/state/effects/auth.effect';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
@@ -46,10 +46,6 @@ import { LoginEffects } from './core/state/effects/login.effect';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    AuthRegistroModule,
-    AuthRegistroRoutingModule,
-    AuthLoginModule,
-    AuthLoginRoutingModule,
     HomeModule,
     UsuariosModule,
     UsuariosRoutingModule,
@@ -58,7 +54,7 @@ import { LoginEffects } from './core/state/effects/login.effect';
     UserProfileRoutingModuleModule,
     MaterialModule,
     AngularToastifyModule,
-    EffectsModule.forRoot([AlertEffects, LoginEffects]),
+    EffectsModule.forRoot([AlertEffects, AuthEffects]),
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, 
