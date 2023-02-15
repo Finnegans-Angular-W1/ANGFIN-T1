@@ -19,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     SidebarComponent,
@@ -29,21 +28,20 @@ import { HttpClientModule } from '@angular/common/http';
     RtitleComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
-
+    FormularioReutilizableComponent,
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     RouterModule,
     MaterialModule,
-    FormsModule ,
-    ReactiveFormsModule ,
-    MatFormFieldModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     SidebarComponent,
@@ -51,11 +49,10 @@ import { HttpClientModule } from '@angular/common/http';
     DialogComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
-
+    FormularioReutilizableComponent,
+    RtitleComponent,
+    FooterComponent
   ],
-  providers: [
-    
-  ]
+  providers: [],
 })
 export class SharedModule {}

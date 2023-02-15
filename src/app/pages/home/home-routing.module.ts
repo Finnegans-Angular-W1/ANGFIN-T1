@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { HomePageComponent } from './home-page/home-page.component';
-
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: HomePageComponent,
+  },
+  {
+    path: 'expenses',
+    component: GastosEditComponent, //ruta de prueba del comp. BORRAR cuando ya no se necesite
   },
 ];
 
