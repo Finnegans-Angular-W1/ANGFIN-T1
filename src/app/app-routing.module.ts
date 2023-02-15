@@ -23,7 +23,7 @@ const routes: Routes = [
       import('./pages/auth-login/auth-login.module').then(
         m => m.AuthLoginModule
       ),
-    canActivate: [LoginGuard],
+    //canActivate: [LoginGuard],
   },
   {
     path: 'register',

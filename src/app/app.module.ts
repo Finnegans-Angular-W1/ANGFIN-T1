@@ -7,11 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthLoginModule } from './pages/auth-login/auth-login.module';
-import { AuthLoginRoutingModule } from './pages/auth-login/auth-login-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
-import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
@@ -30,11 +26,21 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { AuthEffects } from './core/state/effects/auth.effect';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { AuthService } from './core/services/auth.service';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
+    ListEgresosComponent,
+    InvestementsComponent,
+    ExchangeContainerComponent,
+  ],
 
   imports: [
     BrowserModule,
@@ -55,12 +61,20 @@ import { AuthEffects } from './core/state/effects/auth.effect';
     MaterialModule,
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+
   ],
-  providers: [{
-    provide:HTTP_INTERCEPTORS, 
-    useClass: GlobalHttpInterceptor,
-    multi: true,
-  },ToastService],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalHttpInterceptor,
+      multi: true,
+    },
+    ToastService,
+    AuthService,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
