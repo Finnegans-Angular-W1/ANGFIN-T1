@@ -1,33 +1,51 @@
+* {
+  box-sizing: border-box;
+}
 .footerContainer {
   // margin-top: -20px;
+  display: flex;
+  justify-content: center;
   width: 100%;
   background-color: #1c82ad;
   padding-top: 10px;
   padding-bottom: 10px;
   border-top-left-radius: 30%;
   border-bottom-right-radius: 30%;
+  height: 500px;
+}
+.twitters {
+  overflow: auto;
+  max-height: 200px;
+  width: 375px;
+  border-radius: 15px;
+  margin: 0 0 0 25px;
+}
+.aTwitter {
+  max-height: 200px;
+  overflow: auto;
+  min-width: 300px;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 1000px;
+.twwite {
+  width: 250px;
 }
-
 .footerFlex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  width: 1288px;
 }
 
 .imagen-logo {
-  background-image: url("../../../asset/logo/logo.svg");
+  background-image: url('../../../asset/logo/logo.svg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 50px;
+  height: 100px;
 }
 .imagen-logoContainer {
-  padding-top: 70px;
-  width: 30%;
+  width: 50%;
   height: 170px;
 }
 .ul-Footer {
@@ -36,8 +54,8 @@
 li {
   list-style-type: none;
   padding: 10px;
-  font-family: "Playfair Display", serif;
-  text-align: center;
+  font-family: 'Playfair Display', serif;
+  text-align: end;
   margin: 5px;
   transition: 0.2s;
 }
@@ -51,12 +69,12 @@ li a {
   font-size: 1.5rem;
   text-decoration: none;
   color: aliceblue;
-  text-align: center;
+  text-align: start;
   display: inline-block;
   width: 100%;
 }
 .copyright {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: aliceblue;
   text-align: center;
   font-size: 1rem;
@@ -67,3 +85,42 @@ li a {
   padding-right: 25px;
   padding-left: 25px;
 }
+
+
+/*Parte responsive. Fijarse cuando esten el resto de los elementos de la app para hacerlo mejor
+Aparentemente el widget de Twitter no funciona bien en responsive. Revisar*/
+
+/*@media (max-width: 375px) {
+  .footerContainer {
+    // margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #1c82ad;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    height: auto;
+  }
+
+  .container {
+    // margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagen-logo {
+    background-image: url('../../../asset/logo/logo.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 290px;
+    height: 47px;
+  }
+  .imagen-logoContainer {
+    width: 228px;
+    height: 170px;
+  }
+}*/
