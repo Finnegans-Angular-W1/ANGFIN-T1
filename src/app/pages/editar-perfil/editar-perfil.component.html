@@ -1,0 +1,12 @@
+<form (submit)="updateProfile(userId, username.value, name.value, avatar.value)">
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" name="username" id="username" #username value="{{ user.username }}" required>
+  
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" id="name" #name value="{{ user.name }}" required>
+  
+    <label for="avatar">Avatar:</label>
+    <input type="text" name="avatar" id="avatar" #avatar value="{{ user.avatar }}" required>
+  
+    <button type="submit">Actualizar perfil</button>
+</form>
