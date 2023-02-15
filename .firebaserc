@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "e-wallet-30b5d": {
+      "hosting": {
+        "e-wallet": [
+          "e-wallet-30b5d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "e-wallet-30b5d"
+  }
+}

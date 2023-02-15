@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
+
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +12,8 @@ export class LoginFormComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
 
   loginForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              public authService: AuthService) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

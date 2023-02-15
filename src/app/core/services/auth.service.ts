@@ -3,7 +3,8 @@ import { LoginInput, LoginResult } from '../models/auth';
 import { HttpService } from './http.service';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider } from '@angular/fire/auth';
 
 
 
@@ -13,6 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AuthService {
   constructor(
     private htpp: HttpService,
+    public afAuth: AngularFireAuth
   ) {}
 
   saveToken(token: string) {
@@ -46,4 +48,20 @@ export class AuthService {
     }
     return throwError(() => new Error('Ha ocurrido un error'));
   }
+
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+}
+
+AuthLogin(provider: any) {
+  return this.afAuth
+    .signInWithPopup(provider)
+    .then((result) => {
+      console.log('Usuario logueado exitosamente con Google');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 }

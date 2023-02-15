@@ -30,6 +30,9 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { LoginEffects } from './core/state/effects/login.effect';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { AuthService } from './core/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
@@ -59,12 +62,15 @@ import { LoginEffects } from './core/state/effects/login.effect';
     MaterialModule,
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, LoginEffects]),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, 
     useClass: GlobalHttpInterceptor,
     multi: true,
-  },ToastService],
+  },ToastService, AuthService  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
