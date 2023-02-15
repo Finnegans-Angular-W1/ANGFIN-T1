@@ -1,7 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { loginSuccess } from 'src/app/core/state/actions/login.actions';
+import { AppState } from 'src/app/core/state/app.state';
 interface usuarioToken {
   token: string;
 }
@@ -17,7 +20,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public authService: AuthService,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
@@ -36,14 +40,14 @@ export class LoginFormComponent implements OnInit {
     this.authService
       .loginGoogle()
       .then(res => {
-        console.log(res);
-        this.router.navigate(['/home']);
         console.log(
           'Mi res: ',
           res.user.getIdTokenResult().then(res2 => {
-            console.log('Respuesta2. ', res2.token);
+            // console.log('Respuesta2. ', res2.token);
             this.authService.saveToken(res2.token);
-          })
+            this.store.dispatch(loginSuccess({ accessToken: res2.token }));
+            this.router.navigate(['/home']);
+          }).then
         );
       })
       .catch(error => console.log(error));
