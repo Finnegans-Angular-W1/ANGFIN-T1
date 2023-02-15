@@ -4,9 +4,12 @@ import { HttpService } from './http.service';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { GoogleAuthProvider } from '@angular/fire/auth';
-
-
+import {
+  GoogleAuthProvider,
+  Auth,
+  signInWithPopup,
+  signOut,
+} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +17,8 @@ import { GoogleAuthProvider } from '@angular/fire/auth';
 export class AuthService {
   constructor(
     private htpp: HttpService,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    private auth: Auth
   ) {}
 
   saveToken(token: string) {
@@ -28,18 +32,20 @@ export class AuthService {
   logOut() {
     localStorage.removeItem('accessToken');
   }
+  logoutGoogle() {
+    sessionStorage.removeItem('accessToken');
+    return signOut(this.auth);
+  }
 
   logIn(loginInput: LoginInput): Observable<LoginResult> {
-    return this.htpp
-      .post<LoginResult>(`/auth/login`, loginInput)
-      .pipe(
-        map((res: LoginResult) => {
-          return res;
-        }),
-        catchError(err => {
-         return this.handleLoginError(err)       
-        })
-      );
+    return this.htpp.post<LoginResult>(`/auth/login`, loginInput).pipe(
+      map((res: LoginResult) => {
+        return res;
+      }),
+      catchError(err => {
+        return this.handleLoginError(err);
+      })
+    );
   }
 
   private handleLoginError(err: HttpErrorResponse): Observable<never> {
@@ -49,11 +55,14 @@ export class AuthService {
     return throwError(() => new Error('Ha ocurrido un error'));
   }
 
-  GoogleAuth() {
+  loginGoogle() {
+    return signInWithPopup(this.auth, new GoogleAuthProvider());
+  }
+  /*GoogleAuth() {
     return this.AuthLogin(new GoogleAuthProvider());
-}
+ }*/
 
-AuthLogin(provider: any) {
+  /*AuthLogin(provider: any) {
   return this.afAuth
     .signInWithPopup(provider)
     .then((result) => {
@@ -62,6 +71,5 @@ AuthLogin(provider: any) {
     .catch((error) => {
       console.log(error);
     });
-}
-
+}*/
 }

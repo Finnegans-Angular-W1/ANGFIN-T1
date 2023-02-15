@@ -30,14 +30,20 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { LoginEffects } from './core/state/effects/login.effect';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { AuthService } from './core/services/auth.service';
-
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
+    ListEgresosComponent,
+    InvestementsComponent,
+    ExchangeContainerComponent,
+  ],
 
   imports: [
     BrowserModule,
@@ -65,12 +71,16 @@ import { AuthService } from './core/services/auth.service';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],
-  providers: [{
-    provide:HTTP_INTERCEPTORS, 
-    useClass: GlobalHttpInterceptor,
-    multi: true,
-  },ToastService, AuthService  
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalHttpInterceptor,
+      multi: true,
+    },
+    ToastService,
+    AuthService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
