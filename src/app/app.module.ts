@@ -29,6 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
+import { LoginEffects } from './core/state/effects/login.effect';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
@@ -57,7 +58,7 @@ import { MaterialModule } from './material/material.module';
     UserProfileRoutingModuleModule,
     MaterialModule,
     AngularToastifyModule,
-    EffectsModule.forRoot([AlertEffects]),
+    EffectsModule.forRoot([AlertEffects, LoginEffects]),
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, 
