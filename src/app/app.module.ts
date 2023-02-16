@@ -30,6 +30,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { AuthService } from './core/services/auth.service';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     ListEgresosComponent,
     InvestementsComponent,
     ExchangeContainerComponent,
+    ContactsComponent,
   ],
 
   imports: [
