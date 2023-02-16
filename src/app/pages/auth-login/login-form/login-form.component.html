@@ -38,16 +38,19 @@
   </mat-card-content>
 
   <mat-card-footer>
+
+    <button
+    [disabled]="loginForm.invalid"
+    class="login-btn padding"
+    mat-raised-button
+    color="accent"
+    (click)="onclick()">
+    Login with Google
+  </button>
+ 
     <p class="toRegister">
-      ¿Aun no tienes una cuenta? <a [routerLink]="['/register']">Registate</a>
+      <br>
+      ¿Aun no tienes una cuenta? <a [routerLink]="['/register']">Registrate</a>
     </p>
   </mat-card-footer>
-  <button
-    [disabled]="loginForm.invalid"
-    class="login-btn"
-    mat-raised-button
-    color="primary"
-    (click)="onclick()">
-    Login Whit google
-  </button>
 </mat-card>
