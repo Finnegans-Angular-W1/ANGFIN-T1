@@ -36,6 +36,10 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/password-reset']);
   }
 
+  EditarPerfil() {
+    this.router.navigate(['/editar-perfil']);
+  }
+
   logout() {
     this.store.dispatch(logout())
   }
