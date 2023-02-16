@@ -35,7 +35,7 @@ import { LoginEffects } from './core/state/effects/login.effect';
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent],
+    ListEgresosComponent,InvestementsComponent],
 
   imports: [
     BrowserModule,
