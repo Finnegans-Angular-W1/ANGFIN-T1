@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
+import { ErrorInterceptor } from './core/services/error.interceptor';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
@@ -66,7 +67,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
   ],
   providers: [
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    { provide: FIREBASE_OPTIONS, 
+      useValue: environment.firebase },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalHttpInterceptor,
