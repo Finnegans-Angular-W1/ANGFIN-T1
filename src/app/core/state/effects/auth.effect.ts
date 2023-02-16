@@ -1,15 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-
 import * as loginActions from '../actions/login.actions';
-import * as alertActions from '../actions/alert.actions';
-import {
-  map,
-  catchError,
-  exhaustMap,
-  switchMap,
-  mergeMap,
-} from 'rxjs/operators';
+import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from 'angular-toastify';
@@ -17,7 +9,7 @@ import { LoginResult } from '../../models/auth';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class LoginEffects {
+export class AuthEffects {
   constructor(
     private actions$: Actions,
     private auth: AuthService,
@@ -43,4 +35,17 @@ export class LoginEffects {
       })
     );
   });
+
+  logOut$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(loginActions.logout),
+        tap(() => {
+          this.auth.logOut();
+          this.router.navigate(['/login']);
+        })
+      );
+    },
+    { dispatch: false }
+  );
 }
