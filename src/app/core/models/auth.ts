@@ -14,7 +14,7 @@ export interface LoginInput {
 }
 
 export interface LoginResult {
-    accessToken: string;
+    accessToken: string | null;
 }
 
 export interface RegisterInput {

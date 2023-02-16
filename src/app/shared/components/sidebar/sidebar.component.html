@@ -30,9 +30,12 @@
         <!-- contenido -->
         <mat-sidenav-content>
             <router-outlet></router-outlet>
+            <app-footer></app-footer>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </ng-container>
 
 <!-- logged out layout -->
-<ng-template #elseBlock><router-outlet></router-outlet></ng-template>
+<ng-template #elseBlock>
+    <router-outlet></router-outlet>
+</ng-template>
