@@ -7,10 +7,11 @@
                 <h2>Puntos : {{usuario.points}}</h2>
                 <p>Email : {{usuario.email}}</p>
 
-                <mat-card-actions class=" botones"> 
-                    <button mat-raised-button color="primary" (click)="CambiarContrasenia()">Cambiar Contraseña</button>
-                    <button mat-raised-button (click)="logout()">Cerrar Sesion</button>
-                </mat-card-actions>
+                <div class=" botones"> 
+                    <button class="btn1" mat-raised-button color="primary" (click)="CambiarContrasenia()">Cambiar Contraseña</button>
+                    <button mat-raised-button color="accent" (click)="EditarPerfil()">Editar Perfil</button>
+                    <button mat-raised-button color="link" (click)="logout()">Cerrar Sesion</button>
+                </div>
             </div>
         </div>
     </mat-card-content>
