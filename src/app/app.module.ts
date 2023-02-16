@@ -56,7 +56,7 @@ import { AuthEffects } from './core/state/effects/auth.effect';
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
   ],
-  providers: [],
+  
   providers: [{
     provide:HTTP_INTERCEPTORS, 
     useClass: GlobalHttpInterceptor,
