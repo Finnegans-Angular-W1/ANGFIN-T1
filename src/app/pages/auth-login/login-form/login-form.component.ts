@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
-
+  isCheck: any;
   loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
 
@@ -21,6 +21,7 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     this.handleSubmit.emit(this.loginForm.value);
-    this.loginForm.reset()
+    this.isCheck = { user: 1 };
+    this.loginForm.reset();
   }
 }
