@@ -9,13 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SaldosComponent } from './components/saldos/saldos.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     HomePageComponent, 
     TransaccionesComponent,
     AmountPipe,
-    ExpensesComponent
+    ExpensesComponent,
+    SaldosComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule
   ],
   exports: [HomePageComponent],
 })

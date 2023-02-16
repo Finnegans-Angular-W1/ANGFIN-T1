@@ -88,7 +88,7 @@ export class PasswordResetComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy():void {
-    this.httpSubscription.unsubscribe;
+    this.httpSubscription.unsubscribe();
   }
 
 }
