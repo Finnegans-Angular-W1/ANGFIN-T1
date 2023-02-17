@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     SidebarComponent,
-    FooterComponent,
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
@@ -53,7 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
+    FormularioReutilizableComponent,
+    RtitleComponent
 
   ],
   providers: [

@@ -31,11 +31,12 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { AuthEffects } from './core/state/effects/auth.effect';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent],
+    ListEgresosComponent,InvestementsComponent, FooterComponent],
 
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'login',
@@ -24,6 +24,7 @@ const routes: Routes = [
         m => m.AuthLoginModule
       ),
     canActivate: [LoginGuard],
+    data: { animation: 'LoginPage' }
   },
   {
     path: 'register',
@@ -32,26 +33,32 @@ const routes: Routes = [
         m => m.AuthRegistroModule
       ),
     canActivate: [LoginGuard],
+    data: { animation: 'RegisterPage' }
   },
   {
     path: 'home',
-    loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule)
+    loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule),
+    data: { animation: 'HomePage' }
   },
   {
     path:'listmov',
-    component:ListIngEgrComponent
+    component:ListIngEgrComponent,
+    data: { animation: 'MovimientosPage' }
   },
   {
     path:'liste',
-    component:ListEgresosComponent
+    component:ListEgresosComponent,
+    data: { animation: 'EgresosPage' }
   },
   {
     path:'listi',
-    component:ListIngresosComponent
+    component:ListIngresosComponent,
+    data: { animation: 'IngresosPage' }
   },
   {
     path:'password-reset',
-    component: PasswordResetComponent 
+    component: PasswordResetComponent,
+    data: { animation: 'PasswordPage' }
   },
   {
     path:'shar',
@@ -61,15 +68,18 @@ const routes: Routes = [
   {
     path: 'inversiones',
     component: InvestementsComponent,
+    data: { animation: 'InversionesPage' }
   },
   {
     path: 'user-profile',
     // canActivate: [PermissionsGuard],
     component: UserProfileComponent,
+    data: { animation: 'PerfilPage' }
   },
   {
     path: '**',
     component: PageNotFoundComponent,
+    data: { animation: 'NotFoundPage' }
   },
 ];
 
