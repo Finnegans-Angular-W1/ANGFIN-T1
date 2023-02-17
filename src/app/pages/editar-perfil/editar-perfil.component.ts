@@ -30,6 +30,7 @@ export class EditarPerfilComponent implements OnInit {
 
   }
 
+  
   updateProfile(first_name: string, last_name: string, email: string) {
    
     const url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/users/${this.user.id}';

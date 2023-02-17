@@ -1,4 +1,3 @@
-/* Estilos generales */
 .mobile-form {
     max-width: 500px;
     margin: 0 auto;
@@ -34,30 +33,9 @@
     font-size: 1rem;
   }
   
-  /* Estilos específicos de los iconos */
-  label i {
-    margin-right: 0.5rem;
-  }
-  
-  label[for="avatar"] i {
-    margin-right: 0.25rem;
-  }
-  
-  label[for="username"] i {
-    color: #28a745;
-  }
-  
-  label[for="name"] i {
-    color: #17a2b8;
-  }
-  
-  label[for="avatar"] i {
-    color: #dc3545;
-  }
-  
-  /* Estilos específicos para dispositivos móviles */
   @media (max-width: 768px) {
     .mobile-form {
       max-width: 80%;
     }
   }
+
