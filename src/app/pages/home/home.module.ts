@@ -10,6 +10,8 @@ import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AmountPipe,
     GastosEditComponent,
     ExpensesComponent
+    
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     MatProgressBarModule,
     SharedModule,
+    MatFormFieldModule,
+    MatIconModule
+
   ],
   exports: [HomePageComponent],
 })
