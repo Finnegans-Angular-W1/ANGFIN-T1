@@ -1,8 +1,9 @@
 
-<h1>Editar Perfil</h1>
+
 
 <form (submit)="updateProfile(username.value, name.value, avatar.value)" class="mobile-form">
     <div class="form-group">
+        <h1>Editar Perfil</h1>
         <label for="username"><i class="fa fa-user"></i> Nombre:</label>
         <input type="text" name="username" id="username" #username value="{{ user.first_name }}" required>
     </div>
