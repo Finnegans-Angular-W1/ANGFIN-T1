@@ -14,6 +14,7 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
+import { ErrorInterceptor } from './core/services/error.interceptor';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
@@ -30,11 +31,13 @@ import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
+import { AuthEffects } from './core/state/effects/auth.effect';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
     ListIngresosComponent,
     ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent, EditarPerfilComponent],
+    
 
   imports: [
     BrowserModule,
@@ -46,10 +49,6 @@ import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.compo
       maxAge: 25,
       logOnly: environment.production,
     }),
-    AuthRegistroModule,
-    AuthRegistroRoutingModule,
-    AuthLoginModule,
-    AuthLoginRoutingModule,
     HomeModule,
     UsuariosModule,
     UsuariosRoutingModule,
@@ -58,13 +57,13 @@ import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.compo
     UserProfileRoutingModuleModule,
     MaterialModule,
     AngularToastifyModule,
-    EffectsModule.forRoot([AlertEffects]),
+    EffectsModule.forRoot([AlertEffects, AuthEffects]),
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, 
     useClass: GlobalHttpInterceptor,
     multi: true,
-  },ToastService],
+  },{provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi: true},ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

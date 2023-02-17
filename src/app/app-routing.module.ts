@@ -1,33 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/auth-login/login/login.component';
-import { RegistroComponent } from './pages/auth-registro/registro/registro.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
 import { PermissionsGuard } from './core/guards/permissions.guard';
-
 import { PasswordResetComponent } from './pages/usuarios/password-reset/password-reset.component';
-
 import { UserProfileComponent } from './pages/user-profile/user-profile/user-profile.component';
 import { InvestementsComponent } from './components/investements/investements.component';
-import { HomeComponent } from './pages/home/home.component';
+import { LoginGuard } from './core/guards/login.guard';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
 
 
-
-const routes: Routes = [ 
+const routes: Routes = [
   {
-    path:'auth-login',
-    component:LoginComponent
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/auth-login/auth-login.module').then(
+        m => m.AuthLoginModule
+      ),
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/auth-registro/auth-registro.module').then(
+        m => m.AuthRegistroModule
+      ),
+    canActivate: [LoginGuard],
   },
   {
     path: 'home',
     loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule)
-  },
-  {
-    path:'auth-registro',
-    component:RegistroComponent
   },
   {
     path:'listmov',
@@ -41,18 +49,9 @@ const routes: Routes = [
     path:'listi',
     component:ListIngresosComponent
   },
-
-
-  { 
-    path: '', 
-    redirectTo: 'auth-login', 
-    pathMatch: 'full' 
-  },
   {
     path:'password-reset',
-    component: PasswordResetComponent },
-   { path : 'inversiones',
-    component : InvestementsComponent
+    component: PasswordResetComponent 
   },
   {
     path:'shar',
@@ -60,19 +59,22 @@ const routes: Routes = [
     loadChildren:()=> import('./shared/shared.module').then( m=> m.SharedModule)
   },
   {
-    path:'user-profile',
-    canActivate: [PermissionsGuard],
-    component:UserProfileComponent
+    path: 'inversiones',
+    component: InvestementsComponent,
   },
   {
-    path:'**',
-    component:PageNotFoundComponent
+    path: 'user-profile',
+    // canActivate: [PermissionsGuard],
+    component: UserProfileComponent,
   },
-
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -8,15 +8,15 @@ import { selectIsAuthenticated } from '../state/selector/Auth.selector';
 @Injectable({
   providedIn: 'root',
 })
-export class PermissionsGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
   isAuth!: boolean;
   constructor(private store: Store<AppState>, private router: Router) {
     store.select(selectIsAuthenticated).subscribe(res => (this.isAuth = res));
   }
 
   canActivate(): Observable<boolean> | boolean {
-    if (!this.isAuth) this.router.navigate(['login']);
+    if (this.isAuth) this.router.navigate(['home']);
 
-    return this.isAuth;
+    return !this.isAuth;
   }
 }
