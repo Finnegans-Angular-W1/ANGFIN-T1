@@ -1,16 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from 'src/app/core/models/user';
-import { LoginInput, LoginResult, RegisterInput } from '../../models/auth';
+import { LoginInput, LoginResult } from '../../models/auth';
 
 
 export const login = createAction(
     '[Auth] Login',
     props<LoginInput>()
-);
-
-export const register = createAction(
-    '[Auth] registro',
-    props<RegisterInput>()
 );
 
 export const logout = createAction(
@@ -28,6 +23,6 @@ export const loginFailure = createAction(
 )
 
 export const setLoggedUser = createAction(
-'[Auth] Set logged user',
-props<User>()
+    '[Auth] Set logged user',
+    props<User>()
 );

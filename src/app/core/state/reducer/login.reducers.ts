@@ -1,9 +1,8 @@
-import { state } from "@angular/animations";
 import { createReducer, on } from "@ngrx/store";
 
 import { AuthState} from "src/app/core/models/auth";
 
-import { login, loginFailure, loginSuccess, logout, register } from "../actions/login.actions";
+import { login, loginFailure, loginSuccess, logout, setLoggedUser } from "../actions/login.actions";
 
 
 
@@ -33,13 +32,9 @@ export const authReducer = createReducer(
     ...state,
     error: action.error,
     isLoading: false,
-  })),
-  on(register, (state, action) => ({
-    ...state,
-    first_name: action.first_name,
-    last_name: action.last_name,
-    email: action.email,
-    password: action.password,
+    accessToken: null,
+    user: null,
+    isAuthenticated: false,
   })),
   on(logout, (state, action) => ({
     ...state,
@@ -48,5 +43,16 @@ export const authReducer = createReducer(
     isLoading: false,
     accessToken: null,
     error: null,
+  })),
+  on(setLoggedUser, (state, payload) => ({
+    ...state,
+    user: {
+      email: payload.email,
+      first_name: payload.first_name,
+      last_name: payload.last_name,
+      password: '******',
+      points: payload.points,
+      roleId: payload.roleId,
+    },
   }))
 );

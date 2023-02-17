@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { ToastService } from 'angular-toastify';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -53,6 +54,10 @@ export class AuthService {
         return this.handleRegisterError(err);
       })
     );
+  }
+
+  getUserLogged(): Observable<User> {
+    return this.htpp.get(`${environment.Api}/auth/me`, true);
   }
 
   private handleRegisterError(err: HttpErrorResponse): Observable<never> {
