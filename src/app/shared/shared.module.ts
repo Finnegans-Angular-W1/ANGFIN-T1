@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { ExpensesComponent } from '../pages/home/components/expenses/expenses.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     RtitleComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
-
+    FormularioReutilizableComponent,
   ],
   imports: [
     CommonModule,
@@ -53,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
+    FormularioReutilizableComponent,
+    RtitleComponent
 
   ],
   providers: [
