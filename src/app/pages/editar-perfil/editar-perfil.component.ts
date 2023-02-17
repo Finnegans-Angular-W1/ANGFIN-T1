@@ -19,9 +19,9 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   getUser(){
-    const token = this.authService.getToken();
-    const url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/api/users/me';
-    this.httpService.get(url, true, { 'Authorization': `Bearer ${token}` }).subscribe(
+    
+    const url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/auth/me';
+    this.httpService.get(url, true,).subscribe(
       response => {
         this.user = response;
       },
@@ -30,13 +30,13 @@ export class EditarPerfilComponent implements OnInit {
 
   }
 
-  updateProfile(username: string, name: string, avatar: string) {
-    const token = this.authService.getToken();
-    const url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/api/users/me';
+  updateProfile(first_name: string, last_name: string, email: string) {
+   
+    const url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/users/1';
     const body = {
-      username,
-      name,
-      avatar
+      first_name,
+      last_name,
+      email
     };
     this.httpService.put(url, body, true).subscribe(
       response => {
@@ -46,9 +46,5 @@ export class EditarPerfilComponent implements OnInit {
       },
       error => console.error('Error al actualizar el perfil:', error)
     );
-
-
-
-
-
+  }
 }

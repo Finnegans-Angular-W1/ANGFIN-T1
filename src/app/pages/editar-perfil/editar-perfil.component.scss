@@ -1,0 +1,63 @@
+/* Estilos generales */
+.mobile-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  /* Estilos específicos de los iconos */
+  label i {
+    margin-right: 0.5rem;
+  }
+  
+  label[for="avatar"] i {
+    margin-right: 0.25rem;
+  }
+  
+  label[for="username"] i {
+    color: #28a745;
+  }
+  
+  label[for="name"] i {
+    color: #17a2b8;
+  }
+  
+  label[for="avatar"] i {
+    color: #dc3545;
+  }
+  
+  /* Estilos específicos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .mobile-form {
+      max-width: 80%;
+    }
+  }
