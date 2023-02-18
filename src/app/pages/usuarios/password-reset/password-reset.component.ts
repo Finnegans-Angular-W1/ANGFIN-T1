@@ -21,7 +21,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./password-reset.component.scss']
 })
 
-export class PasswordResetComponent implements OnInit, OnDestroy {
+export class PasswordResetComponent implements OnDestroy {
   
   passwordResetForm: FormGroup;
   matcher = new MyErrorStateMatcher();
@@ -48,9 +48,9 @@ export class PasswordResetComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
-    // Pendiente traer el email y el userId del store (cuando sea implementado el login) o localstorage para setearlo por default en el form y para los params
-  }
+  // ngOnInit(): void {
+  //   // Pendiente traer el email y el userId del store (cuando sea implementado el login) o localstorage para setearlo por default en el form y para los params
+  // }
 
   // al hacer click en "guardar cambios"
   onSubmit():void {

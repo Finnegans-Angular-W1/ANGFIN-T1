@@ -11,13 +11,16 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component'; 
+
 @NgModule({
   declarations: [
     HomePageComponent,
     TransaccionesComponent,
     AmountPipe,
     GastosEditComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    ExchangeContainerComponent
   ],
   imports: [
     CommonModule,
