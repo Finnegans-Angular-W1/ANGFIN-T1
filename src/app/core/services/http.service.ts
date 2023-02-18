@@ -7,11 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HttpService {
-  private _groupId!: string;
   private _headers!: HttpHeaders;
 
   constructor(private http: HttpClient) {
-    this._headers = new HttpHeaders({ Group: this._groupId });
+    this._headers = new HttpHeaders();
   }
 
   public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {

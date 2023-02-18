@@ -28,7 +28,7 @@ import { MaterialModule } from './material/material.module';
 import { AuthEffects } from './core/state/effects/auth.effect';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListIngEgrComponent,
+  declarations: [AppComponent, ListIngEgrComponent,
     ListIngresosComponent,
     ListEgresosComponent,InvestementsComponent],
 
