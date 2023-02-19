@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-reutilizable',
@@ -15,7 +16,7 @@ export class FormularioReutilizableComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
   actionForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router:Router) {}
 
   ngOnInit(): void {
     this.actionForm = this.fb.group({
@@ -28,4 +29,12 @@ export class FormularioReutilizableComponent implements OnInit {
   enviar() {
     this.handleSubmit.emit(this.actionForm.value);
   }
-}
+
+  //Maxi
+  backHome(){
+    const confirmation = confirm('Seguro que quieres regresar? Perderas todos los datos que hayas guardado');
+    if(confirmation){
+      this.router.navigate(['home']);
+    }; 
+  };
+};
