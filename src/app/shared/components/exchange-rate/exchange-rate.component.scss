@@ -11,8 +11,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    border-radius: 20px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
+
+mat-card-content{
+    text-align: center;
+}
 
 p{
     margin: 2rem 0 2rem 0;
