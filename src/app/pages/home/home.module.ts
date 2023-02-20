@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     TransaccionesComponent,
     AmountPipe,
     ExpensesComponent,
-    SaldosComponent
+    SaldosComponent,
     GastosEditComponent,
     ExpensesComponent
   ],

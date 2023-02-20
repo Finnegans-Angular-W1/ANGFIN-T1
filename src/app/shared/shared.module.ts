@@ -29,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     RtitleComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
+    FormularioReutilizableComponent,
+    ExchangeContainerComponent,
+    RtitleComponent
 
   ],
   imports: [
@@ -53,7 +55,9 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
+    FormularioReutilizableComponent,
+    ExchangeContainerComponent,
+    RtitleComponent
 
   ],
   providers: [
