@@ -10,6 +10,8 @@ import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SliderComponent } from './components/slider/slider.component';
+import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
 import { SaldosComponent } from './components/saldos/saldos.component';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -19,9 +21,11 @@ import { MatButtonModule } from '@angular/material/button';
     TransaccionesComponent,
     AmountPipe,
     ExpensesComponent,
-    SaldosComponent
+    SaldosComponent,
     GastosEditComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    SliderComponent,
+    ExchangeContainerComponent
   ],
   imports: [
     CommonModule,
