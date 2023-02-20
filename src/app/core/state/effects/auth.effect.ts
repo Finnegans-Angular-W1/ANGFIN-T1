@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as loginActions from '../actions/login.actions';
 import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from 'angular-toastify';
 import { LoginResult } from '../../models/auth';
 import { Router } from '@angular/router';
+import { User } from '../../models/user';
 
 @Injectable()
 export class AuthEffects {
@@ -40,6 +41,38 @@ export class AuthEffects {
     () => {
       return this.actions$.pipe(
         ofType(loginActions.logout),
+        tap(() => {
+          this.auth.logOut();
+          this.router.navigate(['/login']);
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
+  loginSuccess$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(loginActions.loginSuccess),
+      exhaustMap(action => {
+        return this.auth.getUserLogged().pipe(
+          map((res: User) => {
+            return loginActions.setLoggedUser(res);
+          }),
+          catchError((e: any) => {
+            this.toast.error('Ha ocurrido un error al iniciar sesion');
+            return of(
+              loginActions.loginFailure({ error: 'Ha ocurrido un error' })
+            );
+          })
+        );
+      })
+    );
+  });
+
+  loginFailure$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(loginActions.loginFailure),
         tap(() => {
           this.auth.logOut();
           this.router.navigate(['/login']);
