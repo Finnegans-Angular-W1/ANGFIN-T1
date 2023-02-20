@@ -14,7 +14,11 @@ import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-r
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ErrorInterceptor } from './core/services/error.interceptor';
+<<<<<<< HEAD
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+=======
+//import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+>>>>>>> 5192813114751443ea1e7479801be914856e0e34
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
@@ -56,6 +60,10 @@ import { AuthEffects } from './core/state/effects/auth.effect';
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
   ],
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5192813114751443ea1e7479801be914856e0e34
   providers: [{
     provide:HTTP_INTERCEPTORS, 
     useClass: GlobalHttpInterceptor,

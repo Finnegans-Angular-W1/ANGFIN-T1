@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ExchangeeService } from './exchangee.service';
+import { ExchangeService } from './exchange.service';
 
-describe('ExchangeeService', () => {
-  let service: ExchangeeService;
+describe('ExchangeService', () => {
+  let service: ExchangeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ExchangeeService);
+    service = TestBed.inject(ExchangeService);
   });
 
   it('should be created', () => {
