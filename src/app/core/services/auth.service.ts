@@ -8,6 +8,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { User } from '../models/user';
 import { ToastService } from 'angular-toastify';
+import { environment } from 'src/environments/environment';
 
 import {
   GoogleAuthProvider,
@@ -66,6 +67,10 @@ export class AuthService {
         return this.handleRegisterError(err);
       })
     );
+  }
+
+  getUserLogged(): Observable<User> {
+    return this.htpp.get(`${environment.Api}/auth/me`, true);
   }
 
   private handleRegisterError(err: HttpErrorResponse): Observable<never> {

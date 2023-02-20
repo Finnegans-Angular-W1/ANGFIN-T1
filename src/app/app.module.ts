@@ -9,9 +9,12 @@ import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
+import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ErrorInterceptor } from './core/services/error.interceptor';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+//import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
@@ -65,8 +68,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-
+    provideAuth(() => getAuth())
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
@@ -78,6 +80,6 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     ToastService,
     AuthService,
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
