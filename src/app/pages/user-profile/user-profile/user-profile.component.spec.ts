@@ -1,19 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Store, StoreModule } from '@ngrx/store';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpService } from 'src/app/core/services/http.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { AuthService } from 'src/app/core/models/Auth.service';
-import { logout } from 'src/app/core/state/actions/login.actions';
 import { User } from 'src/app/core/models/user';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
 import { UserProfileComponent } from './user-profile.component';
 import { PasswordResetComponent } from '../../usuarios/password-reset/password-reset.component';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 
 describe('UserProfileComponent', () => {
@@ -37,7 +35,9 @@ describe('UserProfileComponent', () => {
       imports: [
         RouterTestingModule.withRoutes([]),
         StoreModule.forRoot({}),
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatCardModule,
+        MatButtonModule
       ],
       providers: [
         AuthService,
@@ -94,5 +94,29 @@ describe('UserProfileComponent', () => {
     component.logout();
     expect(dispatchSpy).toHaveBeenCalled();
   });
+
+  it('call CambiarContrasenia function when "Cambiar Contraseña" button is clicked', () => {
+    spyOn(component, 'CambiarContrasenia');
+    const cambiarContraseniaButton = fixture.debugElement.query(By.css('[color="primary"]')).nativeElement;
+    cambiarContraseniaButton.click();
+    expect(component.CambiarContrasenia).toHaveBeenCalled();
+  });
+
+  it('call EditarPerfil function when "Editar Perfil" button is clicked', () => {
+    spyOn(component, 'EditarPerfil');
+    const editarPerfilButton = fixture.debugElement.query(By.css('[color="accent"]')).nativeElement;
+    editarPerfilButton.click();
+    expect(component.EditarPerfil).toHaveBeenCalled();
+  });
+
+  it('call logout function when "Cerrar Sesion" button is clicked', () => {
+    spyOn(component, 'logout');
+    const cerrarSesionButton = fixture.debugElement.query(By.css('[color="link"]')).nativeElement;
+    cerrarSesionButton.click();
+    expect(component.logout).toHaveBeenCalled();
+  });
+
+
+
 });
 
