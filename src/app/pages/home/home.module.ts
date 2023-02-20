@@ -12,12 +12,16 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SliderComponent } from './components/slider/slider.component';
 import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
+import { SaldosComponent } from './components/saldos/saldos.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     TransaccionesComponent,
     AmountPipe,
+    ExpensesComponent,
+    SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
     SliderComponent,
@@ -31,6 +35,7 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     ReactiveFormsModule,
     MatProgressBarModule,
     SharedModule,
+    MatButtonModule
   ],
   exports: [HomePageComponent],
 })
