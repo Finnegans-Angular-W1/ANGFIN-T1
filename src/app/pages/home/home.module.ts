@@ -20,6 +20,7 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
 import { BalanceComponent } from './components/balance/balance.component';
 
 
+
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -29,6 +30,7 @@ import { BalanceComponent } from './components/balance/balance.component';
     GastosEditComponent,
     ExpensesComponent,
     ExchangeContainerComponent,
+    SliderComponent,
     BalanceComponent,
   ],
   imports: [

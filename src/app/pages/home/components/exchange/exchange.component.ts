@@ -4,6 +4,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ExchangeResponse } from 'src/app/core/models/ExchangeDivisas.models';
 import { ExchangeService } from 'src/app/core/services/exchange.service';
 
 @Component({
@@ -32,14 +33,20 @@ export class ExchangeComponent implements OnInit {
       });
     }
 
-    this.service.getDolar().subscribe(
+    /*this.service.getDolar().subscribe(
       resp => {
         this.exchangeResponse = resp[0].casa.compra;
       },
       err => {
         this.error = err.message;
       }
-    );
+    );*/
+
+    this.service.getDolar().subscribe(res =>{
+      this.exchangeResponse = res[0].casa.compra;
+      console.log(this.exchangeResponse)
+    })
+
   }
   valor1: number = 0;
   valor2: number = 0;

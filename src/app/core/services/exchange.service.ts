@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ExchangeResponse, casaApi } from '../models/ExchangeDivisas.models';
 import { HttpClient, } from '@angular/common/http';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { HttpClient, } from '@angular/common/http';
 export class ExchangeService {
   api = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
   
-  constructor(private http: HttpClient) {}
+  constructor(/*private http: HttpClient*/ private http:HttpService) {}
 
   convert(amount: number, toDolar: boolean, cotizacionHoy: string): number {
     if (toDolar) {
