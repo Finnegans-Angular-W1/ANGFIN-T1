@@ -25,7 +25,8 @@
         >
       </mat-form-field>
       <!-- TODO: cambiar por un link -->
-      <span class="forgot-password">¿Olvidaste la contraseña?</span>
+      <span class="forgot-password">¿Entrar con google?</span>
+
       <button
         [disabled]="loginForm.invalid"
         class="login-btn"
@@ -37,6 +38,19 @@
   </mat-card-content>
 
   <mat-card-footer>
-    <p class="toRegister">¿Aun no tienes una cuenta? <a [routerLink]="['/register']">Registate</a></p>
+
+    <button
+    [disabled]="loginForm.invalid"
+    class="login-btn padding"
+    mat-raised-button
+    color="accent"
+    (click)="onclick()">
+    Login with Google
+  </button>
+ 
+    <p class="toRegister">
+      <br>
+      ¿Aun no tienes una cuenta? <a [routerLink]="['/register']">Registrate</a>
+    </p>
   </mat-card-footer>
 </mat-card>
