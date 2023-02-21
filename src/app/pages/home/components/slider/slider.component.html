@@ -1,0 +1,52 @@
+<div class="navigation-wrapper size" >
+  <div class="keen-slider keen-slider--vertical size"  #slider >
+    <div class="keen-slider__slide number-slide5">1</div>
+
+    <div class="keen-slider__slide number-slide2">
+      <div class="content">
+        <p>Descubri como sumar beneficios extra</p>
+        <img src="./assets/discount.svg" alt="discount image">
+      </div>
+    </div>
+    
+    <div class="keen-slider__slide number-slide1">
+      <div class="content">
+        <img src="./assets/saving-money.svg" alt="Saving money image">
+        <p>¿Sabias que tambien puedes ganar puntos?</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <svg
+  [ngClass]="'arrow arrow--left'"
+    (click)="prev()"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+  <path
+  d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
+  />
+</svg>
+
+  <svg
+    *ngIf="slider"
+    [ngClass]="
+      'arrow arrow--right ' 
+    "
+    (click)="next()"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+  </svg>
+</div>
+
+<div class="dots">
+  <button
+    (click)="moveTo(i)"
+    *ngFor="let slide of dotHelper; let i = index"
+    [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+  ></button>
+</div>
+

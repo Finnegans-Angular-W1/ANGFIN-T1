@@ -1,0 +1,42 @@
+.mobile-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-form {
+      max-width: 80%;
+    }
+  }
+  
+
