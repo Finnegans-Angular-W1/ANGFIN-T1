@@ -23,7 +23,8 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
     SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
-    SliderComponent,
+    ExpensesComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,

@@ -31,6 +31,7 @@ import { InvestementsComponent } from './components/investements/investements.co
 import { MaterialModule } from './material/material.module';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { AuthEffects } from './core/state/effects/auth.effect';
+import { FooterComponent } from './components/footer/footer.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { AuthService } from './core/services/auth.service';

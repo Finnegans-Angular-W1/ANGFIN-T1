@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     SidebarComponent,
-    FooterComponent,
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
