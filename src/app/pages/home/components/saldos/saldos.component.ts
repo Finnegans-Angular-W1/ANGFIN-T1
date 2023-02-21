@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -17,28 +18,36 @@ export class SaldosComponent implements OnInit, OnDestroy {
 
   // data a enviar a la api
   userId!: number;
-  data!: any;
+  formData!: any;
 
   httpSubscription: Subscription = new Subscription;
+
+  cargarSaldosForm!: FormGroup;
 
   constructor(
     private accountsService: AccountsService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
     // TODO: Pendiente tomar el userId del store cuando el store esté implementado
+
+    this.cargarSaldosForm = this.fb.group({
+      amount: ['', [Validators.required, Validators.min(0)]],
+      concept: ['', Validators.required],
+      date: ['', Validators.required],
+    });
   }
 
-  onSubmit($event: any): void {
-
-    this.data = $event;
-    delete this.data.date; // Borra la key 'date' que no es necesaria
-    this.data.type = "payment"; // Agrega la key 'type' que la api requiere
-
+  onSubmit(): void {
+    this.formData = this.cargarSaldosForm.value;
+    delete this.formData.date; // Borra la key 'date' que no es necesaria
+    this.formData = {...this.formData, type: 'payment'}; // Agrega la key 'type' que la api requiere
+    
     // POST
-    this.httpSubscription = this.accountsService.createDeposit(this.userId, this.data).subscribe({
+    this.httpSubscription = this.accountsService.createDeposit(this.userId, this.formData).subscribe({
       next: () => {
         this.dialog.open(DialogGenericoComponent, {
           data: {
@@ -60,7 +69,7 @@ export class SaldosComponent implements OnInit, OnDestroy {
 
   // Botón de regreso
   cancelar(): void {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']);
   }
 
   ngOnDestroy(): void {
