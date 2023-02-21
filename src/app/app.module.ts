@@ -8,7 +8,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './pages/home/home.component';
 import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { ROOT_REDUCERS } from './core/state/app.state';
@@ -31,7 +30,6 @@ import { InvestementsComponent } from './components/investements/investements.co
 import { MaterialModule } from './material/material.module';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { AuthEffects } from './core/state/effects/auth.effect';
-import { FooterComponent } from './components/footer/footer.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { AuthService } from './core/services/auth.service';
@@ -41,7 +39,6 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ListIngEgrComponent,
     ListIngresosComponent,
     ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent, EditarPerfilComponent,ContactsComponent],
