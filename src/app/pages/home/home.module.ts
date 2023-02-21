@@ -11,12 +11,13 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { RtitleComponent } from 'src/app/shared/components/rtitle/rtitle.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { SaldosComponent } from './components/saldos/saldos.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
+import { BalanceComponent } from './components/balance/balance.component';
+import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
     SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
-    SliderComponent
+    SliderComponent,
+    BalanceComponent,
+    ExchangeContainerComponent
   ],
   imports: [
     CommonModule,

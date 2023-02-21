@@ -69,11 +69,6 @@ const routes: Routes = [
     component: TransaccionesComponent 
   },
   {
-    path:'shar',
-    //canActivate: [PermissionsGuard],
-    loadChildren:()=> import('./shared/shared.module').then( m=> m.SharedModule)
-  },
-  {
     path: 'inversiones',
     component: InvestementsComponent,
     data: { animation: 'InversionesPage' }
