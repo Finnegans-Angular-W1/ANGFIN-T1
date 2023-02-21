@@ -14,17 +14,21 @@ import { Router } from '@angular/router';
 })
 export class FormularioReutilizableComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
+  @Input() valor :any = {}
   actionForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private router:Router) {}
 
   ngOnInit(): void {
     this.actionForm = this.fb.group({
-      amount: ['', [Validators.required, Validators.min(0)]],
-      concept: ['', Validators.required],
-      date: ['', Validators.required],
+      amount: [this.valor.amount, [Validators.required, Validators.min(0)]],
+      concept: [this.valor.concept, Validators.required],
+      date: [this.valor.date, Validators.required],
     });
+  
   }
+
+
 
   enviar() {
     this.handleSubmit.emit(this.actionForm.value);
