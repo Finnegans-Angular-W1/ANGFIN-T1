@@ -54,8 +54,10 @@ import { ExpensesComponent } from '../pages/home/components/expenses/expenses.co
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
+
     RtitleComponent,
     FooterComponent
+
   ],
   providers: [
     

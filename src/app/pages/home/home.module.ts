@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { RtitleComponent } from 'src/app/shared/components/rtitle/rtitle.component';
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 
+
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -26,6 +28,7 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
     SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
+    ExchangeContainerComponent
     SliderComponent
   ],
   imports: [
