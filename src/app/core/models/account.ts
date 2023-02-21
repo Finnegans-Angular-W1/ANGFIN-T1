@@ -1,5 +1,5 @@
 export interface Account {
-  creationDate: Date;
+  creationDate: string;
   money: string;
   isBlocked: boolean;
   userId: number;

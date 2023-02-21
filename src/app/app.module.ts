@@ -35,6 +35,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { AuthService } from './core/services/auth.service';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { DataEffects } from './core/state/effects/data.effect';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     UserProfileRoutingModuleModule,
     MaterialModule,
     AngularToastifyModule,
-    EffectsModule.forRoot([AlertEffects, AuthEffects]),
+    EffectsModule.forRoot([AlertEffects, AuthEffects, DataEffects]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],
