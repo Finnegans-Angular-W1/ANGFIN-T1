@@ -111,6 +111,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "e-wallet:build:production",
+            "firebaseProject": "e-wallet-30b5d",
+            "firebaseHostingSite": "e-wallet-30b5d"
+          }
         }
       }
     }

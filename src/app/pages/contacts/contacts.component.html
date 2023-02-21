@@ -1,0 +1,10 @@
+<mat-card class="card">
+    <mat-card-content>
+        <mat-list role="list">
+            <mat-list-item>Contactos</mat-list-item>
+            <mat-list-item role="listitem" *ngFor="let usuario of users">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="face" class="face-icon"></mat-icon>{{' ' + usuario.first_name + ' ' + usuario.last_name | titlecase  }}
+            </mat-list-item>
+          </mat-list>
+    </mat-card-content>
+  </mat-card>
