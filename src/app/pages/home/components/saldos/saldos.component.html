@@ -1,0 +1,12 @@
+<main class="saldos-container">
+    <!-- titulo -->
+    <app-rtitle [title]=saldosTitle class="saldos-title"></app-rtitle>
+
+    <!-- botón regresar -->
+    <section class="saldos-cancel-button-container">
+        <button mat-raised-button color="warn" (click)="cancelar()" class="saldos-cancel-button">Cancelar</button>
+    </section>
+    
+    <!-- form -->
+    <app-formulario-reutilizable (handleSubmit)="onSubmit($event)" class="saldos-form"></app-formulario-reutilizable>
+</main>

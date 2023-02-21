@@ -13,7 +13,7 @@ export class ExpensesComponent implements OnInit {
 
   //Se inyectaron los dos service por dudas con respecto a que endpoint enviar la info de este
   //componente. ELEGIR UN SOLO SERVICE. REVISAR SI ES NECESARIO CREAR UN SERVICE NUEVO.
-  constructor(private acountSvc:AccountsService, private transSvc:TransactionsService) { }
+  constructor(/*private acountSvc:AccountsService,*/ private transSvc:TransactionsService) { }
 
   ngOnInit(): void {
   }
