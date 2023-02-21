@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Ingresos</h1>
-    <table>
+    <table class="table">
       <thead>
         <tr>
-          <th>Id</th>
+          <th>Transacción</th>
           <th>Monto</th>
           <th>Concepto</th>
           <th>Fecha</th>     
@@ -14,7 +14,7 @@
           <td>{{ ingreso.id }}</td>
           <td>{{ ingreso.amount }}</td>
           <td>{{ ingreso.concept }}</td>
-          <td>{{ ingreso.date }}</td>
+          <td >{{ ingreso.date | date:'dd/MM/yyyy' }}</td>
         </tr>
       </tbody>
     </table>
