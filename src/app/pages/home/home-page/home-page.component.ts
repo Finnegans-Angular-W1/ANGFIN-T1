@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/core/models/user';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { AppState } from 'src/app/core/state/app.state';
+import { selectUser } from 'src/app/core/state/selector/Auth.selector';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
-
+  user!:Observable<User|null>
+  constructor(private store: Store<AppState>) { }
   ngOnInit(): void {
+    this.user = this.store.select(selectUser)
   }
 
 }

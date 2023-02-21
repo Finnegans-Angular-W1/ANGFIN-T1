@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from 'angular-toastify';
+import { catchError, EMPTY, tap, map, exhaustMap } from 'rxjs';
+import { User } from 'src/app/core/models/user';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -8,7 +12,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
   registerForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private toast: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -21,8 +29,15 @@ export class RegistroComponent implements OnInit {
   }
 
   onRegister() {
-    // TODO
-    console.log(this.registerForm.value);
+    // this.toast.info('mensaje')
+    this.auth
+      .register(this.registerForm.value)
+      .subscribe({
+        next: (res)=>{this.toast.success('El usuario ha sido creado exitosamente')},
+        error: e=>{
+          this.toast.error(e.message)
+        }
+      })
   }
 
   showTerms() {

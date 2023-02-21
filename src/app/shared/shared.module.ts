@@ -9,7 +9,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
 import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
-import { ExchangeContainerComponent } from '../pages/home/components/exchange-container/exchange-container.component';
 
 import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,21 +30,20 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
-    ExchangeContainerComponent
-
+    RtitleComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     RouterModule,
     MaterialModule,
-    FormsModule ,
-    ReactiveFormsModule ,
-    MatFormFieldModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     SidebarComponent,
@@ -54,10 +52,13 @@ import { HttpClientModule } from '@angular/common/http';
     FormularioReutilizableComponent,
     ExchangeComponent,
     ExchangeRateComponent,
+    ExchangeComponent,
+    FormularioReutilizableComponent,
     RtitleComponent
 
   ],
   providers: [
+    
   ]
 })
 export class SharedModule {}

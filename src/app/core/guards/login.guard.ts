@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { AppState } from '../state/app.state';
+import { selectIsAuthenticated } from '../state/selector/Auth.selector';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginGuard implements CanActivate {
-  token: string | null = null;
-  constructor(private auth: AuthService, private router: Router) {
-    this.token = this.auth.getToken();
+  isAuth!: boolean;
+  constructor(private store: Store<AppState>, private router: Router) {
+    store.select(selectIsAuthenticated).subscribe(res => (this.isAuth = res));
   }
-  canActivate(): Observable<boolean> | boolean {
 
-    if(this.token){
-      this.router.navigate(['home']);
-      return false
-    }else{
-      return true;
-    }
+  canActivate(): Observable<boolean> | boolean {
+    if (this.isAuth) this.router.navigate(['home']);
+
+    return !this.isAuth;
   }
 }

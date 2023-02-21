@@ -1,15 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { MatSidenav } from '@angular/material/sidenav';
+import { logout } from 'src/app/core/state/actions/login.actions';
+import { selectIsAuthenticated } from 'src/app/core/state/selector/Auth.selector';
+import { AppState } from 'src/app/core/state/app.state';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-
   userLogged!: boolean;
 
   @ViewChild('sidebar') sidebar!: MatSidenav;
@@ -51,25 +53,26 @@ export class SidebarComponent implements OnInit {
   ];
 
   constructor(
-    private store: Store,
-    private router: Router
+    private store: Store<AppState>,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     // chequea si el usuario esta logueado
-    if ((localStorage.getItem('token')) === null) {
-      this.userLogged = false;
-    } else {
-      this.userLogged = true;
-    }
+    this.store.select(selectIsAuthenticated).subscribe(res=>{
+      this.userLogged = res
+    })    
   }
 
   // cierre de sesión
   logout(): void {
-    this.store.dispatch({ type: '[Auth] Logout' });
-    localStorage.clear();
-    this.router.navigate(['/login']);
-    this.sidebar.toggle();
-  }
 
+    this.store.dispatch(logout()); 
+    this.sidebar.toggle();
+
+    this.authService
+      .logoutGoogle()
+      .catch((error:any) => console.log(error));
+
+  }
 }
