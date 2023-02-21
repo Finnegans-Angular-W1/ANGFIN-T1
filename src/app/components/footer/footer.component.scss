@@ -3,25 +3,25 @@
 }
 .footerContainer {
   // margin-top: -20px;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
   width: 100%;
   background-color: #1c82ad;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-top-left-radius: 30%;
-  border-bottom-right-radius: 30%;
-  height: 500px;
+  border-top-left-radius: 17%;
+  border-bottom-right-radius: 17%;
+  height: 240px;
 }
 .twitters {
   overflow: auto;
   max-height: 200px;
-  width: 375px;
+  height: 130px;
+  width: 320px;
   border-radius: 15px;
-  margin: 0 0 0 25px;
+  margin: 0 0 0 5px;
 }
 .aTwitter {
-  max-height: 200px;
+  max-height: 100px;
   overflow: auto;
   min-width: 300px;
 }
@@ -32,41 +32,49 @@
 .footerFlex {
   display: flex;
   justify-content: space-between;
+  flex-grow: 1;
   align-items: center;
-  height: 400px;
-  width: 1288px;
+  height: 110px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
 }
 
 .imagen-logo {
   background-image: url('../../../asset/logo/logo.svg');
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 100px;
+  width: 270px;
+  height: 50px;
 }
 .imagen-logoContainer {
-  width: 50%;
-  height: 170px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
 }
 .ul-Footer {
   width: 25%;
+  height: 100px;
 }
 li {
   list-style-type: none;
-  padding: 10px;
+  padding: 5px;
   font-family: 'Playfair Display', serif;
   text-align: end;
-  margin: 5px;
+  margin: 2px;
   transition: 0.2s;
+  width: 60%;
 }
 li:hover {
   background-color: #00337c;
   transition: 0.2s;
   border-radius: 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 li a {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-decoration: none;
   color: aliceblue;
   text-align: start;
@@ -77,50 +85,119 @@ li a {
   font-family: 'Raleway', sans-serif;
   color: aliceblue;
   text-align: center;
-  font-size: 1rem;
+  font-size: 12px;
+  margin-top: 35px;
 }
 .containerParrafo {
-  margin: 0 auto;
-  max-width: 800px;
+  padding: 0px 15px 0px 0px;
+  max-width: 990px;
   padding-right: 25px;
   padding-left: 25px;
 }
+.pantalla-199{
+  display: none;
+}
 
 
-/*Parte responsive. Fijarse cuando esten el resto de los elementos de la app para hacerlo mejor
-Aparentemente el widget de Twitter no funciona bien en responsive. Revisar*/
-
-/*@media (max-width: 375px) {
-  .footerContainer {
-    // margin-top: -20px;
+@media (max-width: 1000px) {
+  .pantallaGrande{
+    display: none;
+  }
+  .pantalla-199{
+    display: flex;
+  }
+  .footerFlex {
+    height: 60px;
+  }
+  .twitters992{
+    overflow: auto;
+    max-height: 200px;
+    height: 130px;
+    width: 600px;
+    border-radius: 15px;
+    margin: 0 0 0 5px;
+  }
+  .whitget991{
     display: flex;
     justify-content: center;
-    width: 100%;
-    background-color: #1c82ad;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top-left-radius: 30%;
-    border-bottom-right-radius: 30%;
-    height: auto;
   }
-
-  .container {
-    // margin-top: -20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .copyright{
+    margin-top: 0;
+    padding-top: 5px;
   }
-
+  .footerContainer{
+    height: 290px;
+    border-top-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+  }
   .imagen-logo {
-    background-image: url('../../../asset/logo/logo.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 290px;
-    height: 47px;
+    width: 175px;
+    height: 35px;
   }
   .imagen-logoContainer {
-    width: 228px;
-    height: 170px;
+    height: 40px;
   }
-}*/
+  .ul-Footer {
+    margin: 0%;
+    width: 33%;
+    height: 80px;
+  }
+  li {
+    width: 83%;
+  }
+  li a {
+    font-size: 17px;
+  }
+
+}
+@media (max-width: 768px) {
+  .pantallaGrande{
+    display: none;
+  }
+  li {
+    width: 100%;
+  }
+  li a {
+    font-size: 15px;
+  }
+  .footerContainer {
+    height: 300px;
+  }
+ 
+}
+@media (max-width: 602px) {
+  .pantallaGrande{
+    display: none;
+  }
+  li a {
+    font-size: 12px;
+  }
+  .copyright {
+    font-size: 9px;
+  }
+  .twitters992{
+    //padding-top: 30px;
+    max-width: 350px;
+    margin: 0%;
+  }
+  .whitget991{
+    margin-top: 7px;
+  }
+}
+@media (max-width: 430px) {
+  .pantallaGrande{
+    display: none;
+  }
+  li a {
+    font-size: 10px;
+  }
+  .copyright {
+    font-size: 9px;
+  }
+  .whitget991{
+    margin-top: 25px;
+  }
+  .footerContainer {
+    height: 330px;
+  }
+}

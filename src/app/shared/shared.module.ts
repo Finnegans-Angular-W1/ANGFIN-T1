@@ -9,8 +9,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
 import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
-import { ExchangeContainerComponent } from '../pages/home/components/exchange-container/exchange-container.component';
-
 import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularioReutilizableComponent } from './components/formulario-reutilizable/formulario-reutilizable.component';
@@ -23,14 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     SidebarComponent,
-    FooterComponent,
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
-
+    FormularioReutilizableComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -54,10 +51,9 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
-    RtitleComponent
+    RtitleComponent,
+    FooterComponent,
   ],
-  providers: [
-    
-  ]
+  providers: [],
 })
 export class SharedModule {}

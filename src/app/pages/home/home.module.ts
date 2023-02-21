@@ -8,9 +8,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
-import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { SliderComponent } from './components/slider/slider.component';
+import { SaldosComponent } from './components/saldos/saldos.component';
+import { MatButtonModule } from '@angular/material/button';
+import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component'; 
 
 @NgModule({
@@ -18,9 +22,11 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     HomePageComponent,
     TransaccionesComponent,
     AmountPipe,
+    SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
-    ExchangeContainerComponent
+    ExchangeContainerComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,9 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     ReactiveFormsModule,
     MatProgressBarModule,
     SharedModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [HomePageComponent],
 })

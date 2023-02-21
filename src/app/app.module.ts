@@ -11,7 +11,6 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ErrorInterceptor } from './core/services/error.interceptor';
-import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
 import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
@@ -25,13 +24,25 @@ import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { AuthEffects } from './core/state/effects/auth.effect';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { AuthService } from './core/services/auth.service';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 
 @NgModule({
-  declarations: [AppComponent, ListIngEgrComponent,
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent],
-
+    ListEgresosComponent,
+    InvestementsComponent,
+    EditarPerfilComponent,
+    ContactsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,7 +53,6 @@ import { AuthEffects } from './core/state/effects/auth.effect';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    HomeModule,
     UsuariosModule,
     UsuariosRoutingModule,
     SharedModule,
@@ -51,12 +61,19 @@ import { AuthEffects } from './core/state/effects/auth.effect';
     MaterialModule,
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
-  providers: [{
-    provide:HTTP_INTERCEPTORS, 
-    useClass: GlobalHttpInterceptor,
-    multi: true,
-  },{provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi: true},ToastService],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalHttpInterceptor,
+      multi: true,
+    },
+    ToastService,
+    AuthService,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

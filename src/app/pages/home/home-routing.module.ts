@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
+import { SaldosComponent } from './components/saldos/saldos.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'expenses',
     component:ExpensesComponent    //ruta de prueba del comp. BORRAR cuando ya no se necesite
+  },
+  {
+    path: 'saldos',
+    component: SaldosComponent
   }
 ];
 
