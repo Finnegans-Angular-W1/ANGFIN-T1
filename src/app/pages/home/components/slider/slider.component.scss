@@ -73,9 +73,9 @@
 
 .navigation-wrapper {
   position: relative;
-  width: 90%;
-  max-width: 550px;
-  margin: 0 auto;
+  width: 90vw;
+  // max-width: 550px;
+  // margin: 0 auto;
 }
 
 .dots {
@@ -104,8 +104,8 @@
 }
 
 .arrow {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -128,22 +128,62 @@
 }
 
 .content{
-  padding: 3rem;
-  display: flex;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 65% 30%;
   align-items: center;
   height: 100%;
   justify-content: space-between;
-  gap: 1rem;
+  // gap: 1rem;
+
+  div{
+    display: flex;
+    flex-direction: column;
+  }
 
   p{
     font-size: 1.5rem;
-    line-height: 1.3rem;
+    line-height: 1.5rem;
   }
 
   img{
-    max-width: 40%;
+    max-width: 100%;
     height: 120px;
   }
+}
+
+form{
+  display: flex;
+  width: 100px;
+  align-items: center;  
+  line-height: 1.5rem;
+  font-size: 1rem;
+  margin: 0 auto;
+
+  input{
+    max-width: 60px;
+    background-color: #fff;
+    border-radius: .5rem 0  0 .5rem;
+    outline: none;
+    border: none;
+    padding:.3rem .6rem;
+    color: #000;
+    height: 1.5rem;
+  }
+
+  button{
+    padding:.3rem .6rem;
+    outline: none;
+    border: none;
+    border-radius: 0 .5rem .5rem 0;
+    background-color: #653ebf;
+    font-weight: bold;
+    color: #fff;
+
+    height: 2.1rem;
+    font-size: 1rem;
+  }
+
 }
 
 

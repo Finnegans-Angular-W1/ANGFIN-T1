@@ -8,7 +8,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './pages/home/home.component';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ErrorInterceptor } from './core/services/error.interceptor';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
@@ -35,7 +34,6 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ListIngEgrComponent,
     ListIngresosComponent,
     ListEgresosComponent,

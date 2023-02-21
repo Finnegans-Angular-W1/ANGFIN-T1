@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { SharedRoutingModule } from './shared-routing.module';
 import { FooterComponent } from '../components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
@@ -31,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
     RouterModule,
     MaterialModule,
     FormsModule,
@@ -53,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormularioReutilizableComponent,
     RtitleComponent,
     FooterComponent,
+    SidebarComponent
   ],
   providers: [],
 })

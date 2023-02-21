@@ -14,8 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { SliderComponent } from './components/slider/slider.component';
 import { SaldosComponent } from './components/saldos/saldos.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
-import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component'; 
+import { BalanceComponent } from './components/balance/balance.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     GastosEditComponent,
     ExpensesComponent,
     ExchangeContainerComponent,
-    SliderComponent
+    BalanceComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     SharedModule,
     MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   exports: [HomePageComponent],
 })
