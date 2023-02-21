@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Account } from '../models/account';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -14,5 +15,12 @@ export class AccountsService {
 
   createDeposit(id:number, body:any) {
     return this.http.post(`/accounts/${id}`, body);
+  }
+
+  getAcconts(){
+    return this.http.get<Account[]>(
+      'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/accounts/me',
+      true
+    );
   }
 }

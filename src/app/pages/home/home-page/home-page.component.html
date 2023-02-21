@@ -1,8 +1,16 @@
-<p>home-page works!</p>
+<main>
+  <h2 class="welcome">
+    Bienvenido, {{ user?.first_name ? user?.first_name : 'Usuario' }}!
+    <button (click)="test()">Test it!</button>
+  </h2>
 
-<app-transacciones></app-transacciones>
-<p>{{user|async|json}}</p>
+  <app-balance [money]="account?.money"></app-balance>
+  
+  <app-transacciones [transactions]="transactions"></app-transacciones>
 
-<app-gastos-edit></app-gastos-edit>
-<app-transacciones></app-transacciones>
+  <app-slider></app-slider>
 
+  <app-exchange-rate></app-exchange-rate>
+</main>
+
+<!-- <app-gastos-edit></app-gastos-edit> -->

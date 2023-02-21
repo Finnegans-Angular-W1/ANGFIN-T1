@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exchange-container.component.scss']
 })
 export class ExchangeContainerComponent implements OnInit {
+  exchTitle = 'Convertir Dinero'
 
   constructor() { }
 
