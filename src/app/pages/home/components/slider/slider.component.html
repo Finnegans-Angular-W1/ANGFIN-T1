@@ -1,6 +1,18 @@
 <div class="navigation-wrapper size" >
   <div class="keen-slider keen-slider--vertical size"  #slider >
-    <div class="keen-slider__slide number-slide5">1</div>
+    <div class="keen-slider__slide number-slide5">
+      <div class="content">
+        <div>
+          <p>Regala una sonrisa con una donacion</p>
+          <form ngNoForm [action]="url" method="POST">    
+            <input type="hidden" name="name" value="Donar" />        
+            <input type="number" name="price" required min="50">
+            <button>Donar</button>      
+          </form>
+        </div>
+        <img src="./assets/humanitarian.svg" alt="charity">
+      </div>
+    </div>
 
     <div class="keen-slider__slide number-slide2">
       <div class="content">
@@ -11,8 +23,8 @@
     
     <div class="keen-slider__slide number-slide1">
       <div class="content">
-        <img src="./assets/saving-money.svg" alt="Saving money image">
         <p>¿Sabias que tambien puedes ganar puntos?</p>
+        <img src="./assets/saving-money.svg" alt="Saving money image">
       </div>
     </div>
   </div>

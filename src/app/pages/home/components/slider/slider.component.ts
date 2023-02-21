@@ -15,6 +15,8 @@ import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 export class SliderComponent implements AfterViewInit, OnDestroy {
   @ViewChild('slider') sliderElement!: ElementRef<HTMLElement>;
 
+  url = 'https://mercado-pago-alkemi.vercel.app/checkout';
+
   currentSlide: number = 0;
   dotHelper: Array<Number> = [];
   slider: KeenSliderInstance | null = null;
@@ -41,7 +43,7 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
             if (mouseOver) return;
             timeout = setTimeout(() => {
               slider.next();
-            }, 1500);
+            }, 3000);
           }
           slider.on('created', () => {
             slider.container.addEventListener('mouseover', () => {
@@ -72,8 +74,8 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
     this.slider?.next();
   }
 
-  moveTo(n:number){
-    this.slider?.moveToIdx(n)
+  moveTo(n: number) {
+    this.slider?.moveToIdx(n);
   }
 
   ngOnDestroy() {

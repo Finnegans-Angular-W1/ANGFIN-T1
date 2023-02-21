@@ -16,7 +16,9 @@ import { RtitleComponent } from 'src/app/shared/components/rtitle/rtitle.compone
 import { SliderComponent } from './components/slider/slider.component';
 import { SaldosComponent } from './components/saldos/saldos.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
     SharedModule,
     MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   exports: [HomePageComponent],
 })
