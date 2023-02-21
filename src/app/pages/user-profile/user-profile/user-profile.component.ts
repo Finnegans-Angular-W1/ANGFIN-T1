@@ -6,7 +6,7 @@ import { User } from 'src/app/core/models/user';
 import { logout } from 'src/app/core/state/actions/login.actions';
 
 @Component({
-  selector: 'app-user-Profile',
+  selector: 'app-user-profile',
   templateUrl: './user-Profile.component.html',
   styleUrls: ['./user-Profile.component.scss']
 })

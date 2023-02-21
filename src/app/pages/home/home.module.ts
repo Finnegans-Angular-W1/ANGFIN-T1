@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { BalanceComponent } from './components/balance/balance.component';
-import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
+
 
 
 @NgModule({
@@ -32,7 +32,6 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     ExchangeContainerComponent,
     SliderComponent,
     BalanceComponent,
-    ExchangeContainerComponent
   ],
   imports: [
     CommonModule,
