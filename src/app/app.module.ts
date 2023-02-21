@@ -9,9 +9,12 @@ import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthRegistroRoutingModule } from './pages/auth-registro/auth-registro-routing.module';
+import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ErrorInterceptor } from './core/services/error.interceptor';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+//import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { HomeModule } from './pages/home/home.module';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
@@ -31,6 +34,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { AuthService } from './core/services/auth.service';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     ListEgresosComponent,
     InvestementsComponent,
     ExchangeContainerComponent,
+    ContactsComponent,
   ],
 
   imports: [
@@ -53,7 +58,6 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    HomeModule,
     UsuariosModule,
     UsuariosRoutingModule,
     SharedModule,
@@ -63,8 +67,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-
+    provideAuth(() => getAuth())
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, 
@@ -77,6 +80,6 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     ToastService,
     AuthService,
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

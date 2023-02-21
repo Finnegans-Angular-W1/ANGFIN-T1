@@ -3,6 +3,7 @@
   <table>
     <thead>
       <tr>
+        <th>Id</th>
         <th>Monto</th>
         <th>Concepto</th>
         <th>Fecha</th>
@@ -11,6 +12,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.id }}</td>
         <td>{{ transaction.amount }}</td>
         <td>{{ transaction.concept }}</td>
         <td>{{ transaction.date }}</td>

@@ -9,6 +9,8 @@ import { LoginGuard } from './core/guards/login.guard';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { TransaccionesComponent } from './pages/home/components/transacciones/transacciones.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,11 @@ const routes: Routes = [
     path:'password-reset',
     component: PasswordResetComponent 
   },
+
+  {
+    path:'transa',
+    component: TransaccionesComponent 
+  },
   {
     path:'shar',
     //canActivate: [PermissionsGuard],
@@ -62,6 +69,10 @@ const routes: Routes = [
   {
     path: 'inversiones',
     component: InvestementsComponent,
+  },
+  {
+    path: 'contactos',
+    component: ContactsComponent,
   },
   {
     path: 'user-profile',
