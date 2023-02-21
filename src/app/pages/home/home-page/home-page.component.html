@@ -4,10 +4,8 @@
 <app-slider></app-slider>
 <p>{{user|async|json}}</p>
 <form class="formDonar" ngNoForm [action]="url" method="POST">
-    <input type="hidden" name="name" value="Donar" />
+    <input type="hidden" name="name" value="Donacion" />
     <input type="text" name="price" />
-
     <button type="submit">Donar</button>
   </form>
 <app-gastos-edit></app-gastos-edit>
-<app-transacciones></app-transacciones>
