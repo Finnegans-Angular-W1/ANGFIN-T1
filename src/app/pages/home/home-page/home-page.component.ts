@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Account } from 'src/app/core/models/account';
+import { Transaction, TransactionType } from 'src/app/core/models/transactions';
 import { User } from 'src/app/core/models/user';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { HttpService } from 'src/app/core/services/http.service';
 import { AppState } from 'src/app/core/state/app.state';
 import { selectUser } from 'src/app/core/state/selector/Auth.selector';
 
@@ -12,11 +15,35 @@ import { selectUser } from 'src/app/core/state/selector/Auth.selector';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  url = 'https://mercado-pago-alkemi.vercel.app/checkout';
+  user!:User|null
 
-  user!:Observable<User|null>
-  constructor(private store: Store<AppState>) { }
+  account: Account|null= null
+  transactions: Transaction[] = []
+
+
+  constructor(private store: Store<AppState>, private http: HttpService) { }
+
+
+
   ngOnInit(): void {
-    this.user = this.store.select(selectUser)
+    this.store.select(selectUser).subscribe(user => this.user=user)
+
+    this.http.get<Account[]>(
+      'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/accounts/me',
+      true
+    ).subscribe((res)=>{
+      this.account = res[0]
+    })
+
+
+    this.http.get<{data:Transaction[], nextPage:string, previousPage:string}>(
+      'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/transactions',
+      true
+    ).subscribe(res=>{
+      this.transactions = res.data
+    });
+
   }
 
 }

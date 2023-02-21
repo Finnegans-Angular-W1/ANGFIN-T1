@@ -8,7 +8,7 @@ import { FormularioReutilizableComponent } from 'src/app/shared/components/formu
   templateUrl: './transacciones.component.html',
   styleUrls: ['./transacciones.component.scss'],
 })
-export class TransaccionesComponent implements OnInit {
+export class TransaccionesComponent  {
   editar: Boolean = false
   indiceEditando: number = -1
   data!: any;
@@ -18,41 +18,7 @@ export class TransaccionesComponent implements OnInit {
   }
 
   // TODO: Elminar mook data
-  ngOnInit(): void {
 
-    this.transactions = [
-      {
-        amount: 500,
-        concept: 'Pago de honorarios',
-        date: '2022-10-26 15:00:00',
-        type: "topup",
-        accountId: 1,
-        userId: 4,
-        to_account_id: 5,
-        id:21
-      },
-      {
-        amount: 200,
-        concept: 'Pizzeria',
-        date: '2022-10-26 15:00:00',
-        type: 'payment',
-        accountId: 1,
-        userId: 4,
-        to_account_id: 5,
-        id:32
-      },
-      {
-        amount: 800,
-        concept: 'Pago de medicamentos',
-        date: '2022-10-26 15:00:00',
-        type: 'payment',
-        accountId: 1,
-        userId: 4,
-        to_account_id: 5,
-        id:292
-      },
-    ];
-  }
   editarGasto(i: number, editar:Transaction) {
     this.indiceEditando = i
     this.editar ? this.editar = false : this.editar = true

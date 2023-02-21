@@ -1,0 +1,65 @@
+.eye-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.money-card {
+  background-color: #0081c9;
+//   margin-bottom: 2rem;
+  color: #fafafa;
+
+  mat-card-title,
+  i,
+  svg {
+    fill: #fafafa;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  h3 {
+    margin: 0;
+    display: flex;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .currency {
+    font-size: 1.3rem;
+  }
+
+  mat-card-actions {
+    display: flex;
+    gap: 1rem;
+
+    .action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+      justify-content: center;
+      width: 70px;
+
+      text-align: center;
+      font-size: 12px;
+      line-height: 12px;
+      text-decoration: none;
+      color: #000;
+
+      background-color: #fafafa;
+      padding: .3rem 0;
+      border-radius: .5rem;
+
+      i, svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        fill: #022132;
+      }
+    }
+  }
+}
