@@ -49,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
+
     RtitleComponent,
     FooterComponent,
     SidebarComponent
