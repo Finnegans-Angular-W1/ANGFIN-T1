@@ -41,7 +41,11 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     AppComponent,
     ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent, EditarPerfilComponent,ContactsComponent],
+    ListEgresosComponent,
+    InvestementsComponent,
+    EditarPerfilComponent,
+    ContactsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -61,11 +65,10 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     AngularToastifyModule,
     EffectsModule.forRoot([AlertEffects, AuthEffects]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
   ],
   providers: [
-    { provide: FIREBASE_OPTIONS, 
-      useValue: environment.firebase },
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalHttpInterceptor,
@@ -74,6 +77,6 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     ToastService,
     AuthService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

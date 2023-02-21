@@ -9,7 +9,7 @@ export class BalanceComponent {
   constructor() {}
 
   showMoney: boolean = true;
-  @Input() money:number = 0;
+  @Input() money:any = 0;
 
 
   toggleShowMoney() {

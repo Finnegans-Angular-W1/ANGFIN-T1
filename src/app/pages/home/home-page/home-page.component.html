@@ -3,11 +3,13 @@
     Bienvenido, {{ user?.first_name ? user?.first_name : 'Usuario' }}!
   </h2>
 
-  <app-balance></app-balance>
+  <app-balance [money]="account?.money"></app-balance>
   
-  <app-transacciones></app-transacciones>
+  <app-transacciones [transactions]="transactions"></app-transacciones>
 
   <app-slider></app-slider>
+
+  <app-exchange-rate></app-exchange-rate>
 </main>
 
 <!-- <app-gastos-edit></app-gastos-edit> -->
