@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class UsersService {
   }
 
   resetPassword(userId:number, body:any) {
-    return this.http.patch(`/users/resetPassword/${userId}`, body);
+    return this.http.patch(`${environment.Api}/users/resetPassword/${userId}`, body);
   };
 
 }
