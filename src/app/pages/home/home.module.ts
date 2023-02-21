@@ -17,7 +17,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { BalanceComponent } from './components/balance/balance.component';
-import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +26,8 @@ import { ExchangeContainerComponent } from './components/exchange-container/exch
     SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
-    SliderComponent,
+    ExchangeContainerComponent,
     BalanceComponent,
-    ExchangeContainerComponent
   ],
   imports: [
     CommonModule,
