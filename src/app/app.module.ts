@@ -29,6 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { AuthEffects } from './core/state/effects/auth.effect';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -42,12 +43,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     HomeComponent,
     ListIngEgrComponent,
     ListIngresosComponent,
-    ListEgresosComponent,
-    InvestementsComponent,
-    ExchangeContainerComponent,
-    ContactsComponent,
-  ],
-
+    ListEgresosComponent,InvestementsComponent,ExchangeContainerComponent, EditarPerfilComponent,ContactsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
