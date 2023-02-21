@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Transaction } from '../models/transactions';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -10,5 +11,8 @@ export class TransactionsService {
 
   createTransaction(body:any) {
     return this.http.post('/transactions', body);
+  }
+  updateTransaction( body: Transaction) {
+    return this.http.put(`/transactions/${body.id}`, body);
   }
 }

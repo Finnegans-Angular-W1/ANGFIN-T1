@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { RtitleComponent } from 'src/app/shared/components/rtitle/rtitle.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { SaldosComponent } from './components/saldos/saldos.component';
@@ -33,6 +35,8 @@ import { GastosEditComponent } from './components/gastos-edit/gastos-edit.compon
     ReactiveFormsModule,
     MatProgressBarModule,
     SharedModule,
+    MatFormFieldModule,
+    MatIconModule,
     MatButtonModule
   ],
   exports: [HomePageComponent],
