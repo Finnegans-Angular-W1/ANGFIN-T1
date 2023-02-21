@@ -58,7 +58,6 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    HomeModule,
     UsuariosModule,
     UsuariosRoutingModule,
     SharedModule,
@@ -71,7 +70,8 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     provideAuth(() => getAuth())
   ],
   providers: [
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    { provide: FIREBASE_OPTIONS, 
+      useValue: environment.firebase },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalHttpInterceptor,
