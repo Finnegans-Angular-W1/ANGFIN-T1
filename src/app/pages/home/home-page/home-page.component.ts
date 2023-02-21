@@ -12,7 +12,7 @@ import { selectUser } from 'src/app/core/state/selector/Auth.selector';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
+  url = 'https://mercado-pago-alkemi.vercel.app/checkout';
   user!:Observable<User|null>
   constructor(private store: Store<AppState>) { }
   ngOnInit(): void {
