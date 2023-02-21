@@ -15,7 +15,7 @@ interface usuarioToken {
 })
 export class LoginFormComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
-
+  isCheck: any;
   loginForm!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
