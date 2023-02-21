@@ -1,25 +1,55 @@
 .container {
-    display: flex;
-    justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, #1c82ad, #00337c);
+  color: white;
     
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
   }
-  
-  table {
-    width: 80%;
+    
+  .table {
+    margin-top: 2rem;
+       
     border-collapse: collapse;
-    margin: 1rem 0;
-   
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    width: 100%;
     
-  }
-  
-  @media only screen and (max-width: 600px) {
-    table {
-      width: 100%;
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    
+
+    
+    th {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    tbody tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+    
+    
+    
+    // cel
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    
+      th, td {
+        padding: 0.8rem;
+      }
+    
+      h1 {
+        font-size: 1.5rem;
+      }
+
     }
   }
+}

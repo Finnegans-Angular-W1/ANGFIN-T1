@@ -22,7 +22,7 @@ export class ListIngresosComponent implements OnInit {
     .subscribe(data => {
       const transactions = data.data;
       this.ingresos = transactions.filter((transaction: any) => transaction.type === 'topup');
-      this.ingresos.sort((a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      this.ingresos.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
       for (const ingreso of this.ingresos) {
         this.totalIngresos += ingreso.amount;
       }

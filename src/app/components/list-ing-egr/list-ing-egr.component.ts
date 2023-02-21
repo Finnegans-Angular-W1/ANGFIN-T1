@@ -27,7 +27,7 @@ export class ListIngEgrComponent implements OnInit {
     this.httpService.get<any>('http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/transactions', true)
       .subscribe(data => {
         this.transactions = data.data
-          .sort((a:any, b:any) => new Date(a.date).getTime() - new Date(b.date).getTime())
+          .sort((a:any, b:any) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .slice(0, 4);
           //this.balance = this.totIngr-this.totEgr;
 
