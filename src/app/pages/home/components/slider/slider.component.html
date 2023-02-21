@@ -31,7 +31,7 @@
 
   
   <svg
-  [ngClass]="'arrow arrow--left'"
+    class="arrow arrow--left"
     (click)="prev()"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -43,9 +43,7 @@
 
   <svg
     *ngIf="slider"
-    [ngClass]="
-      'arrow arrow--right ' 
-    "
+    class="arrow arrow--right"
     (click)="next()"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

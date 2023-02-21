@@ -30,6 +30,7 @@ import { BalanceComponent } from './components/balance/balance.component';
     ExpensesComponent,
     ExchangeContainerComponent,
     BalanceComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
