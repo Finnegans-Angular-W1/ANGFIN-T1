@@ -16,19 +16,22 @@ export class ExchangeRateComponent implements OnInit {
   constructor(private excSvc:ExchangeService) { }
 
   ngOnInit(): void {
-    //this.getValores()
+    this.getValores()
   }
 
   
   //Metodo para obtener los valores del Api de cotizacion de Dolar. Comentado ya que todavia
   //no se aprobo el PR con el servcie de exchange actualizado con la API. REVISAR CODIGO
   
-  /*getValores(){
+  getValores(){
     this.excSvc.getDolar().subscribe(
       res =>{
         this.valorCompra = res[0].casa.compra;
+        console.log(this.valorCompra)
         this.valorVenta = res[0].casa.venta;
+        console.log(this.valorVenta)
       }
-    );*/
+    );
   }
+}
 

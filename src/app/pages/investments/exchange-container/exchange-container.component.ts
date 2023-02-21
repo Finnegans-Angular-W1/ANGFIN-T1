@@ -5,7 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './exchange-container.component.html',
   styleUrls: ['./exchange-container.component.scss']
 })
-export class ExchangeContainerComponent {
+
+export class ExchangeContainerComponent  {
+  exchTitle = 'Convertir Dinero'
+
 
   constructor() { }
 
