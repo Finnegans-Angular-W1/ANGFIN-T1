@@ -1,11 +1,13 @@
-<p>home-page works!</p>
+<main>
+  <h2 class="welcome">
+    Bienvenido, {{ user?.first_name ? user?.first_name : 'Usuario' }}!
+  </h2>
 
-<app-transacciones></app-transacciones>
-<app-slider></app-slider>
-<p>{{user|async|json}}</p>
-<form class="formDonar" ngNoForm [action]="url" method="POST">
-    <input type="hidden" name="name" value="Donacion" />
-    <input type="text" name="price" />
-    <button type="submit">Donar</button>
-  </form>
-<app-gastos-edit></app-gastos-edit>
+  <app-balance></app-balance>
+  
+  <app-transacciones></app-transacciones>
+
+  <app-slider></app-slider>
+</main>
+
+<!-- <app-gastos-edit></app-gastos-edit> -->

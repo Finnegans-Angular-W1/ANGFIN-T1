@@ -13,10 +13,15 @@ import { selectUser } from 'src/app/core/state/selector/Auth.selector';
 })
 export class HomePageComponent implements OnInit {
   url = 'https://mercado-pago-alkemi.vercel.app/checkout';
-  user!:Observable<User|null>
+  user!:User|null
+
+
   constructor(private store: Store<AppState>) { }
+
+
+
   ngOnInit(): void {
-    this.user = this.store.select(selectUser)
+    this.store.select(selectUser).subscribe(user => this.user=user)
   }
 
 }
