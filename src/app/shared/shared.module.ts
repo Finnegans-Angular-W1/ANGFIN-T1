@@ -9,7 +9,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
 import { MaterialModule } from '../material/material.module';
 import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
-import { ExchangeContainerComponent } from '../pages/home/components/exchange-container/exchange-container.component';
 
 import { ExchangeComponent } from '../pages/home/components/exchange/exchange.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,16 +20,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { ExpensesComponent } from '../pages/home/components/expenses/expenses.component';
 
+
 @NgModule({
   declarations: [
     SidebarComponent,
-    FooterComponent,
     LoaderComponent,
     DialogComponent,
     RtitleComponent,
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
+    RtitleComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -54,8 +55,8 @@ import { ExpensesComponent } from '../pages/home/components/expenses/expenses.co
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
-    RtitleComponent
-
+    RtitleComponent,
+    FooterComponent
   ],
   providers: [
     
