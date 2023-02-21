@@ -74,8 +74,10 @@
 .navigation-wrapper {
   position: relative;
   width: 90vw;
-  // max-width: 550px;
+  // max-width: 500px;
   // margin: 0 auto;
+  // max-width: 200px;
+  // max-width: 400px;
 }
 
 .dots {
@@ -187,3 +189,8 @@ form{
 }
 
 
+@media screen and (min-width: 900px){
+  .navigation-wrapper{
+    width: 450px;
+  }
+}
