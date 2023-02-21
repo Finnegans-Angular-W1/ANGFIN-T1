@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Movimientos</h1>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Id</th>
@@ -15,8 +15,8 @@
         <td>{{ transaction.id }}</td>
         <td>{{ transaction.amount }}</td>
         <td>{{ transaction.concept }}</td>
-        <td>{{ transaction.date }}</td>
-        <td>{{ transaction.type }}</td>
+        <td >{{ transaction.date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ transaction.type === 'payment' ? 'Egreso' : 'Ingreso' }}</td>
       </tr>
     </tbody>
   </table>

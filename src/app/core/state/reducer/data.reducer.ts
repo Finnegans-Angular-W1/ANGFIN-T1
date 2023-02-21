@@ -11,6 +11,7 @@ export interface DataState{
 
 const initialState:DataState = {
   account:{
+    id:0,
     creationDate: "",
     money: "",
     isBlocked: false,
