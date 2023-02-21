@@ -1,6 +1,7 @@
 <main>
   <h2 class="welcome">
     Bienvenido, {{ user?.first_name ? user?.first_name : 'Usuario' }}!
+    <button (click)="test()">Test it!</button>
   </h2>
 
   <app-balance [money]="account?.money"></app-balance>

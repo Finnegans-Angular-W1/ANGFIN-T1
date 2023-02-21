@@ -11,3 +11,10 @@ export interface Transaction {
 
 export type TransactionType = 'topup' | 'payment';
 
+
+export interface TransactionResponse {
+  data: Transaction[];
+  nextPage: string;
+  previousPage: string;
+}
+
