@@ -1,24 +1,27 @@
 <mat-card>
-    <mat-card-content>
-        <div class="contenedor-Perfil">
-            <img [src]="avatar" class="avatar-user">
-            <div class="datos-user">
-                <h1>{{usuario.first_name + " " + usuario.last_name }}</h1>
-                <h2>Puntos : {{usuario.points}}</h2>
-                <p>Email : {{usuario.email}}</p>
+  <mat-card-content>
+    <div class="contenedor-Perfil">
+      <img [src]="avatar" class="avatar-user" />
+      <div class="datos-user">
+        <h1>{{ usuario.first_name + ' ' + usuario.last_name }}</h1>
+        <h2>Puntos : {{ usuario.points }}</h2>
+        <p>Email : {{ usuario.email }}</p>
 
-
-                <div class=" botones"> 
-<<<<<<< HEAD
-                    <button class="btn1" mat-raised-button color="primary" (click)="CambiarContrasenia()">Cambiar Contraseña</button>
-                    <button mat-raised-button color="accent" (click)="EditarPerfil()"> Editar Perfil</button>
-=======
-                    <button mat-raised-button color="primary" (click)="CambiarContrasenia()">Cambiar Contraseña</button>
-                    <button mat-raised-button color="accent" (click)="EditarPerfil()">Editar Perfil</button>
->>>>>>> f361745514d36d20947c3b9c3a2978b40210cd9f
-                    <button mat-raised-button color="link" (click)="logout()">Cerrar Sesion</button>
-                </div>
-            </div>
+        <div class="botones">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="CambiarContrasenia()">
+            Cambiar Contraseña
+          </button>
+          <button mat-raised-button color="accent" (click)="EditarPerfil()">
+            Editar Perfil
+          </button>
+          <button mat-raised-button color="link" (click)="logout()">
+            Cerrar Sesion
+          </button>
         </div>
-    </mat-card-content>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>

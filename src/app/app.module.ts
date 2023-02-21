@@ -21,7 +21,7 @@ import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
-import { InvestementsComponent } from './components/investements/investements.component';
+import { InvestementsComponent } from './pages/investments/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { AuthEffects } from './core/state/effects/auth.effect';
@@ -38,7 +38,6 @@ import { DataEffects } from './core/state/effects/data.effect';
     ListIngEgrComponent,
     ListIngresosComponent,
     ListEgresosComponent,
-    InvestementsComponent,
     EditarPerfilComponent,
     ContactsComponent,
   ],

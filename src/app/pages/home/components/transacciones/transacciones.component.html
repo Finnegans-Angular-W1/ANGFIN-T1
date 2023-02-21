@@ -2,7 +2,7 @@
   <ul class="transactions-container">
     <li class="transaction" *ngFor="let transaction of transactions;let i = index">
       <div class="left">
-        <p class="concept">{{ transaction.concept }}<mat-icon (click)="editarGasto(i,transaction)"> edit</mat-icon></p>
+        <p class="concept"><mat-icon (click)="editarGasto(i,transaction)"> edit</mat-icon>{{ transaction.concept }}</p>
         <app-formulario-reutilizable *ngIf="editar && indiceEditando === i" [valor]="transaction" (handleSubmit)="onSubmit($event)"></app-formulario-reutilizable>
         <span class="date">{{ transaction.date | date: 'dd/MM/yyyy' }}</span>
       </div>

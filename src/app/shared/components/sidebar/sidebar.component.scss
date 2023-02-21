@@ -18,6 +18,10 @@
     }
 }
 
+.newContainer{
+    min-height: calc(100vh - 55px);
+}
+
 
 // media queries
 @media screen and (min-width: 420px) {

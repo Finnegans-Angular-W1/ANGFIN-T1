@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { SliderComponent } from './components/slider/slider.component';
@@ -28,7 +28,6 @@ import { BalanceComponent } from './components/balance/balance.component';
     SaldosComponent,
     GastosEditComponent,
     ExpensesComponent,
-    ExchangeContainerComponent,
     BalanceComponent,
     SliderComponent
   ],

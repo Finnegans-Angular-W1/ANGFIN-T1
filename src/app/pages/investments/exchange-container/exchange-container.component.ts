@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './exchange-container.component.html',
   styleUrls: ['./exchange-container.component.scss']
 })
-export class ExchangeContainerComponent implements OnInit {
+export class ExchangeContainerComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
 
 }

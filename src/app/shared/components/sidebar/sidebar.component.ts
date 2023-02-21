@@ -23,6 +23,10 @@ export class SidebarComponent implements OnInit {
       path: 'home',
     },
     {
+      title: 'Perfil',
+      path: 'profile',
+    },
+    {
       title: 'Ingresos',
       path: 'ingresos',
     },
@@ -35,20 +39,16 @@ export class SidebarComponent implements OnInit {
       path: 'enviar-dinero',
     },
     {
-      title: 'Plazos fijos',
-      path: 'plazos-fijos',
+      title: 'Inversiones',
+      path: 'investments',
     },
     {
       title: 'Contactos',
       path: 'contactos',
     },
     {
-      title: 'Perfil',
-      path: 'perfil',
-    },
-    {
-      title: 'Billeteras',
-      path: 'billeteras',
+      title: 'Movimientos',
+      path: 'movimientos',
     },
   ];
 

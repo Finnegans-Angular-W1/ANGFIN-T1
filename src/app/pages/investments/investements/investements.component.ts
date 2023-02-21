@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as console from 'console';
 
 @Component({
   selector: 'app-investements',
   templateUrl: './investements.component.html',
   styleUrls: ['./investements.component.scss']
 })
-export class InvestementsComponent implements OnInit {
+export class InvestementsComponent {
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -28,8 +27,7 @@ export class InvestementsComponent implements OnInit {
     ]],
   });
 
-  ngOnInit(): void {
-  }
+
 
   //inputs
   deposito! : number; // = this.inversion.get('inversion')?.value;; //dinero a invertir
