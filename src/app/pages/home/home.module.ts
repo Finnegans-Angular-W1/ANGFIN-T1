@@ -8,10 +8,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
 import { ExpensesComponent } from './components/expenses/expenses.component';
-import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SaldosComponent } from './components/saldos/saldos.component';
 import { MatButtonModule } from '@angular/material/button';
+import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     TransaccionesComponent,
     AmountPipe,
     ExpensesComponent,
-    SaldosComponent
+    SaldosComponent,
     GastosEditComponent,
     ExpensesComponent
   ],

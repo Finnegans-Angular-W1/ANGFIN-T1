@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     SidebarComponent,
@@ -29,8 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     RtitleComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
-
+    FormularioReutilizableComponent,
+    RtitleComponent
   ],
   imports: [
     CommonModule,
@@ -53,8 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExchangeComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent
-
+    FormularioReutilizableComponent,
+    RtitleComponent
   ],
   providers: [
     
