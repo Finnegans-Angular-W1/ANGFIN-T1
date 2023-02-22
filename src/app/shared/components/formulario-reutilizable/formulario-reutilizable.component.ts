@@ -16,14 +16,14 @@ export class FormularioReutilizableComponent implements OnInit {
   @Output() handleSubmit = new EventEmitter();
   @Input() valor :any = {}
   actionForm!: FormGroup;
-
+  @Input() date:boolean = true;
   constructor(private fb: FormBuilder, private router:Router) {}
 
   ngOnInit(): void {
     this.actionForm = this.fb.group({
-      amount: [this.valor.amount, [Validators.required, Validators.min(0)]],
+      amount: [this.valor.amount, [Validators.required]],
       concept: [this.valor.concept, Validators.required],
-      date: [this.valor.date, Validators.required],
+      date: [this.valor.date],
     });
   
   }

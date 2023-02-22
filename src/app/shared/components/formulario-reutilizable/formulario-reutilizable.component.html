@@ -17,13 +17,9 @@
             >El campo Concepto es requerido</mat-error
           >
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" *ngIf="date">
           <mat-label>Date</mat-label>
           <input type="date" matInput formControlName="date" />
-          <mat-error
-            *ngIf="actionForm.get('date')?.touched && actionForm.get('date')?.errors?.['required']"
-            >El campo Date es requerido</mat-error
-          >
         </mat-form-field>
         <button
           [disabled]="actionForm.invalid"
