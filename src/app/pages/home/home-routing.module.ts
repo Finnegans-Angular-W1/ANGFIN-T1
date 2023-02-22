@@ -10,10 +10,10 @@ const routes: Routes = [
     path: '',
     component: HomePageComponent,
   },
-  {
-    path: 'expenses',
-    component: GastosEditComponent, //ruta de prueba del comp. BORRAR cuando ya no se necesite
-  },
+  //{
+    //path: 'expenses',
+    //component: GastosEditComponent, //ruta de prueba del comp. BORRAR cuando ya no se necesite
+  //},
   {
     path: 'expenses',
     component:ExpensesComponent    //ruta de prueba del comp. BORRAR cuando ya no se necesite

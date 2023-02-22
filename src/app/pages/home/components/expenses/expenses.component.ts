@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { ToastService } from 'angular-toastify';
 import { AccountsService } from 'src/app/core/services/accounts.service';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
+import { getData } from 'src/app/core/state/actions/data.action';
+import { AppState } from 'src/app/core/state/app.state';
+import { selectDataImportant } from 'src/app/core/state/selector/data.selector';
 
 @Component({
   selector: 'app-expenses',
@@ -9,31 +14,29 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 })
 export class ExpensesComponent implements OnInit {
   expensesTitle:string = 'Gastos'; //titulo que se inyecta a rtitle por medio de un @Input
-  data!:any;                       //REVISAR ESTA VARIABLE
+  accountId!:number;
 
-  //Se inyectaron los dos service por dudas con respecto a que endpoint enviar la info de este
-  //componente. ELEGIR UN SOLO SERVICE. REVISAR SI ES NECESARIO CREAR UN SERVICE NUEVO.
-  constructor(/*private acountSvc:AccountsService,*/ private transSvc:TransactionsService) { }
+  constructor(private acountSvc:AccountsService,
+              private store:Store<AppState>,
+              private alert:ToastService) { }
 
   ngOnInit(): void {
+    this.store.select(selectDataImportant).subscribe(res =>{
+      this.accountId = res.account_id;
+    })
   }
 
-  //REVISAR ESTE METODO (esto obtiene la data desde el formulario-reutilizable y la envia por POST
-  //usando el service de Accounts.
-  /*onSubmit(event: any){
-    this.data = event;
-    console.log(this.data) //TODO: ELIMINAR cuando ya no se necesite
-    this.acountSvc.createDeposit(this.data);
-  }*/
-
-  //REVISAR ESTE METODO (esto obtiene la data desde el formulario-reutilizable y la envia por POST
-  //usando el service de Transactions.
   onSubmit(event: any){
-    this.data = event;
-    console.log(this.data) //TODO: ELIMINAR cuando ya no se necesite
-    this.transSvc.createTransaction(this.data).subscribe(res =>{
-      console.log(res);
-    });
+    const body:any = {
+      amount:event.amount > 0? event.amount*(-1): event.amount,
+      concept:event.concept,
+      type:'payment'
+    }
+    console.log(body)
+    this.acountSvc.createDeposit(this.accountId, body).subscribe({
+      next:res =>{this.alert.success('La operacion ha sido exitosa!')},
+      error: err =>{this.alert.error('Ha ha salido mal!'); console.log(err)},
+      complete: () => {this.store.dispatch(getData())}
+    })
   };
-
 }
