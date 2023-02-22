@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs'
-import { HttpService } from '../../core/services/http.service'
+import { HttpService } from '../../../core/services/http.service'
 import { DatePipe } from '@angular/common';
 
 @Component({

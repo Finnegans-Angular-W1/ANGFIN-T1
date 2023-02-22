@@ -4,13 +4,14 @@ import { PermissionsGuard } from './core/guards/permissions.guard';
 import { PasswordResetComponent } from './pages/user-profile/password-reset/password-reset.component';
 import { InvestementsComponent } from './components/investements/investements.component';
 import { LoginGuard } from './core/guards/login.guard';
-import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
-import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
-import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
+import { ListIngEgrComponent } from './pages/transaction/list-ing-egr/list-ing-egr.component';
+import { ListEgresosComponent } from './pages/transaction/list-egresos/list-egresos.component';
+import { ListIngresosComponent } from './pages/transaction/list-ingresos/list-ingresos.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { TransaccionesComponent } from './pages/home/components/transacciones/transacciones.component';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { SaldosComponent } from './pages/home/components/saldos/saldos.component';
+import { TransactionModule } from './pages/transaction/transaction.module';
 
 const routes: Routes = [
   {
@@ -38,8 +39,11 @@ const routes: Routes = [
   },
   {
     path: 'transactions',
-    component: ListIngEgrComponent,
-    data: { animation: 'MovimientosPage' },
+    loadChildren: () =>
+    import('./pages/transaction/transaction.module').then( 
+      m => m.TransactionModule
+      ),
+    //data: { animation: 'MovimientosPage' },
   },
   {
     path: 'home',
@@ -66,16 +70,8 @@ const routes: Routes = [
     path: 'deposit',
     component: SaldosComponent,
   },
-  {
-    path: 'liste',
-    component: ListEgresosComponent,
-
-  },
-  {
-    path: 'listi',
-    component: ListIngresosComponent,
-
-  },
+  
+  
   {
     path: 'contacts',
     component: ContactsComponent,
