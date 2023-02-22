@@ -3,11 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as dataActions from '../actions/data.action';
 import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
 import { EMPTY, of } from 'rxjs';
-import { AuthService } from '../../services/auth.service';
 import { ToastService } from 'angular-toastify';
-import { LoginResult } from '../../models/auth';
-import { Router } from '@angular/router';
-import { User } from '../../models/user';
 import { TransactionsService } from '../../services/transactions.service';
 import { AccountsService } from '../../services/accounts.service';
 

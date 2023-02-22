@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { slideInAnimation } from './animations';
 import { AuthState } from './core/models/auth';
 import { AuthService } from './core/services/auth.service';
 import { loginSuccess } from './core/state/actions/login.actions';
+import { AppState } from './core/state/app.state';
+import { selectIsLoading } from './core/state/selector/Auth.selector';
 
 
 @Component({
@@ -15,12 +17,14 @@ import { loginSuccess } from './core/state/actions/login.actions';
     slideInAnimation
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'e-wallet';
+
+  isLoading:boolean|null = false
 
   constructor(
     private auth: AuthService,
-    private store: Store<AuthState>,
+    private store: Store<AppState>,
     private contexts: ChildrenOutletContexts
     ) {
     const token = this.auth.getToken()
@@ -31,6 +35,12 @@ export class AppComponent {
         })
       );
     }
+  }
+
+  ngOnInit(): void {
+    this.store.select(selectIsLoading).subscribe(res=>{
+      this.isLoading = res
+    })
   }
 
   // Animaciones de transición entre páginas
