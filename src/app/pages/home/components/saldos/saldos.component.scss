@@ -5,13 +5,20 @@
 
     .saldos-cancel-button-container {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
 
         .saldos-cancel-button {
             margin: 1rem 0;
         }
     }
 }
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+  }
 
 // media queries
 @media screen and (min-width: 800px) {
