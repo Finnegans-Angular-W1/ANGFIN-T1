@@ -7,8 +7,8 @@ import { ExchangeService } from 'src/app/core/services/exchange.service';
   styleUrls: ['./exchange-rate.component.scss']
 })
 export class ExchangeRateComponent implements OnInit {
-  public valorCompra:string = '';
-  public valorVenta:string = '';
+  public valorCompra:any;
+  public valorVenta:any;
   
   // Ttile que iba en el componente rtitle, probablemente copiar al componente contenedor
   //exchangeTitle:string = 'Tipo de cambio del dia de la fecha';  
@@ -23,7 +23,7 @@ export class ExchangeRateComponent implements OnInit {
   //Metodo para obtener los valores del Api de cotizacion de Dolar. Comentado ya que todavia
   //no se aprobo el PR con el servcie de exchange actualizado con la API. REVISAR CODIGO
   
-  getValores(){
+  /*getValores(){
     this.excSvc.getDolar().subscribe(
       res =>{
         this.valorCompra = res[0].casa.compra;
@@ -32,6 +32,17 @@ export class ExchangeRateComponent implements OnInit {
         console.log(this.valorVenta)
       }
     );
+  }*/
+
+  getValores(){
+    this.excSvc.getDolar().subscribe(
+      (res:any) =>{
+        this.valorCompra = res[0].value_buy;
+        console.log(this.valorCompra);
+        this.valorVenta = res[0].value_sell;
+        console.log(this.valorVenta)
+      }
+    )
   }
 }
 

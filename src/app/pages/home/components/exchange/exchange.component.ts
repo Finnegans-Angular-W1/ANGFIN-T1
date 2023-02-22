@@ -20,6 +20,9 @@ export class ExchangeComponent implements OnInit {
   exchangeResponse: string = '';
   error: string = '';
 
+  //Variable creada por Maxi
+  public valorCompra:any;
+
   constructor(
     private service: ExchangeService,
     private formBuilder: FormBuilder
@@ -33,6 +36,7 @@ export class ExchangeComponent implements OnInit {
       });
     }
 
+    //Metodo creado por Lucas
     /*this.service.getDolar().subscribe(
       resp => {
         this.exchangeResponse = resp[0].casa.compra;
@@ -41,10 +45,11 @@ export class ExchangeComponent implements OnInit {
         this.error = err.message;
       }
     );*/
-
-    this.service.getDolar().subscribe(res =>{
-      this.exchangeResponse = res[0].casa.compra;
-      console.log(this.exchangeResponse)
+    
+    //Metodo creado por MAXI
+    this.service.getDolar().subscribe((res:any) =>{
+      this.valorCompra = res[0].value_buy
+      console.log(this.valorCompra)
     })
 
   }
@@ -53,8 +58,8 @@ export class ExchangeComponent implements OnInit {
   onSubmit() {
     this.valoresFormulario1 = this.form.value.pesoDolar;
     this.valoresFormulario2 = this.form.value.dolarPeso;
-    this.valor1 = this.service.convert(this.valoresFormulario1, true, this.exchangeResponse);
-    this.valor2 = this.service.convert(this.valoresFormulario2, false, this.exchangeResponse);
+    this.valor1 = this.service.convert(this.valoresFormulario1, true, this.valorCompra);
+    this.valor2 = this.service.convert(this.valoresFormulario2, false, this.valorCompra);
   }
 
   //Aca funcionalidad de cambios
