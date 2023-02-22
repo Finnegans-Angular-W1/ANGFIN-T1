@@ -8,6 +8,22 @@
     text-align: center;
     margin-top: 1rem;
   }
+
+  .btn {
+    background-color: #1c82ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 1%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #00337c;
+  }
+  
     
   .table {
     margin-top: 2rem;
