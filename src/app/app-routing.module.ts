@@ -67,6 +67,16 @@ const routes: Routes = [
     component: SaldosComponent,
   },
   {
+    path: 'liste',
+    component: ListEgresosComponent,
+
+  },
+  {
+    path: 'listi',
+    component: ListIngresosComponent,
+
+  },
+  {
     path: 'contacts',
     component: ContactsComponent,
   },
@@ -82,16 +92,8 @@ const routes: Routes = [
       ),
     data: { animation: 'NotFoundPage' },
   },
-  {
-    path: 'liste',
-    component: ListEgresosComponent,
-    data: { animation: 'EgresosPage' },
-  },
-  {
-    path: 'listi',
-    component: ListIngresosComponent,
-    data: { animation: 'IngresosPage' },
-  },
+  
+  
 ];
 
 @NgModule({
