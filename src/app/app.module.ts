@@ -10,9 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ROOT_REDUCERS } from './core/state/app.state';
 import { ErrorInterceptor } from './core/services/error.interceptor';
-import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
-import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
-import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
+
 import { UserProfileModule } from './pages/user-profile/user-profile.module';
 import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
@@ -29,13 +27,12 @@ import { AuthService } from './core/services/auth.service';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DataEffects } from './core/state/effects/data.effect';
+import { TransactionModule } from './pages/transaction/transaction.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListIngEgrComponent,
-    ListIngresosComponent,
-    ListEgresosComponent,
+    
     InvestementsComponent,
     EditarPerfilComponent,
     ContactsComponent,
@@ -58,6 +55,8 @@ import { DataEffects } from './core/state/effects/data.effect';
     EffectsModule.forRoot([AlertEffects, AuthEffects, DataEffects]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    TransactionModule
+    
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
@@ -71,4 +70,5 @@ import { DataEffects } from './core/state/effects/data.effect';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
