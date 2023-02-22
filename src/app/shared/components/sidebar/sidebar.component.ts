@@ -36,11 +36,11 @@ export class SidebarComponent implements OnInit {
     },
     {
       title: 'Ingresos',
-      path: 'ingresos',
+      path: 'listi',
     },
     {
       title: 'Egresos',
-      path: 'egresos',
+      path: 'liste',
     },
     {
       title: 'Enviar dinero',
