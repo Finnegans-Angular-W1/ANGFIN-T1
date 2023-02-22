@@ -3,13 +3,14 @@
     margin: 0 auto;
     text-align: center;
 
+    .saldos-cancel-button {
+        margin: 1rem 0;
+    }
+
+    /*Clase de un ceontenedor del button regresar.*/
     .saldos-cancel-button-container {
         display: flex;
         justify-content: flex-end;
-
-        .saldos-cancel-button {
-            margin: 1rem 0;
-        }
     }
 }
 

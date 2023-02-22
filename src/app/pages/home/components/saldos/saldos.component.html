@@ -2,10 +2,7 @@
     <!-- titulo -->
     <app-rtitle [title]=saldosTitle class="saldos-title"></app-rtitle>
 
-    <!-- botón regresar -->
-    <section class="saldos-cancel-button-container">
-        <button mat-raised-button color="warn" (click)="cancelar()" class="saldos-cancel-button">Cancelar</button>
-    </section>
+    
     
     <!-- form -->
     <mat-card>
@@ -44,7 +41,16 @@
               (submit)="onSubmit()">
               Enviar
             </button>
+            <button 
+              mat-raised-button 
+              color="accent" 
+              (click)="cancelar()" 
+              class="saldos-cancel-button">
+              Regresar al Home
+            </button>
           </form>
+
+          
           
           <!-- <div class=" back-home">
             <button

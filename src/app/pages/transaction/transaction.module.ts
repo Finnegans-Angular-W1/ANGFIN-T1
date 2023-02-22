@@ -6,6 +6,8 @@ import { TransactionRoutingModule } from './transaction-routing.module';
 import { ListEgresosComponent } from './list-egresos/list-egresos.component';
 import { ListIngresosComponent } from './list-ingresos/list-ingresos.component';
 
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { ListIngresosComponent } from './list-ingresos/list-ingresos.component';
   imports: [
     CommonModule,
     TransactionRoutingModule,
+    MatButtonModule
     
   ]
 })
