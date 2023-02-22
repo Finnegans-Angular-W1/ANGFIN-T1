@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/core/models/Auth.service';
 import { User } from 'src/app/core/models/user';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { UserProfileComponent } from './user-profile.component';
-import { PasswordResetComponent } from '../../usuarios/password-reset/password-reset.component';
+import { PasswordResetComponent } from '../password-reset/password-reset.component';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { By } from '@angular/platform-browser';

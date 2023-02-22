@@ -4,19 +4,25 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {MatCardModule } from '@angular/material/card';
 import {MatButtonModule } from '@angular/material/button';
 import { UserProfileRoutingModuleModule } from './user-profile-routing-module.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 
 @NgModule({
-  declarations: [ UserProfileComponent],
+  declarations: [UserProfileComponent, PasswordResetComponent],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    UserProfileRoutingModuleModule
+    UserProfileRoutingModuleModule,
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
-  exports:[
-    UserProfileComponent
-  ]
+  exports: [UserProfileComponent],
 })
-export class UserProfileModule { }
+export class UserProfileModule {}

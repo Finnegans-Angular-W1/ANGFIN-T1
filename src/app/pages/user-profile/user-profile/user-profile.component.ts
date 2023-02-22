@@ -33,7 +33,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   CambiarContrasenia() {
-    this.router.navigate(['/password-reset']);
+    this.router.navigate(['/profile/reset-password']);
   }
 
   EditarPerfil() {

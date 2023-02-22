@@ -13,8 +13,6 @@ import { ErrorInterceptor } from './core/services/error.interceptor';
 import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
 import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
 import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
-import { UsuariosModule } from './pages/usuarios/usuarios.module';
-import { UsuariosRoutingModule } from './pages/usuarios/usuarios-routing.module';
 import { UserProfileModule } from './pages/user-profile/user-profile.module';
 import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
@@ -52,8 +50,6 @@ import { DataEffects } from './core/state/effects/data.effect';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    UsuariosModule,
-    UsuariosRoutingModule,
     SharedModule,
     UserProfileModule,
     UserProfileRoutingModuleModule,
