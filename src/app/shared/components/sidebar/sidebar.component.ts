@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   @ViewChild('sidebar') sidebar!: MatSidenav;
 
   // links de navegación
-  sidebarLinks = [
+  sidebarLinks:{title:string, path:string}[] = [
     {
       title: 'Home',
       path: 'home',
@@ -29,6 +29,13 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Movimientos',
       path: 'transactions',
+    },{
+      title:"Agregar Dinero",
+      path:'deposit'
+    },
+    {
+      title: 'Enviar dinero',
+      path: 'send-money',
     },
     {
       title: 'Inversiones',
@@ -41,10 +48,6 @@ export class SidebarComponent implements OnInit {
     {
       title: 'Egresos',
       path: 'egresos',
-    },
-    {
-      title: 'Enviar dinero',
-      path: 'send-money',
     },
     {
       title: 'Contactos',
