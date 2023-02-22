@@ -63,7 +63,7 @@ const routes: Routes = [
     data: { animation: 'InversionesPage' },
   },
   {
-    path: 'send-money',
+    path: 'deposit',
     component: SaldosComponent,
   },
   {

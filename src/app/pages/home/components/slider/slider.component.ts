@@ -22,48 +22,52 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
   slider: KeenSliderInstance | null = null;
 
   ngAfterViewInit() {
-    this.slider = new KeenSlider(
-      this.sliderElement.nativeElement,
-      {
-        initial: this.currentSlide,
-        loop: true,
-        slideChanged: s => {
-          this.currentSlide = s.track.details.rel;
+
+    setTimeout(()=>{
+
+      this.slider = new KeenSlider(
+        this.sliderElement.nativeElement,
+        {
+          initial: this.currentSlide,
+          loop: true,
+          slideChanged: s => {
+            this.currentSlide = s.track.details.rel;
+          },
         },
-      },
-      [
-        slider => {
-          let timeout:any;
-          let mouseOver = false;
-          function clearNextTimeout() {
-            clearTimeout(timeout);
-          }
-          function nextTimeout() {
-            clearTimeout(timeout);
-            if (mouseOver) return;
-            timeout = setTimeout(() => {
-              slider.next();
-            }, 3000);
-          }
-          slider.on('created', () => {
-            slider.container.addEventListener('mouseover', () => {
-              mouseOver = true;
-              clearNextTimeout();
-            });
-            slider.container.addEventListener('mouseout', () => {
-              mouseOver = false;
+        [
+          slider => {
+            let timeout:any;
+            let mouseOver = false;
+            function clearNextTimeout() {
+              clearTimeout(timeout);
+            }
+            function nextTimeout() {
+              clearTimeout(timeout);
+              if (mouseOver) return;
+              timeout = setTimeout(() => {
+                slider.next();
+              }, 3000);
+            }
+            slider.on('created', () => {
+              slider.container.addEventListener('mouseover', () => {
+                mouseOver = true;
+                clearNextTimeout();
+              });
+              slider.container.addEventListener('mouseout', () => {
+                mouseOver = false;
+                nextTimeout();
+              });
               nextTimeout();
             });
-            nextTimeout();
-          });
-          slider.on('dragStarted', clearNextTimeout);
-          slider.on('animationEnded', nextTimeout);
-          slider.on('updated', nextTimeout);
-        },
-      ]
-    );
-
-    this.dotHelper = [...Array(this.slider.track.details.slides.length).keys()];
+            slider.on('dragStarted', clearNextTimeout);
+            slider.on('animationEnded', nextTimeout);
+            slider.on('updated', nextTimeout);
+          },
+        ]
+      );
+  
+      this.dotHelper = [...Array(this.slider.track.details.slides.length).keys()];
+    })
   }
 
   prev() {
