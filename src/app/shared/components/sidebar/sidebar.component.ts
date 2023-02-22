@@ -23,6 +23,18 @@ export class SidebarComponent implements OnInit {
       path: 'home',
     },
     {
+      title: 'Perfil',
+      path: 'profile',
+    },
+    {
+      title: 'Movimientos',
+      path: 'transactions',
+    },
+    {
+      title: 'Inversiones',
+      path: 'investments',
+    },
+    {
       title: 'Ingresos',
       path: 'ingresos',
     },
@@ -32,23 +44,15 @@ export class SidebarComponent implements OnInit {
     },
     {
       title: 'Enviar dinero',
-      path: 'enviar-dinero',
-    },
-    {
-      title: 'Plazos fijos',
-      path: 'plazos-fijos',
+      path: 'send-money',
     },
     {
       title: 'Contactos',
-      path: 'contactos',
+      path: 'contacts',
     },
     {
-      title: 'Perfil',
-      path: 'perfil',
-    },
-    {
-      title: 'Billeteras',
-      path: 'billeteras',
+      title: 'Divisas',
+      path: 'exchange',
     },
   ];
 
@@ -59,20 +63,16 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     // chequea si el usuario esta logueado
-    this.store.select(selectIsAuthenticated).subscribe(res=>{
-      this.userLogged = res
-    })    
+    this.store.select(selectIsAuthenticated).subscribe(res => {
+      this.userLogged = res;
+    });
   }
 
   // cierre de sesión
   logout(): void {
-
-    this.store.dispatch(logout()); 
+    this.store.dispatch(logout());
     this.sidebar.toggle();
 
-    this.authService
-      .logoutGoogle()
-      .catch((error:any) => console.log(error));
-
+    this.authService.logoutGoogle().catch((error: any) => console.log(error));
   }
 }

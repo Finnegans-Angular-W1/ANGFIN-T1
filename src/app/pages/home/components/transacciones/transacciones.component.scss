@@ -17,6 +17,9 @@
 .concept{
   margin: 0;
   // font-size: 16px;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
 }
 
 .date{
@@ -28,4 +31,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+svg{
+  height: 20px;
+  width: 20px;
+  fill: gray;
+  cursor: pointer;
 }
