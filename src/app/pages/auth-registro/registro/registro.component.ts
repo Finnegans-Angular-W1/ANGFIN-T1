@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastService } from 'angular-toastify';
 import { catchError, EMPTY, tap, map, exhaustMap } from 'rxjs';
 import { User } from 'src/app/core/models/user';
@@ -15,7 +16,8 @@ export class RegistroComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
-    private toast: ToastService
+    private toast: ToastService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -43,5 +45,9 @@ export class RegistroComponent implements OnInit {
   showTerms() {
     // TODO
     alert('Terminos y condiciones');
+  }
+
+  backHome(){
+    this.router.navigate(['/login'])
   }
 }

@@ -10,7 +10,7 @@
   }
 
   .btn {
-    background-color: #1c82ad;
+    background-color: #00337c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -21,7 +21,8 @@
   }
   
   .btn:hover {
-    background-color: #00337c;
+    
+    background-color: #1c82ad;
   }
   
     
@@ -67,5 +68,9 @@
       }
 
     }
+  }
+
+  .btn-container{
+    margin: 0 0 0 1rem;
   }
 }
