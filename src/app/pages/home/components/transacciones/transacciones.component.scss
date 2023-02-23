@@ -5,13 +5,51 @@
   padding: 0;
   list-style: none;
   font-size: 16px;
-  margin: 1rem 2rem;
+  margin: 1rem 0;
   grid-area: "transacciones"
+}
+
+svg{
+  height: 20px;
+  width: 20px;
+  fill: gray;
+  cursor: pointer;
 }
 
 .transaction{
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 65px auto 30%;
+  border-bottom: .5px solid rgba(153, 153, 153, 0.3);
+  padding-bottom: .5rem;
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // background-color: #022132;
+  // border: 4px solid gray;
+  background-color: #f1f5ff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+
+  .topup-icon{
+    fill: #118C4F;  
+  }
+
+  .payment-icon{
+    fill: #022132;
+  }
+  
+  svg{
+    width: 35px;
+    height: 35px;
+    fill: #FFF;
+    cursor: auto;
+  }
+  
 }
 
 .concept{
@@ -33,10 +71,11 @@
   justify-content: center;
 }
 
-
-svg{
-  height: 20px;
-  width: 20px;
-  fill: gray;
-  cursor: pointer;
+a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
