@@ -7,6 +7,7 @@ import { AuthService } from './core/services/auth.service';
 import { loginSuccess } from './core/state/actions/login.actions';
 import { AppState } from './core/state/app.state';
 import { selectIsLoading } from './core/state/selector/Auth.selector';
+import { getLoading } from './core/state/selector/spinner.selector';
 
 
 @Component({
@@ -37,8 +38,8 @@ export class AppComponent implements OnInit{
     }
   }
 
-  ngOnInit(): void {
-    this.store.select(selectIsLoading).subscribe(res=>{
+  ngOnInit(): void { 
+    this.store.select(getLoading).subscribe(res=>{
       this.isLoading = res
     })
   }
