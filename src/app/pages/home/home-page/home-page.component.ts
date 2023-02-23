@@ -3,9 +3,11 @@ import { Store } from '@ngrx/store';
 import { Transaction } from 'src/app/core/models/transactions';
 import { User } from 'src/app/core/models/user';
 import { getData } from 'src/app/core/state/actions/data.action';
+import { setLoadingSpinner } from 'src/app/core/state/actions/spinner.actions';
 import { AppState } from 'src/app/core/state/app.state';
 import { selectUser } from 'src/app/core/state/selector/Auth.selector';
 import { selectDataImportant } from 'src/app/core/state/selector/data.selector';
+import { getLoading } from 'src/app/core/state/selector/spinner.selector';
 
 @Component({
   selector: 'app-home-page',
@@ -23,7 +25,13 @@ export class HomePageComponent implements OnInit {
 
   test() {
     console.log('testeando');
-    this.store.dispatch(getData());
+    this.store.dispatch(setLoadingSpinner({status:true}))
+
+    this.store.select(getLoading).subscribe((res)=>{
+      console.log(res)
+    })
+
+
   }
 
   ngOnInit(): void {
