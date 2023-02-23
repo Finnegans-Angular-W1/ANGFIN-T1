@@ -42,14 +42,6 @@ export class SidebarComponent implements OnInit {
       path: 'investments',
     },
     {
-      title: 'Ingresos',
-      path: 'listi',
-    },
-    {
-      title: 'Egresos',
-      path: 'liste',
-    },
-    {
       title: 'Contactos',
       path: 'contacts',
     },
