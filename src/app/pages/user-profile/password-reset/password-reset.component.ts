@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UsersService } from 'src/app/core/services/users.service';
 import { DialogGenericoComponent } from 'src/app/shared/components/dialog/components/dialos.generic';
@@ -30,7 +31,8 @@ export class PasswordResetComponent implements OnDestroy {
 
   constructor(
     private http: UsersService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router:Router
   ) {
     
     // Reactive form
@@ -89,6 +91,10 @@ export class PasswordResetComponent implements OnDestroy {
 
   ngOnDestroy():void {
     this.httpSubscription.unsubscribe();
+  }
+
+  backUser(){
+    this.router.navigate(['profile'])
   }
 
 }
