@@ -38,9 +38,7 @@ export class ExchangeRateComponent implements OnInit {
     this.excSvc.getDolar().subscribe(
       (res:any) =>{
         this.valorCompra = res[0].value_buy;
-        console.log(this.valorCompra);
         this.valorVenta = res[0].value_sell;
-        console.log(this.valorVenta)
       }
     )
   }

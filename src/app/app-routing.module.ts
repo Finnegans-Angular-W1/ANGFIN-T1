@@ -13,6 +13,8 @@ import { ExchangeContainerComponent } from './pages/home/components/exchange-con
 import { SaldosComponent } from './pages/home/components/saldos/saldos.component';
 import { TransactionModule } from './pages/transaction/transaction.module';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
+import { ExpensesComponent } from './pages/home/components/expenses/expenses.component';
+
 
 const routes: Routes = [
   {
@@ -72,8 +74,15 @@ const routes: Routes = [
     component: SaldosComponent,
   },
   {
+
     path: 'eperfil',
     component: EditarPerfilComponent,
+    },
+
+    {
+    path: "send-money",
+    component: ExpensesComponent
+
   },
   
   {
