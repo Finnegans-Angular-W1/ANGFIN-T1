@@ -37,7 +37,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   EditarPerfil() {
-    this.router.navigate(['/editar-perfil']);
+    this.router.navigate(['/eperfil']);
   }
 
   logout() {

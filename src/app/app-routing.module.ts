@@ -12,6 +12,7 @@ import { TransaccionesComponent } from './pages/home/components/transacciones/tr
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
 import { SaldosComponent } from './pages/home/components/saldos/saldos.component';
 import { TransactionModule } from './pages/transaction/transaction.module';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 
 const routes: Routes = [
   {
@@ -70,7 +71,10 @@ const routes: Routes = [
     path: 'deposit',
     component: SaldosComponent,
   },
-  
+  {
+    path: 'eperfil',
+    component: EditarPerfilComponent,
+  },
   
   {
     path: 'contacts',
