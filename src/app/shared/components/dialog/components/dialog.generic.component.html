@@ -1,3 +1,4 @@
+<!--
 <div class="container">
   <h1 > {{data.title}}</h1>
   <div mat-dialog-content>
@@ -23,3 +24,29 @@
     </button>
   </div>
 </div>
+-->
+
+
+<h1 [innerHTML]="data.title"></h1>
+<mat-dialog-content class="mat-typography" [innerHTML]="data.data">
+    
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    class="btn-Aceptar"
+    (click)="onNoClick()">
+    Aceptar
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    type="button"
+    class="btn-cancelar"
+    (click)="onNoClick()">
+    Cancelar
+  </button>
+</mat-dialog-actions>
