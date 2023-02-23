@@ -50,7 +50,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   EditarPerfil() {
-    this.router.navigate(['/profile']);
+
+    this.router.navigate(['/eperfil']);
+
   }
 
   logout() {
