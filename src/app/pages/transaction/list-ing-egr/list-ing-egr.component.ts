@@ -1,47 +1,71 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs'
-import { HttpService } from '../../../core/services/http.service'
-import { ListIngresosComponent } from '../list-ingresos/list-ingresos.component';
-import { Router } from '@angular/router';
+import {
+  Transaction,
+  TransactionResponse,
+} from 'src/app/core/models/transactions';
+import { TransactionsService } from 'src/app/core/services/transactions.service';
 
+const filterType ={
+  payment: "payment",
+  topup: "topup",
+  all:"all"
+} as const
+  
 
 @Component({
   selector: 'app-list-ing-egr',
   templateUrl: './list-ing-egr.component.html',
-  styleUrls: ['./list-ing-egr.component.scss']
+  styleUrls: ['./list-ing-egr.component.scss'],
 })
 export class ListIngEgrComponent implements OnInit {
-  [x: string]: any;
-
   title: string = 'Movimientos';
+  currentPage: number = 1;
 
-  transactions!: any[];
-  //totIngr = this['ListIngresosComponent'].getTotal();
-  //totEgr = this['ListEgrComponent'].getTotal();
-  balance = 0;
-  
+  transactionsData!: TransactionResponse;
+  transactions!: Transaction[] | null;
+  filter: any = filterType.all;
 
-  constructor(private httpService: HttpService, private router: Router) {}
+  constructor(
+    private transactionsSvc: TransactionsService,
+  ) {}
 
   ngOnInit() {
-    this.httpService.get<any>('http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/transactions', true)
-      .subscribe(data => {
-        this.transactions = data.data
-          .sort((a:any, b:any) => new Date(b.date).getTime() - new Date(a.date).getTime())
-          ;
-          //this.balance = this.totIngr-this.totEgr;
+    this.transactionsSvc.getTransactions().subscribe(res => {
+      this.transactionsData = res;
+      this.transactions = res.data;
+    });
+  }
 
-      });
-    }
-    goToIngresos() {
-      this.router.navigate(['transactions/ingresos']);
-    }
-    
-    goToGastos() {
-      this.router.navigate(['transactions/egresos']);
+  toFilter(transactions: Transaction[]) {
+    this.transactions = transactions.filter(t => {
+      if (this.filter === filterType.payment) return t.type === filterType.payment;
+      if (this.filter === filterType.topup) return t.type === filterType.topup;
+      return t;
+    });
+  }
+
+  nextPage() {
+    if (this.transactionsData.nextPage) {
+      this.transactionsSvc
+        .getTransactionsByPage(this.currentPage + 1)
+        .subscribe(res => {
+          this.transactionsData = res;
+          this.toFilter(res.data);
+          this.currentPage++;
+        });
     }
   }
 
+  prevPage() {
+    if (this.transactionsData.previousPage) {
+      this.transactionsSvc
+        .getTransactionsByPage(this.currentPage - 1)
+        .subscribe(res => {
+          this.transactionsData = res;
+          this.toFilter(res.data);
+          this.currentPage--;
+        });
+    }
+  }
 
-
-
+}

@@ -9,6 +9,7 @@ import { ListIngresosComponent } from './list-ingresos/list-ingresos.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from "../../shared/shared.module";
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
         TransactionRoutingModule,
         MatButtonModule,
         SharedModule,
-        MatIconModule
+        MatIconModule,
+        MatSelectModule
     ]
 })
 export class TransactionModule { }

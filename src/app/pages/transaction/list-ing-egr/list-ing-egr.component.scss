@@ -79,10 +79,11 @@
   }
 
   .btn-container{
-    padding-top: 1rem;
+    padding: 1rem 1rem 0 1rem;
     display: flex;
     gap: 1rem;
     margin: 0 0 0 1rem;
+    justify-content: end;
   }
 
   .pagination{
@@ -97,7 +98,7 @@
     margin-top: 1rem;
   }
   
-  .pagination a{
+  .pagination span{
     width: 100px;
     height: 60px;
     line-height: 60px;
@@ -106,14 +107,26 @@
     font-size: 16px;
     transition: .3s linear;
     text-decoration: none;
+    font-weight: bold;
   }
   
-  .pagination a:hover{
+  .pagination .action:hover{
+    cursor: pointer;
     color: #fff;
     background-color: #1c82ad;
   }
 
   .icon{
     margin-top: 0.7em;
+  }
+
+  mat-select{
+    width: 200px;
+   
+    // background-color: #e6f3fa;
+  }
+
+  mat-label{
+    font-weight: bold;
   }
   
