@@ -28,11 +28,12 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DataEffects } from './core/state/effects/data.effect';
 import { TransactionModule } from './pages/transaction/transaction.module';
+import { RtitleComponent } from './shared/components/rtitle/rtitle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
     InvestementsComponent,
     EditarPerfilComponent,
     ContactsComponent,
@@ -55,8 +56,7 @@ import { TransactionModule } from './pages/transaction/transaction.module';
     EffectsModule.forRoot([AlertEffects, AuthEffects, DataEffects]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    TransactionModule
-    
+    TransactionModule,
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase },

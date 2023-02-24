@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from 'angular-toastify';
 import * as console from 'console';
+import { Router } from '@angular/router';
+import { TransactionsService } from 'src/app/core/services/transactions.service';
 
 @Component({
   selector: 'app-investements',
@@ -9,7 +12,12 @@ import * as console from 'console';
 })
 export class InvestementsComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) {
+  title: string = 'Inversiones';
+
+  constructor(private formBuilder: FormBuilder, 
+              private toast: ToastService,
+              private transSvc: TransactionsService,
+              private router: Router) {
   }
 
   inversion = this.formBuilder.group({
@@ -18,9 +26,6 @@ export class InvestementsComponent implements OnInit {
       Validators.min(1),
       Validators.max(1000000)
     ]],
-  });
-
-  plazo = this.formBuilder.group({
     dias: ['', [
       Validators.required,
       Validators.min(30),
@@ -34,6 +39,7 @@ export class InvestementsComponent implements OnInit {
   //inputs
   deposito! : number; // = this.inversion.get('inversion')?.value;; //dinero a invertir
   plazoDias! : number; //plazo en dias
+  data! : number;
 
   mensual! : number;
   anual! : number; //ganancia
@@ -46,12 +52,20 @@ export class InvestementsComponent implements OnInit {
 
   onClick($event: MouseEvent) {
     this.deposito = Number (this.inversion.get('deposito')?.value) ;
-    this.plazoDias = Number (this.plazo.get('dias')?.value) ;
+    this.plazoDias = Number (this.inversion.get('dias')?.value) ;
     this.mensual = this.calcularGananciaDiaria(),
     this.calcularGananciaAnual(),
     this.calcularTotalAnual(),
     this.calcularGananciaPorPlazo(),
     this.calcularTotalPlazo()
+  }
+
+  invertir($event: MouseEvent){
+    //descontar dinero cuenta
+    this.data = Number (this.inversion.get('deposito')?.value) ;
+    this.transSvc.createTransaction(this.data).subscribe;
+    this.toast.success("La operación se realizó con éxito");
+    this.router.navigate(['home']);
   }
 
   calcularGananciaDiaria(){
