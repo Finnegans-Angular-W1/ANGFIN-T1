@@ -5,7 +5,7 @@
   // margin-top: -20px;
   margin: 0 auto;
   width: 100%;
-  background: #00347c;
+  background: #0081c9;
   padding-top: 10px;
   padding-bottom: 10px;
   height: 180px;
@@ -65,17 +65,17 @@
 li {
   list-style-type: none;
   padding: 5px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto', serif;
   text-align: end;
   margin: 2px;
   transition: 0.2s;
   width: 30%;
 }
-li:hover {
-  background-color: #9b9fa5;
-  transition: 0.2s;
-  border-radius: 10px;
-}
+// li:hover {
+//   background-color: #9b9fa5;
+//   transition: 0.2s;
+//   border-radius: 10px;
+// }
 li a {
   font-size: 1.5rem;
   text-decoration: none;
@@ -102,7 +102,7 @@ li a {
     // margin-top: -20px;
     margin: 0 auto;
     width: 100%;
-    background: #00347c;
+    background: #0081c9;
     padding-top: 10px;
     padding-bottom: 10px;
     height: 150px;
@@ -162,17 +162,17 @@ li a {
   li {
     list-style-type: none;
     padding: 5px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', serif;
     text-align: end;
     margin: 2px;
     transition: 0.2s;
     width: 30%;
   }
-  li:hover {
-    background-color: #9b9fa5;
-    transition: 0.2s;
-    border-radius: 10px;
-  }
+  // li:hover {
+  //   background-color: #9b9fa5;
+  //   transition: 0.2s;
+  //   border-radius: 10px;
+  // }
   li a {
     font-size: 1rem;
     text-decoration: none;

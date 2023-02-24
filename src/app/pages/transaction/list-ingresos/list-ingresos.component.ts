@@ -10,7 +10,7 @@ import { HttpService } from '../../../core/services/http.service'
 export class ListIngresosComponent implements OnInit {
 
  
-
+  title: string = 'Ingresos';
   ingresos!: any[];
   totalIngresos = 0;
   

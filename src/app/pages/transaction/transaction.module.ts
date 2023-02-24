@@ -7,20 +7,22 @@ import { ListEgresosComponent } from './list-egresos/list-egresos.component';
 import { ListIngresosComponent } from './list-ingresos/list-ingresos.component';
 
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from "../../shared/shared.module";
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
-  declarations: [
-    ListIngEgrComponent,
-    ListEgresosComponent,
-    ListIngresosComponent
-
-  ],
-  imports: [
-    CommonModule,
-    TransactionRoutingModule,
-    MatButtonModule
-    
-  ]
+    declarations: [
+        ListIngEgrComponent,
+        ListEgresosComponent,
+        ListIngresosComponent
+    ],
+    imports: [
+        CommonModule,
+        TransactionRoutingModule,
+        MatButtonModule,
+        SharedModule,
+        MatIconModule
+    ]
 })
 export class TransactionModule { }

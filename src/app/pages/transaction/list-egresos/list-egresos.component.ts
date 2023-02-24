@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./list-egresos.component.scss']
 })
 export class ListEgresosComponent implements OnInit {
-
+  title: string = 'Gastos';
   egresos!: any[];
   totalEgresos = 0;
 
