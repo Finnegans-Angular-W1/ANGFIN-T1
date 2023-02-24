@@ -1,18 +1,19 @@
 <app-rtitle [title]="title"></app-rtitle>
 
-<div class="container">
-  <div class="btn-container">
-    <button mat-raised-button type="button" color="accent" class="btn btn-primary" (click)="goToIngresos()">
-      Ingresos
-    </button>
-    <button mat-raised-button type="button" color="link" class="btn btn-primary" (click)="goToGastos()">
-      Gastos
-    </button>
-  </div>
+<div class="btn-container">
+  <button mat-raised-button type="button" color="accent" class="btn btn-primary" (click)="goToIngresos()">
+    Ingresos
+  </button>
+  <button mat-raised-button type="button" color="link" class="btn btn-primary" (click)="goToGastos()">
+    Gastos
+  </button>
+</div>
+
+<div class="table-container">
   <table class="table">
     <thead>
       <tr>
-        <th>Transación</th>
+        <th>Transacción</th>
         <th>Monto</th>
         <th>Concepto</th>
         <th>Fecha</th>
@@ -24,14 +25,16 @@
         <td>{{ transaction.id }}</td>
         <td>{{ "$ " + transaction.amount }}</td>
         <td>{{ transaction.concept | titlecase}}</td>
-        <td >{{ transaction.date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ transaction.date | date:'dd/MM/yyyy' }}</td>
         <td>{{ transaction.type === 'payment' ? 'Egreso' : 'Ingreso' }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+
 <div class="pagination">
   <a href=""><mat-icon class="icon" fontIcon="arrow_back_ios"></mat-icon></a>
   <a href="">1</a>
   <a href=""><mat-icon class="icon" fontIcon="arrow_forward_ios"></mat-icon></a>
   <div class="bottom_bar"></div>
+</div>
