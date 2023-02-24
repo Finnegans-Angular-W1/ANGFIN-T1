@@ -8,11 +8,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 
 
 @NgModule({
-  declarations: [UserProfileComponent, PasswordResetComponent],
+  declarations: [UserProfileComponent, PasswordResetComponent, EditarPerfilComponent],
   imports: [
     CommonModule,
     MatCardModule,

@@ -51,7 +51,6 @@ import { DialogGenericoComponent } from './components/dialog/components/dialos.g
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
-
     RtitleComponent,
     FooterComponent,
     SidebarComponent
