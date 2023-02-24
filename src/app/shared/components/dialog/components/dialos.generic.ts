@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogGenericService } from 'src/app/core/services/dialog-generic.service';
 
 export interface DialogData {
   data: string;
@@ -12,12 +13,23 @@ export interface DialogData {
   styleUrls: ['./dialog.generic.component.scss'],
 })
 export class DialogGenericoComponent {
+  
+  checkData = false;
+
   constructor(
+    private changeSvc: DialogGenericService,
     public dialogRef: MatDialogRef<DialogGenericoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
-  onNoClick(): void {
+  onNoClickAccept(): void {
+    this.checkData = !this.checkData;
+    this.changeSvc.changeDataSource(this.checkData)
+    this.dialogRef.close();
+  }
+
+  onNoClickCancel():void{
+    this.changeSvc.changeDataSource(this.checkData)
     this.dialogRef.close();
   }
 }

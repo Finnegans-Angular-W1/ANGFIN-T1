@@ -6,6 +6,7 @@ import { ToastService } from 'angular-toastify';
 import { catchError, EMPTY, tap, map, exhaustMap } from 'rxjs';
 import { User } from 'src/app/core/models/user';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { DialogGenericService } from 'src/app/core/services/dialog-generic.service';
 import { DialogGenericoComponent } from 'src/app/shared/components/dialog/components/dialos.generic';
 
 @Component({
@@ -14,13 +15,16 @@ import { DialogGenericoComponent } from 'src/app/shared/components/dialog/compon
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent implements OnInit {
+  checkData:boolean = false;
+  
   registerForm!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private toast: ToastService,
     private router:Router,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private dialogGenericSvc: DialogGenericService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +35,7 @@ export class RegistroComponent implements OnInit {
       password: ['', [Validators.required]],
       termsOfUse: [false, Validators.requiredTrue],
     });
+    this.dialogGenericSvc.checkData.subscribe(res => this.checkData = res)
   }
 
   onRegister() {
@@ -99,8 +104,8 @@ export class RegistroComponent implements OnInit {
       }})
     }
 
-    backHome(){
-      this.router.navigate(['/login'])
+  backHome(){
+    this.router.navigate(['/login'])
     }
   }
 
