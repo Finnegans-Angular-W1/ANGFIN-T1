@@ -21,12 +21,20 @@
   .btn:hover {
     background-color: #03c988;
   }
+
+  .table-container {
+    max-width: 80%;
+    overflow-x: auto;
+    margin: auto;
+    padding-top: 1rem;
+    overflow-x: auto;
+  }
     
   .table {
     margin-top: 1rem;
-       
     border-collapse: collapse;
     width: 100%;
+    overflow-x: auto; 
     
     th, td {
       padding: 1rem;
@@ -86,6 +94,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 0px 0px 10px 10px;
+    margin-top: 1rem;
   }
   
   .pagination a{
