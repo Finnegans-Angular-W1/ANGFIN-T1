@@ -21,4 +21,11 @@ export class TransactionsService {
       true
     );
   }
+
+  getTransactionsByPage(page:number) {
+    return this.http.get<TransactionResponse>(
+      `http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/transactions/?page=${page}`,
+      true
+    );
+  }
 }

@@ -18,7 +18,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'movimientos',
+    path: '',
     component: ListIngEgrComponent,
 
   },

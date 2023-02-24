@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
     },
     {
       title: 'Movimientos',
-      path: 'transactions/movimientos',
+      path: 'transactions',
     },{
       title:"Agregar Dinero",
       path:'deposit'

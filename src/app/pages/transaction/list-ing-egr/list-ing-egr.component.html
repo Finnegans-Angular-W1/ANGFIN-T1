@@ -2,12 +2,12 @@
 
 <div class="container">
   <div class="btn-container">
-    <button mat-raised-button type="button" color="accent" class="btn btn-primary" (click)="goToIngresos()">
-      Ingresos
-    </button>
-    <button mat-raised-button type="button" color="link" class="btn btn-primary" (click)="goToGastos()">
-      Gastos
-    </button>
+    <mat-label>Filtrar:</mat-label>
+    <mat-select [(value)]="filter" (valueChange)="toFilter(transactionsData.data)">
+      <mat-option value="all">Todos</mat-option>
+      <mat-option value="topup">Ingresos</mat-option>
+      <mat-option value="payment"t>Gastos</mat-option>
+    </mat-select>
   </div>
   <table class="table">
     <thead>
@@ -22,7 +22,7 @@
     <tbody>
       <tr *ngFor="let transaction of transactions">
         <td>{{ transaction.id }}</td>
-        <td>{{ "$ " + transaction.amount }}</td>
+        <td>{{ transaction.amount | currency}}</td>
         <td>{{ transaction.concept | titlecase}}</td>
         <td >{{ transaction.date | date:'dd/MM/yyyy' }}</td>
         <td>{{ transaction.type === 'payment' ? 'Egreso' : 'Ingreso' }}</td>
@@ -31,7 +31,7 @@
   </table>
 </div>
 <div class="pagination">
-  <a href=""><mat-icon class="icon" fontIcon="arrow_back_ios"></mat-icon></a>
-  <a href="">1</a>
-  <a href=""><mat-icon class="icon" fontIcon="arrow_forward_ios"></mat-icon></a>
-  <div class="bottom_bar"></div>
+  <span (click)="prevPage()" class="action"><mat-icon *ngIf="transactionsData?.previousPage" class="icon" fontIcon="arrow_back_ios"></mat-icon></span>
+  <span >{{currentPage}}</span>
+  <span (click)="nextPage()" class="action"><mat-icon *ngIf="transactionsData?.nextPage" class="icon" fontIcon="arrow_forward_ios"></mat-icon></span>
+<div class="bottom_bar"></div>
