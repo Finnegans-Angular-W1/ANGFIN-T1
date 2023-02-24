@@ -45,10 +45,13 @@ export class EditarPerfilComponent implements OnInit {
     this.httpService.put<User>(url, body).subscribe(
       response => {
         console.log('Perfil actualizado:', response);
-        this.router.navigate(['/perfil']);
+
+        //this.router.navigate(['/profile']);
+
       },
-      error => console.error('Error al actualizar el perfil:', error)
+      //error => this.router.navigate(['/profile'])
     );
+    this.router.navigate(['/profile']);
   }
 
 
