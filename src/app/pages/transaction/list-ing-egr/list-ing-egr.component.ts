@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpService } from '../../../core/services/http.service';
-import { ListIngresosComponent } from '../list-ingresos/list-ingresos.component';
-import { Router } from '@angular/router';
 import {
   Transaction,
   TransactionResponse,
@@ -41,7 +37,6 @@ export class ListIngEgrComponent implements OnInit {
   }
 
   toFilter(transactions: Transaction[]) {
-    console.log(transactions)
     this.transactions = transactions.filter(t => {
       if (this.filter === filterType.payment) return t.type === filterType.payment;
       if (this.filter === filterType.topup) return t.type === filterType.topup;

@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from 'angular-toastify';
-import * as console from 'console';
+//import * as console from 'console';
 import { Router } from '@angular/router';
 import { TransactionsService } from 'src/app/core/services/transactions.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/state/app.state';
+import { AccountsService } from 'src/app/core/services/accounts.service';
+import { selectDataImportant } from 'src/app/core/state/selector/data.selector';
+import { getData } from 'src/app/core/state/actions/data.action';
 
 @Component({
   selector: 'app-investements',
@@ -13,11 +18,16 @@ import { TransactionsService } from 'src/app/core/services/transactions.service'
 export class InvestementsComponent implements OnInit {
 
   title: string = 'Inversiones';
+  //Maxi
+  accountId!:number;
+  //
 
   constructor(private formBuilder: FormBuilder, 
               private toast: ToastService,
               private transSvc: TransactionsService,
-              private router: Router) {
+              private router: Router,
+              private store:Store<AppState>,
+              private accSvc:AccountsService) {
   }
 
   inversion = this.formBuilder.group({
@@ -34,6 +44,9 @@ export class InvestementsComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.store.select(selectDataImportant).subscribe(res =>{
+      this.accountId = res.account_id;
+    })
   }
 
   //inputs
@@ -63,8 +76,20 @@ export class InvestementsComponent implements OnInit {
   invertir($event: MouseEvent){
     //descontar dinero cuenta
     this.data = Number (this.inversion.get('deposito')?.value) ;
-    this.transSvc.createTransaction(this.data).subscribe;
-    this.toast.success("La operación se realizó con éxito");
+    const body:any ={
+      amount:this.data >0? this.data*(-1): this.data,
+      concept:'Plazo Fijo',
+      type:'payment'
+    }
+    console.log(body)
+    this.accSvc.createDeposit(this.accountId,body).subscribe({
+      next:res =>{this.toast.success('La operacion ha sido exitosa!')},
+      error: err =>{this.toast.error('Ha ha salido mal!'); console.log(err)},
+      complete: () => {this.store.dispatch(getData())}
+    })
+    
+    //this.transSvc.createTransaction(this.data).subscribe;
+    //this.toast.success("La operación se realizó con éxito");
     this.router.navigate(['home']);
   }
 
@@ -88,5 +113,6 @@ export class InvestementsComponent implements OnInit {
   calcularTotalPlazo(){
     this.finalPlazo = (this.deposito + this.totalPlazo);
   }
+
 
 }

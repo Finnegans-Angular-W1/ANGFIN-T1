@@ -5,6 +5,7 @@
   max-width: 80%;
   margin: auto;
   border-radius: 1%;
+  overflow-x: auto;
     
   }
   .btn {
@@ -21,12 +22,14 @@
   .btn:hover {
     background-color: #03c988;
   }
+  
     
   .table {
     margin-top: 1rem;
        
     border-collapse: collapse;
     width: 100%;
+    
     
     th, td {
       padding: 1rem;

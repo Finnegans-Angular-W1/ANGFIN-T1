@@ -21,6 +21,10 @@
   .btn:hover {
     background-color: #03c988;
   }
+
+  .table-container {
+    overflow-x: auto;
+  }
     
   .table {
     margin-top: 1rem;
@@ -46,6 +50,11 @@
     
     tbody tr:last-child {
       border-bottom: none;
+    }
+
+    .pagination {
+      margin-top: 1rem;
+      text-align: center;
     }
 
     
