@@ -1,10 +1,15 @@
+<app-rtitle [title]="title"></app-rtitle>
 <mat-card class="card">
     <mat-card-content>
-        <mat-list role="list">
-            <mat-list-item>Contactos</mat-list-item>
-            <mat-list-item role="listitem" *ngFor="let usuario of users">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="face" class="face-icon"></mat-icon>{{' ' + usuario.first_name + ' ' + usuario.last_name | titlecase  }}
+        <mat-list role="list"  *ngFor="let usuario of users">
+                <mat-list-item role="listitem">
+                  <div class="avatar" [innerHTML]="usuario.avatar"></div>
+                  <div>
+                    <h3>{{usuario.first_name + ' ' + usuario.last_name | titlecase}}</h3>
+                    <p>{{usuario.email}}</p>
+                  </div>
             </mat-list-item>
+            <mat-divider></mat-divider>
           </mat-list>
     </mat-card-content>
   </mat-card>

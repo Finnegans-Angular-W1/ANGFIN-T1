@@ -2,9 +2,32 @@
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    max-width: 50%;
+    width: 90%;
+    max-width: 600px;
 }
 
 .face-icon{
     margin-right: 5px;
+}
+
+.avatar{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+
+h3{
+    margin: 0;
+    font-weight: 500;
+}
+
+p{
+    margin: 0;
+    font-size: 14px;
+    color: rgb(77, 77, 77);
+}
+
+mat-list-item{
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

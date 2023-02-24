@@ -1,16 +1,14 @@
 .container {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom right, #1c82ad, #00337c);
-  color: white;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  max-width: 80%;
+  margin: auto;
+  border-radius: 1%;
     
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 1rem;
   }
-
   .btn {
-    background-color: #00337c;
+    background-color: #1c82ad;
     color: white;
     border: none;
     border-radius: 5px;
@@ -21,13 +19,11 @@
   }
   
   .btn:hover {
-    
-    background-color: #1c82ad;
+    background-color: #03c988;
   }
-  
     
   .table {
-    margin-top: 2rem;
+    margin-top: 1rem;
        
     border-collapse: collapse;
     width: 100%;
@@ -45,12 +41,16 @@
     }
     
     tbody tr {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(98, 97, 97, 0.1);
     }
     
     tbody tr:last-child {
       border-bottom: none;
     }
+
+    
+    
+    
     
     
     
@@ -71,6 +71,39 @@
   }
 
   .btn-container{
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
     margin: 0 0 0 1rem;
   }
-}
+
+  .pagination{
+    width: 80%;
+    margin: auto;
+    background-color: #e6f3fa;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  .pagination a{
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    transition: .3s linear;
+    text-decoration: none;
+  }
+  
+  .pagination a:hover{
+    color: #fff;
+    background-color: #1c82ad;
+  }
+
+  .icon{
+    margin-top: 0.7em;
+  }

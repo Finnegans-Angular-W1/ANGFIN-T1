@@ -5,7 +5,6 @@ import { ListIngresosComponent } from '../list-ingresos/list-ingresos.component'
 import { Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-list-ing-egr',
   templateUrl: './list-ing-egr.component.html',
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
 export class ListIngEgrComponent implements OnInit {
   [x: string]: any;
 
-
+  title: string = 'Movimientos';
 
   transactions!: any[];
   //totIngr = this['ListIngresosComponent'].getTotal();
