@@ -81,10 +81,10 @@ export class InvestementsComponent implements OnInit {
       concept:'Plazo Fijo',
       type:'payment'
     }
-    console.log(body)
+    
     this.accSvc.createDeposit(this.accountId,body).subscribe({
       next:res =>{this.toast.success('La operacion ha sido exitosa!')},
-      error: err =>{this.toast.error('Ha ha salido mal!'); console.log(err)},
+      error: err =>{this.toast.error('Algo ha salido mal!'); console.log(err)},
       complete: () => {this.store.dispatch(getData())}
     })
     
