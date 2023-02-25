@@ -1,39 +1,44 @@
-.container{
+.container {
     margin: auto;
 }
 
-.card{
+.card {
     max-width: 600px;
     margin: auto;
 }
 
-.item{
+.item {
     color: white;
 }
 
-.card-background{
+.card-background {
     color: white;
     max-width: 600px;
     margin: auto;
     background-color: #0081c9;
 }
 
-.titulo{
+.titulo {
     text-align: center;
 }
 
-.btn{
+.btn {
     text-align: center;
     margin-right: 1em;
 }
 
-@media (max-width: 768px) {
-    .card-background{
-      max-width: 80%;
-    }
+.margin {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
 
-    .card{
+@media (max-width: 768px) {
+    .card-background {
         max-width: 80%;
     }
 
-  }
+    .card {
+        max-width: 80%;
+    }
+
+}

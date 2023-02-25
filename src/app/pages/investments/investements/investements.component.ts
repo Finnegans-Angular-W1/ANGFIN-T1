@@ -38,7 +38,7 @@ export class InvestementsComponent implements OnInit {
     ]],
     dias: ['', [
       Validators.required,
-      Validators.min(30),
+      Validators.min(30), 
       Validators.max(360)
     ]],
   });
@@ -48,6 +48,7 @@ export class InvestementsComponent implements OnInit {
       this.accountId = res.account_id;
     })
   }
+
 
   //inputs
   deposito! : number; // = this.inversion.get('inversion')?.value;; //dinero a invertir
