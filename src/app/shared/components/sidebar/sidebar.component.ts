@@ -31,11 +31,11 @@ export class SidebarComponent implements OnInit {
       path: 'transactions',
     },{
       title:"Agregar Dinero",
-      path:'deposit'
+      path:'money/deposit'
     },
     {
       title: 'Enviar dinero',
-      path: 'send-money',
+      path: 'money/send',
     },
     {
       title: 'Inversiones',

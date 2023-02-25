@@ -4,8 +4,6 @@ import { PermissionsGuard } from './core/guards/permissions.guard';
 import { LoginGuard } from './core/guards/login.guard';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
-import { SaldosComponent } from './pages/home/components/saldos/saldos.component';
-import { ExpensesComponent } from './pages/home/components/expenses/expenses.component';
 
 const routes: Routes = [
   {
@@ -66,13 +64,9 @@ const routes: Routes = [
     canActivate: [PermissionsGuard],
   },
   {
-    path: 'deposit',
-    component: SaldosComponent,
-    canActivate: [PermissionsGuard],
-  },
-  {
-    path: 'send-money',
-    component: ExpensesComponent,
+    path: 'money',
+    loadChildren: () =>
+      import('./pages/money/money.module').then(m => m.MoneyModule),
     canActivate: [PermissionsGuard],
   },
   {
