@@ -13,7 +13,6 @@ import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
 import { AlertEffects } from './core/state/effects/alert.effect';
-import { InvestementsComponent } from './components/investements/investements.component';
 import { MaterialModule } from './material/material.module';
 import { AuthEffects } from './core/state/effects/auth.effect';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -24,7 +23,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DataEffects } from './core/state/effects/data.effect';
 
 @NgModule({
-  declarations: [AppComponent, InvestementsComponent, ContactsComponent],
+  declarations: [AppComponent, ContactsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

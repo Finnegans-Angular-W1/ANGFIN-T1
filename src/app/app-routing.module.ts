@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PermissionsGuard } from './core/guards/permissions.guard';
-import { InvestementsComponent } from './components/investements/investements.component';
 import { LoginGuard } from './core/guards/login.guard';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
@@ -59,7 +58,10 @@ const routes: Routes = [
   },
   {
     path: 'investments',
-    component: InvestementsComponent,
+    loadChildren: () =>
+      import('./pages/investments/investments.module').then(
+        m => m.InvestmentsModule
+      ),
     data: { animation: 'InversionesPage' },
     canActivate: [PermissionsGuard],
   },
