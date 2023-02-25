@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: '897125511629',
     measurementId: 'G-GMNDK1WZZ8',
   },
+  Api:'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com',
   production: true
 };
