@@ -10,15 +10,13 @@
                          type="number" id="deposito"/>
                 </mat-form-field>
                 <mat-divider></mat-divider>
-                <br>
-                <mat-form-field appearance="outline">
+                <mat-form-field class="margin" appearance="outline">
                   <mat-label>Plazo de inversión en días</mat-label>
                   <input matInput 
                          formControlName="dias"
                          type="number" id="plazo">
+                         <mat-hint align="start">El plazo debe ser mayor a 30 y menor a 360 días.</mat-hint>
                 </mat-form-field>
-
-
               </form>
         
           <!-- rendimiento anual -->
