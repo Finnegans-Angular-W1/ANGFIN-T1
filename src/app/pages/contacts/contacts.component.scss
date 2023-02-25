@@ -31,3 +31,37 @@ mat-list-item{
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
+mat-card-actions {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    right: 5px;
+
+    .action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+      justify-content: center;
+      width: 50px;
+
+      text-align: center;
+      font-size: 11px;
+      line-height: 12px;
+      text-decoration: none;
+      color: #000;
+
+      padding: .3rem 0;
+      border-radius: .5rem;
+
+      i, svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        fill: #0177B7;
+      }
+    }
+  }
