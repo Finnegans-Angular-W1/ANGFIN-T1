@@ -1,0 +1,29 @@
+<app-rtitle [title]="title"></app-rtitle>
+<div class="container">  <div class="btn-container">
+    <button mat-raised-button type="button" color="accent" class="btn btn-primary" routerLink="/transactions/movimientos">Ver todas las transacciones</button>
+  </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Transacción</th>
+          <th>Monto</th>
+          <th>Concepto</th>
+          <th>Fecha</th>     
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingreso of ingresos">
+          <td>{{ ingreso.id }}</td>
+          <td>{{ "$ " + ingreso.amount }}</td>
+          <td>{{ ingreso.concept | titlecase}}</td>
+          <td >{{ ingreso.date | date:'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <a href=""><mat-icon class="icon" fontIcon="arrow_back_ios"></mat-icon></a>
+    <a href="">1</a>
+    <a href=""><mat-icon class="icon" fontIcon="arrow_forward_ios"></mat-icon></a>
+    <div class="bottom_bar"></div>

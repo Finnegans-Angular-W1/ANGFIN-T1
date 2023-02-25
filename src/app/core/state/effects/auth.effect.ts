@@ -8,6 +8,7 @@ import { ToastService } from 'angular-toastify';
 import { LoginResult } from '../../models/auth';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
+import { getData } from '../actions/data.action';
 
 @Injectable()
 export class AuthEffects {
@@ -68,6 +69,16 @@ export class AuthEffects {
       })
     );
   });
+
+
+  setLoggedUser$ = createEffect(()=>{
+    return this.actions$.pipe(
+      ofType(loginActions.setLoggedUser),
+      map(action =>{
+        return getData()
+      })
+    )
+  })
 
   loginFailure$ = createEffect(
     () => {

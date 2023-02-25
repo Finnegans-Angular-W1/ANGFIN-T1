@@ -3,33 +3,51 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../state/app.state';
+import { setLoadingSpinner } from '../state/actions/spinner.actions';
 
 @Injectable()
 export class GlobalHttpInterceptor implements HttpInterceptor {
-  
-  constructor(private auth:AuthService){}
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    
+  countRequest: number = 0;
+
+  constructor(private auth: AuthService, private store: Store<AppState>) {
+    // 
+  }
+
+  private finalize = () => {
+    this.countRequest--;
+    if (!this.countRequest) {
+      // Termina de cargar
+      this.store.dispatch(setLoadingSpinner({status:false}))
+    }
+  };
+
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     const token = this.auth.getToken();
 
-    
+    if(!this.countRequest){
+      // empieza a cargar
+      this.store.dispatch(setLoadingSpinner({ status: true }));
+    }
+    this.countRequest++;
+
     if (token) {
       const modifiedRequest = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
-      return next.handle(modifiedRequest);
+      return next.handle(modifiedRequest).pipe(finalize(this.finalize));
     } else {
-      return next.handle(request);
+      return next.handle(request).pipe(finalize(this.finalize));
     }
-    }
-
-
-
-
+  }
 }

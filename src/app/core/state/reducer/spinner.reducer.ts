@@ -11,7 +11,7 @@ export const spinnerReducer = createReducer (
     initialState, 
     on(setLoadingSpinner, (state: any, action: { status: any; })=>{
         return {
-            state,
+            ...state,
             showLoading : action.status,
         };
     })

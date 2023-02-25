@@ -1,0 +1,62 @@
+<div class="navigation-wrapper size" >
+  <div class="keen-slider keen-slider--vertical size"  #slider >
+    <div class="keen-slider__slide number-slide5">
+      <div class="content">
+        <div>
+          <p>Regala una sonrisa con una donacion</p>
+          <form ngNoForm [action]="url" method="POST">    
+            <input type="hidden" name="name" value="Donar" />        
+            <input type="number" name="price" required min="50">
+            <button>Donar</button>      
+          </form>
+        </div>
+        <img src="./assets/humanitarian.svg" alt="charity">
+      </div>
+    </div>
+
+    <div class="keen-slider__slide number-slide2">
+      <div class="content">
+        <p>Descubri como sumar beneficios extra</p>
+        <img src="./assets/discount.svg" alt="discount image">
+      </div>
+    </div>
+    
+    <div class="keen-slider__slide number-slide3">
+      <div class="content">
+        <p>¿Sabias que tambien puedes ganar puntos?</p>
+        <img src="./assets/saving-money.svg" alt="Saving money image">
+      </div>
+    </div>
+  </div>
+
+  
+  <svg
+    class="arrow arrow--left"
+    (click)="prev()"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+  <path
+  d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
+  />
+</svg>
+
+  <svg
+    *ngIf="slider"
+    class="arrow arrow--right"
+    (click)="next()"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+  </svg>
+</div>
+
+<div class="dots">
+  <button
+    (click)="moveTo(i)"
+    *ngFor="let slide of dotHelper; let i = index"
+    [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+  ></button>
+</div>
+

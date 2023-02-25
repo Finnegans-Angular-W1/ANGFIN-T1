@@ -1,15 +1,16 @@
 <!-- Valores de ejemplo. Tomar del service o del componente de conversor de divisa-->
 <div class="container">
     <mat-card class="example-card">
-        <mat-card-content>
-            <p> Valor Dolar hoy VENTA: <span>{{ valorVenta|| 189.98 | currency:'US$'}}</span></p>
-        
-            <p> Valor Dolar hoy COMPRA: <span>{{ valorCompra|| 198.98 | currency:'US$'}}</span> </p>
-        </mat-card-content>
+      <mat-card-title>Valor del dolar</mat-card-title>
+      <mat-card-content>
+        <div>
+          <p>VENTA</p>
+          <span>{{ valorVenta | currency }}</span>
+        </div>
+        <div>
+          <p>COMPRA</p>
+          <span>{{ valorCompra | currency }}</span>
+        </div>
+      </mat-card-content>
     </mat-card>
 </div>
-
-
-
-
-

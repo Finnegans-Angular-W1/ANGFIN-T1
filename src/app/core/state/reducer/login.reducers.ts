@@ -25,7 +25,6 @@ export const authReducer = createReducer(
     ...state,
     accessToken: action.accessToken,
     isAuthenticated: true,
-    isLoading: false,
     error: null,
   })),
   on(loginFailure, (state, action) => ({
@@ -46,6 +45,7 @@ export const authReducer = createReducer(
   })),
   on(setLoggedUser, (state, payload) => ({
     ...state,
+    isLoading:false,
     user: {
       email: payload.email,
       first_name: payload.first_name,

@@ -1,0 +1,67 @@
+<main class="saldos-container">
+    <!-- titulo -->
+    <app-rtitle [title]=saldosTitle class="saldos-title"></app-rtitle>
+
+    
+    
+    <!-- form -->
+    <mat-card>
+        <mat-card-content>
+          <form class="form-container" [formGroup]="cargarSaldosForm" (submit)="onSubmit()">
+            <mat-form-field appearance="outline">
+              <mat-label>Monto</mat-label>
+              <input type="number" matInput formControlName="amount" />
+              <mat-error
+                *ngIf="cargarSaldosForm.get('amount')?.touched && cargarSaldosForm.get('amount')?.errors?.['required']"
+                >El campo Monto es requerido</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Concepto</mat-label>
+              <textarea matInput formControlName="concept"></textarea>
+              <mat-error
+                *ngIf="cargarSaldosForm.get('concept')?.touched && cargarSaldosForm.get('concept')?.errors?.['required']"
+                >El campo Concepto es requerido</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Date</mat-label>
+              <input type="date" matInput formControlName="date" />
+              <mat-error
+                *ngIf="cargarSaldosForm.get('date')?.touched && cargarSaldosForm.get('date')?.errors?.['required']"
+                >El campo Date es requerido</mat-error
+              >
+            </mat-form-field>
+            <button
+              [disabled]="cargarSaldosForm.invalid"
+              class="login-btn"
+              mat-raised-button
+              color="primary"
+              Login
+              (submit)="onSubmit()">
+              Enviar
+            </button>
+            <button 
+              mat-raised-button 
+              color="accent" 
+              (click)="cancelar()" 
+              class="saldos-cancel-button">
+              Regresar al Home
+            </button>
+          </form>
+
+          
+          
+          <!-- <div class=" back-home">
+            <button
+            class="login-btn"
+            mat-raised-button
+            (click)="backHome()"
+            color="accent"
+            >
+            Regresar al Home
+            </button>
+          </div> -->
+        </mat-card-content>
+    </mat-card>
+</main>

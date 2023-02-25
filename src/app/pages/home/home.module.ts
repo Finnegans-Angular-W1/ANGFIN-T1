@@ -6,12 +6,15 @@ import { HomeRoutingModule } from './home-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AmountPipe } from 'src/app/shared/pipes/amount.pipe';
-import { ExpensesComponent } from './components/expenses/expenses.component';
-import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SaldosComponent } from './components/saldos/saldos.component';
+import { ExchangeContainerComponent } from './components/exchange-container/exchange-container.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { SliderComponent } from './components/slider/slider.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { GastosEditComponent } from './components/gastos-edit/gastos-edit.component';
+import { BalanceComponent } from './components/balance/balance.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +23,12 @@ import { MatButtonModule } from '@angular/material/button';
     AmountPipe,
     ExpensesComponent,
     SaldosComponent,
+    develop
     GastosEditComponent,
-    ExpensesComponent
+    ExchangeContainerComponent,
+    SliderComponent,
+    BalanceComponent,
+    SliderComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +38,10 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatProgressBarModule,
     SharedModule,
-    MatButtonModule
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
   ],
   exports: [HomePageComponent],
 })

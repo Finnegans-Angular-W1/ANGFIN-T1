@@ -46,7 +46,9 @@
           <mat-checkbox
             matInput
             class="example-margin"
-            formControlName="termsOfUse">
+            formControlName="termsOfUse"
+            [checked]="checkData"
+            >
           </mat-checkbox>
           <label
             >Estoy de acuerdo con los
@@ -67,6 +69,13 @@
           Registrarse
         </button>
       </form>
+      <button 
+        mat-raised-button 
+        color="accent"
+        class="btn-back-home"
+        (click)="backHome()">
+        Regresar al Login
+      </button>
     </mat-card-content>
   </mat-card>
 </div>

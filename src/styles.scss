@@ -1,69 +1,94 @@
 @use '@angular/material' as mat;
 
 @include mat.core();
+@import url(./modern-normalize.css);
 
 // custom palettes
 $primary-color-palette: (
- 50: #e6e9f2,
- 100: #bfc8e1,
- 200: #95a5cc,
- 300: #6b82b8,
- 400: #4967aa,
- 500: #214e9d,
- 600: #1a4794,
- 700: #0d3d88,
- 800: #00347c,
- 900: #002366,
- contrast: (
-   50: rgba(black, 0.87),
-   100: rgba(black, 0.87),
-   200: rgba(black, 0.87),
-   300: white,
- )
+  50: #e6e9f2,
+  100: #e6f1f8,
+  200: #99c9e2,
+  300: #80bbdb,
+  400: #67add4,
+  500: #4da0cd,
+  600: #3492c5,
+  700: #1a85be,
+  800: #0177b7,
+  900: #0081c9,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  ),
 );
 
 $accent-color-palette: (
- 50: #e3f7ee,
- 100: #bcecd4,
- 200: #8fdfb9,
- 300: #57d39d,
- 400: #03c987,
- 500: #00be71,
- 600: #00af66,
- 700: #009c58,
- 800: #008b4c,
- 900: #006a36,
- contrast: (
-   50: rgba(black, 0.87),
-   100: rgba(black, 0.87),
-   200: rgba(black, 0.87),
-   300: white,
- )
+  50: #e3f7ee,
+  100: #bcecd4,
+  200: #8fdfb9,
+  300: #57d39d,
+  400: #03c987,
+  500: #00be71,
+  600: #00af66,
+  700: #009c58,
+  800: #008b4c,
+  900: #006a36,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  ),
 );
 
 $primary-color: mat.define-palette($primary-color-palette, 800);
 $accent-color: mat.define-palette($accent-color-palette, 400);
 $warn-color: mat.define-palette(mat.$red-palette);
 
-$my-theme: mat.define-light-theme((
- color: (
-   primary: $primary-color,
-   accent: $accent-color,
-   warn: $warn-color
- ),
- typography: mat.define-typography-config(),
- density: 0,
-));
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary-color,
+      accent: $accent-color,
+      warn: $warn-color,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 @include mat.all-component-themes($my-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
 
 /*
 Fonts para usar "Roboto, Hind, Playfair, Raleway"

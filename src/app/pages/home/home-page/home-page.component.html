@@ -1,8 +1,27 @@
-<p>home-page works!</p>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<main class="home-container">
+  <h2 class="welcome">
+    Bienvenido, {{ user?.first_name ? user?.first_name : 'Usuario' }}!
+    <!-- <button (click)="test()">Test it!</button> -->
+  </h2>
 
-<app-transacciones></app-transacciones>
-<p>{{user|async|json}}</p>
+  <app-balance [money]="money"></app-balance>
+  
+  <app-transacciones [transactions]="transactions"></app-transacciones>
 
-<app-gastos-edit></app-gastos-edit>
-<app-transacciones></app-transacciones>
+  <app-slider></app-slider>
 
+  <app-exchange-rate></app-exchange-rate>
+
+  <div class="twitters">
+    <a
+      class="twitter-timeline aTwitter"
+      href="https://twitter.com/bank_alkyFin?ref_src=twsrc%5Etfw"
+      data-chrome="nofooter noborders"
+      data-tweet-limit="4"
+      >Tweets by AlkyBank</a
+    >
+  </div>
+</main>
+
+<!-- <app-gastos-edit></app-gastos-edit> -->

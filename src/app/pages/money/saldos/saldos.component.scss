@@ -1,0 +1,33 @@
+.saldos-container {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+    .saldos-cancel-button {
+        margin: 1rem 0;
+    }
+
+    /*Clase de un ceontenedor del button regresar.*/
+    .saldos-cancel-button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+  }
+
+// media queries
+@media screen and (min-width: 800px) {
+    .saldos-container {
+        max-width: 600px;
+
+        .saldos-form {
+            max-width: 600px;
+        }
+    }
+}

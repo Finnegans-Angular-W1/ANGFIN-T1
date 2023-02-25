@@ -1,0 +1,39 @@
+.container{
+    margin: auto;
+}
+
+.card{
+    max-width: 600px;
+    margin: auto;
+}
+
+.item{
+    color: white;
+}
+
+.card-background{
+    color: white;
+    max-width: 600px;
+    margin: auto;
+    background-color: #0081c9;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.btn{
+    text-align: center;
+    margin-right: 1em;
+}
+
+@media (max-width: 768px) {
+    .card-background{
+      max-width: 80%;
+    }
+
+    .card{
+        max-width: 80%;
+    }
+
+  }

@@ -1,0 +1,52 @@
+<app-rtitle [title]="title"></app-rtitle>
+
+<div class="table-container">
+<div class="btn-container">
+  <mat-label>Filtrar:</mat-label>
+  <mat-select
+    [(value)]="filter"
+    (valueChange)="toFilter(transactionsData.data)">
+    <mat-option value="all">Todos</mat-option>
+    <mat-option value="topup">Ingresos</mat-option>
+    <mat-option value="payment" t>Gastos</mat-option>
+  </mat-select>
+</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Transacción</th>
+        <th>Monto</th>
+        <th>Concepto</th>
+        <th>Fecha</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.amount | currency }}</td>
+        <td>{{ transaction.concept | titlecase }}</td>
+        <td>{{ transaction.date | date : 'dd/MM/yyyy' }}</td>
+        <td>{{ transaction.type === 'payment' ? 'Egreso' : 'Ingreso' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination">
+  <span (click)="prevPage()" class="action"
+    ><mat-icon
+      *ngIf="transactionsData?.previousPage"
+      class="icon"
+      fontIcon="arrow_back_ios"></mat-icon
+  ></span>
+  <span>{{ currentPage }}</span>
+  <span (click)="nextPage()" class="action"
+    ><mat-icon
+      *ngIf="transactionsData?.nextPage"
+      class="icon"
+      fontIcon="arrow_forward_ios"></mat-icon
+  ></span>
+  <div class="bottom_bar"></div>
+</div>

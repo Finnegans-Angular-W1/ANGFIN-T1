@@ -7,8 +7,8 @@ import { ExchangeService } from 'src/app/core/services/exchange.service';
   styleUrls: ['./exchange-rate.component.scss']
 })
 export class ExchangeRateComponent implements OnInit {
-  public valorCompra:string = '';
-  public valorVenta:string = '';
+  public valorCompra:any;
+  public valorVenta:any;
   
   // Ttile que iba en el componente rtitle, probablemente copiar al componente contenedor
   //exchangeTitle:string = 'Tipo de cambio del dia de la fecha';  
@@ -16,7 +16,7 @@ export class ExchangeRateComponent implements OnInit {
   constructor(private excSvc:ExchangeService) { }
 
   ngOnInit(): void {
-    //this.getValores()
+    this.getValores()
   }
 
   
@@ -27,8 +27,20 @@ export class ExchangeRateComponent implements OnInit {
     this.excSvc.getDolar().subscribe(
       res =>{
         this.valorCompra = res[0].casa.compra;
+        console.log(this.valorCompra)
         this.valorVenta = res[0].casa.venta;
+        console.log(this.valorVenta)
       }
-    );*/
+    );
+  }*/
+
+  getValores(){
+    this.excSvc.getDolar().subscribe(
+      (res:any) =>{
+        this.valorCompra = res[0].value_buy;
+        this.valorVenta = res[0].value_sell;
+      }
+    )
   }
+}
 

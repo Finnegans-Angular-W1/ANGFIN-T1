@@ -1,0 +1,118 @@
+.container {
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  max-width: 80%;
+  margin: auto;
+  border-radius: 1%;
+    
+  }
+  .btn {
+    background-color: #1c82ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 1%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #03c988;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+    
+  .table {
+    margin-top: 1rem;
+       
+    border-collapse: collapse;
+    width: 100%;
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    
+
+    
+    th {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    tbody tr {
+      border-bottom: 1px solid rgba(98, 97, 97, 0.1);
+    }
+    
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .pagination {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    
+    
+    
+    
+    
+    
+    // cel
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    
+      th, td {
+        padding: 0.8rem;
+      }
+    
+      h1 {
+        font-size: 1.5rem;
+      }
+
+    }
+  }
+
+  .btn-container{
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    margin: 0 0 0 1rem;
+  }
+
+  .pagination{
+    width: 80%;
+    margin: auto;
+    background-color: #e6f3fa;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  .pagination a{
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    transition: .3s linear;
+    text-decoration: none;
+  }
+  
+  .pagination a:hover{
+    color: #fff;
+    background-color: #1c82ad;
+  }
+
+  .icon{
+    margin-top: 0.7em;
+  }

@@ -1,0 +1,61 @@
+.mobile-form {
+    max-width: 500px;
+    margin: 0 auto;
+    
+  }
+  
+  h1 {
+    font: 500 20px / 32px Roboto, "Helvetica Neue", sans-serif
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+    background-color: #e6f0ff; 
+    color: #007bff;
+    box-sizing: border-box; 
+    box-shadow: 5px 2px 4px rgba(0,0,0,0.2); 
+  }
+  
+  
+  
+  
+  
+
+  input:hover {
+    background-color: #cfe2ff; 
+  }
+  
+  button[type="submit"] {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-form {
+      max-width: 80%;
+    }
+  }
+  
+

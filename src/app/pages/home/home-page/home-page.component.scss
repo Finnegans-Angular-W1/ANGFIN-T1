@@ -1,0 +1,27 @@
+.home-container{
+  display: grid;
+  gap: 1rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.welcome {
+  font-size: 2rem;
+  margin: 0;
+  grid-column: 1/1;
+}
+
+
+@media screen and (min-width: 1000px) {
+  main {
+    grid-template-columns: 35vw auto;
+  }
+
+  app-transacciones {
+    grid-column: 2/2;
+    grid-row: 1/7;
+  }
+}
+
+

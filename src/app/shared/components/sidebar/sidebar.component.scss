@@ -1,29 +1,31 @@
 // "header"
 .toolbar {
-    height: 7vh;
+  height: 7vh;
 }
 
+.container {
+  min-height: calc(100vh - 55px);
+}
 
 .sidenav-container {
-    height: calc(100vh - 7vh);
+  height: calc(100vh - 7vh);
 
-    // sidebar (navegación)
-    .sidenav {
-        width: 50vw;
+  // sidebar (navegación)
+  .sidenav {
+    width: 50vw;
 
-        .active {
-            background-color: rgba(0, 0, 0, 0.1);
-            font-weight: bold;
-        }
+    .active {
+      background-color: rgba(0, 0, 0, 0.1);
+      font-weight: bold;
     }
+  }
 }
-
 
 // media queries
 @media screen and (min-width: 420px) {
-    .sidenav-container {
-        .sidenav {
-            width: 20vw;
-        }
+  .sidenav-container {
+    .sidenav {
+      width: 20vw;
     }
+  }
 }

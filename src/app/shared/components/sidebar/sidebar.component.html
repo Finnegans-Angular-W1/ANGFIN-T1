@@ -1,41 +1,49 @@
 <!-- logged in layout -->
 <ng-container *ngIf="userLogged; else elseBlock">
-    <!-- menu toolbar ("header") -->
-    <mat-toolbar class="toolbar" color="primary">
-        <button type="button" mat-icon-button (click)="sidebar.toggle()">
-        <mat-icon aria-label="menu" fontIcon="menu"></mat-icon>
-        </button>
-        <h2>Menú</h2>
-    </mat-toolbar>
+  <!-- menu toolbar ("header") -->
+  <mat-toolbar class="toolbar" color="primary">
+    <button type="button" mat-icon-button (click)="sidebar.toggle()">
+      <mat-icon aria-label="menu" fontIcon="menu"></mat-icon>
+    </button>
+    <h2>Menú</h2>
+  </mat-toolbar>
 
-    <!-- sidenav -->
-    <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
-        <!-- sidebar (navegación) -->
-        <mat-sidenav #sidebar class="sidenav" mode="side">
-            <mat-nav-list>
-                <!-- links -->
-                <ng-container *ngFor="let link of sidebarLinks">
-                    <a
-                    mat-list-item
-                    routerLink="{{link.path}}"
-                    routerLinkActive="active"
-                    (click)="sidebar.toggle()">{{ link.title }}</a>
-                </ng-container>
-                <button type="button" mat-button color="warn" (click)="logout()">
-                    Salir
-                </button>
-            </mat-nav-list>
-        </mat-sidenav>
-        
-        <!-- contenido -->
-        <mat-sidenav-content>
-            <router-outlet></router-outlet>
-            <app-footer></app-footer>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+  <!-- sidenav -->
+  <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
+    <!-- sidebar (navegación) -->
+    <mat-sidenav #sidebar class="sidenav" mode="over">
+      <mat-nav-list>
+        <!-- links -->
+        <ng-container *ngFor="let link of sidebarLinks">
+          <a
+            mat-list-item
+            routerLink="{{ link.path }}"
+            routerLinkActive="active"
+            (click)="sidebar.toggle()"
+            >{{ link.title }}</a
+          >
+        </ng-container>
+        <button type="button" mat-button color="warn" (click)="logout()">
+          Salir
+        </button>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- contenido -->
+    <mat-sidenav-content>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"></script> -->
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </ng-container>
 
 <!-- logged out layout -->
 <ng-template #elseBlock>
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </ng-template>
