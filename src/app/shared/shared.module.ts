@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from '../components/footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RtitleComponent } from './components/rtitle/rtitle.component';
@@ -28,7 +28,7 @@ import { DialogGenericoComponent } from './components/dialog/components/dialos.g
     ExchangeComponent,
     FormularioReutilizableComponent,
     FooterComponent,
-    DialogGenericoComponent
+    DialogGenericoComponent,
   ],
   imports: [
     CommonModule,
@@ -50,11 +50,15 @@ import { DialogGenericoComponent } from './components/dialog/components/dialos.g
     ExchangeComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    FormularioReutilizableComponent,
-
     RtitleComponent,
     FooterComponent,
-    SidebarComponent
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
 })

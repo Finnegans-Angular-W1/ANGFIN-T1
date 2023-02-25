@@ -27,7 +27,6 @@
     overflow-x: auto;
     margin: auto;
     padding-top: 1rem;
-    overflow-x: auto;
   }
     
   .table {
@@ -79,11 +78,9 @@
   }
 
   .btn-container{
-    padding: 1rem 1rem 0 1rem;
     display: flex;
-    gap: 1rem;
-    margin: 0 0 0 1rem;
     justify-content: end;
+    gap: 1rem;
   }
 
   .pagination{

@@ -1,20 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PermissionsGuard } from './core/guards/permissions.guard';
-import { PasswordResetComponent } from './pages/user-profile/password-reset/password-reset.component';
-import { InvestementsComponent } from './components/investements/investements.component';
 import { LoginGuard } from './core/guards/login.guard';
-import { ListIngEgrComponent } from './pages/transaction/list-ing-egr/list-ing-egr.component';
-import { ListEgresosComponent } from './pages/transaction/list-egresos/list-egresos.component';
-import { ListIngresosComponent } from './pages/transaction/list-ingresos/list-ingresos.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
-import { TransaccionesComponent } from './pages/home/components/transacciones/transacciones.component';
 import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
-import { SaldosComponent } from './pages/home/components/saldos/saldos.component';
-import { TransactionModule } from './pages/transaction/transaction.module';
-import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
-import { ExpensesComponent } from './pages/home/components/expenses/expenses.component';
-
 
 const routes: Routes = [
   {
@@ -43,9 +32,10 @@ const routes: Routes = [
   {
     path: 'transactions',
     loadChildren: () =>
-    import('./pages/transaction/transaction.module').then( 
-      m => m.TransactionModule
+      import('./pages/transaction/transaction.module').then(
+        m => m.TransactionModule
       ),
+    canActivate: [PermissionsGuard],
     //data: { animation: 'MovimientosPage' },
   },
   {
@@ -66,32 +56,28 @@ const routes: Routes = [
   },
   {
     path: 'investments',
-    component: InvestementsComponent,
+    loadChildren: () =>
+      import('./pages/investments/investments.module').then(
+        m => m.InvestmentsModule
+      ),
     data: { animation: 'InversionesPage' },
+    canActivate: [PermissionsGuard],
   },
   {
-    path: 'deposit',
-    component: SaldosComponent,
+    path: 'money',
+    loadChildren: () =>
+      import('./pages/money/money.module').then(m => m.MoneyModule),
+    canActivate: [PermissionsGuard],
   },
-  {
-
-    path: 'eperfil',
-    component: EditarPerfilComponent,
-    },
-
-    {
-    path: "send-money",
-    component: ExpensesComponent
-
-  },
-  
   {
     path: 'contacts',
     component: ContactsComponent,
+    canActivate: [PermissionsGuard],
   },
   {
     path: 'exchange',
     component: ExchangeContainerComponent,
+    canActivate: [PermissionsGuard],
   },
   {
     path: '**',
@@ -101,8 +87,6 @@ const routes: Routes = [
       ),
     data: { animation: 'NotFoundPage' },
   },
-  
-  
 ];
 
 @NgModule({
