@@ -6,7 +6,7 @@ import { provideStore, StoreModule } from '@ngrx/store';
 import { RtitleComponent } from 'src/app/shared/components/rtitle/rtitle.component';
 import { SaldosComponent } from './saldos.component';
 
-fdescribe('SaldosComponent', () => {
+describe('SaldosComponent', () => {
   let component: SaldosComponent;
   let fixture: ComponentFixture<SaldosComponent>;
 
