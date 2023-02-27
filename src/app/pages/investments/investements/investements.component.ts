@@ -94,6 +94,13 @@ export class InvestementsComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  backHome(){
+    const confirmation = confirm('Seguro que quieres regresar? Perderas todos los datos que hayas guardado');
+    if(confirmation){
+      this.router.navigate(['home'])
+    }
+  }
+
   calcularGananciaDiaria(){
     return this.mensual = (this.deposito*(this.tasaInversion/12))/100;
   }

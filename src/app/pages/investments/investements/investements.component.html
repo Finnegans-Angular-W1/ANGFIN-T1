@@ -29,6 +29,9 @@
           <br>
           <button [disabled]="inversion.invalid" mat-raised-button color="primary" class="btn" (click)="onClick($event)">Calcular</button>
           <button [disabled]="inversion.invalid" mat-raised-button color="accent" class="btn" (click)="invertir($event)">Invertir</button>
+          <button mat-raised-button color="accent" (click)="backHome()">
+            Regresar al Home
+            </button>
   </mat-card>
   <br>
   <mat-card class="card-background">
