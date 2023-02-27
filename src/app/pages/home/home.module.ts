@@ -20,6 +20,10 @@ import { BalanceComponent } from './components/balance/balance.component';
   declarations: [
     HomePageComponent,
     TransaccionesComponent,
+    AmountPipe,
+    ExpensesComponent,
+    SaldosComponent,
+    develop
     GastosEditComponent,
     ExchangeContainerComponent,
     SliderComponent,

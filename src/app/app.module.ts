@@ -9,6 +9,16 @@ import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ROOT_REDUCERS } from './core/state/app.state';
+import { ErrorInterceptor } from './core/services/error.interceptor';
+//import { ExchangeContainerComponent } from './pages/home/components/exchange-container/exchange-container.component';
+import { HomeModule } from './pages/home/home.module';
+import { ListIngEgrComponent } from './components/list-ing-egr/list-ing-egr.component';
+import { ListIngresosComponent } from './components/list-ingresos/list-ingresos.component';
+import { ListEgresosComponent } from './components/list-egresos/list-egresos.component';
+import { UsuariosModule } from './pages/usuarios/usuarios.module';
+import { UsuariosRoutingModule } from './pages/usuarios/usuarios-routing.module';
+import { UserProfileModule } from './pages/user-profile/user-profile.module';
+import { UserProfileRoutingModuleModule } from './pages/user-profile/user-profile-routing-module.module';
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { GlobalHttpInterceptor } from './core/services/global-http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
@@ -51,6 +61,13 @@ import { DataEffects } from './core/state/effects/data.effect';
     ToastService,
     AuthService,
   ],
-  bootstrap: [AppComponent],
+
+  providers: [{
+    provide:HTTP_INTERCEPTORS, 
+    useClass: GlobalHttpInterceptor,
+    multi: true,
+  },{provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi: true},ToastService],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule {}

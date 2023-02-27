@@ -27,6 +27,8 @@ import { DialogGenericoComponent } from './components/dialog/components/dialos.g
     ExchangeRateComponent,
     ExchangeComponent,
     FormularioReutilizableComponent,
+    ExchangeContainerComponent,
+    RtitleComponent
     FooterComponent,
     DialogGenericoComponent,
   ],
@@ -50,7 +52,9 @@ import { DialogGenericoComponent } from './components/dialog/components/dialos.g
     ExchangeComponent,
     ExchangeRateComponent,
     ExchangeComponent,
-    RtitleComponent,
+    FormularioReutilizableComponent,
+    ExchangeContainerComponent,
+    RtitleComponent
     FooterComponent,
     FormsModule,
     ReactiveFormsModule,
@@ -59,6 +63,7 @@ import { DialogGenericoComponent } from './components/dialog/components/dialos.g
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
+
   ],
   providers: [],
 })
