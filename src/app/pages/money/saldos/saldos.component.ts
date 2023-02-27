@@ -81,8 +81,11 @@ export class SaldosComponent implements OnInit, OnDestroy {
 
   // Botón de regreso
   cancelar(): void {
-    this.router.navigate(['/home']);
-  }
+    const confirmation = confirm('Seguro que quieres regresar? Perderas todos los datos que hayas guardado');
+    if(confirmation){
+      this.router.navigate(['/home']);
+    };
+  };
 
   ngOnDestroy(): void {
     this.httpSubscription.unsubscribe();

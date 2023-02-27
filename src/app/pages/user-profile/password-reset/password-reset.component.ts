@@ -94,7 +94,10 @@ export class PasswordResetComponent implements OnDestroy {
   }
 
   backUser(){
-    this.router.navigate(['profile'])
-  }
+    const confirmation = confirm('Seguro que quieres regresar? Perderas todos los datos que hayas guardado');
+    if(confirmation){
+      this.router.navigate(['profile'])
+    };
+  };
 
 }
