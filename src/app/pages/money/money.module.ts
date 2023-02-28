@@ -23,7 +23,6 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    SharedModule,
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
