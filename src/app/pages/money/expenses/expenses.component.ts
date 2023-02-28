@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { ToastService } from 'angular-toastify';
 import { AccountsService } from 'src/app/core/services/accounts.service';
@@ -18,7 +19,8 @@ export class ExpensesComponent implements OnInit {
 
   constructor(private acountSvc:AccountsService,
               private store:Store<AppState>,
-              private alert:ToastService) { }
+              private alert:ToastService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.store.select(selectDataImportant).subscribe(res =>{
@@ -32,10 +34,14 @@ export class ExpensesComponent implements OnInit {
       concept:event.concept,
       type:'payment'
     }
-    console.log(body)
     this.acountSvc.createDeposit(this.accountId, body).subscribe({
-      next:res =>{this.alert.success('La operacion ha sido exitosa!')},
-      error: err =>{this.alert.error('Ha ha salido mal!'); console.log(err)},
+      next: () => {
+        this.alert.success('La operacion ha sido exitosa!');
+        this.router.navigate(['/home']);
+      },
+      error: () => {
+        this.alert.error('Algo ha salido mal!');
+      },
       complete: () => {this.store.dispatch(getData())}
     })
   };
