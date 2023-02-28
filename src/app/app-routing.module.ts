@@ -10,6 +10,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+    data: { animation: 'BasePage' }
   },
   {
     path: 'login',
@@ -36,7 +37,7 @@ const routes: Routes = [
         m => m.TransactionModule
       ),
     canActivate: [PermissionsGuard],
-    //data: { animation: 'MovimientosPage' },
+    data: { animation: 'MovimientosPage' },
   },
   {
     path: 'home',
@@ -68,16 +69,19 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/money/money.module').then(m => m.MoneyModule),
     canActivate: [PermissionsGuard],
+    data: { animation: 'MoneyPage' }
   },
   {
     path: 'contacts',
     component: ContactsComponent,
     canActivate: [PermissionsGuard],
+    data: { animation: 'ContactosPage' }
   },
   {
     path: 'exchange',
     component: ExchangeContainerComponent,
     canActivate: [PermissionsGuard],
+    data: { animation: 'DivisasPage' }
   },
   {
     path: '**',
