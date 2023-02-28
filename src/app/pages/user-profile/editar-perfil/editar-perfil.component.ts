@@ -11,6 +11,7 @@ import { User } from 'src/app/core/models/user';
 })
 export class EditarPerfilComponent implements OnInit {
 
+  title = "Editar perfil";
   user: User | any;
   userLoaded = false;
 
