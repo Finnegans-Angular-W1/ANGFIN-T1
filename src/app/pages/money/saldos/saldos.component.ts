@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ToastService } from 'angular-toastify';
 import { Subscription } from 'rxjs';
 import { AccountsService } from 'src/app/core/services/accounts.service';
 import { getData } from 'src/app/core/state/actions/data.action';
@@ -33,7 +34,8 @@ export class SaldosComponent implements OnInit, OnDestroy {
     private router: Router,
     private dialog: MatDialog,
     private fb: FormBuilder,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private alert: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -45,33 +47,34 @@ export class SaldosComponent implements OnInit, OnDestroy {
 
     this.cargarSaldosForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(0)]],
-      concept: ['', Validators.required],
-      date: ['', Validators.required],
+      concept: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     this.formData = this.cargarSaldosForm.value;
-    delete this.formData.date; // Borra la key 'date' que no es necesaria
     this.formData = {...this.formData, type: 'topup'}; // Agrega la key 'type' que la api requiere
     
     // POST
     this.httpSubscription = this.accountsService.createDeposit(this.userId, this.formData).subscribe({
       next: () => {
-        this.dialog.open(DialogGenericoComponent, {
-          data: {
-            title: '¡Listo!',
-            data: 'La operación fue realizada exitosamente'
-          }
-        })
+        // this.dialog.open(DialogGenericoComponent, {
+        //   data: {
+        //     title: '¡Listo!',
+        //     data: 'La operación fue realizada exitosamente'
+        //   }
+        // })
+        this.alert.success('La operación fue realizada exitosamente');
+        this.router.navigate(['/home']);
       },
       error: () => {        
-        this.dialog.open(DialogGenericoComponent, {
-          data: {
-            title: 'Error',
-            data: `Ha ocurrido un error, por favor vuelva a intentarlo más tarde`
-          }
-        })
+        // this.dialog.open(DialogGenericoComponent, {
+        //   data: {
+        //     title: 'Error',
+        //     data: `Ha ocurrido un error, por favor vuelva a intentarlo más tarde`
+        //   }
+        // })
+        this.alert.error('Ha ocurrido un error, por favor vuelva a intentarlo más tarde');
       },
       complete:()=>{
         this.store.dispatch(getData())
