@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { RtitleComponent } from '../../shared/components/rtitle/rtitle.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -23,6 +25,7 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   exports: [UserProfileComponent],
 })
